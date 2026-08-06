@@ -18,11 +18,13 @@ public sealed class ManageV1ProjectsUsageBreakdown
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ManageV1ProjectsUsageBreakdown(RawClient rawClient, Server server)
+    internal ManageV1ProjectsUsageBreakdown(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -74,7 +76,6 @@ public sealed class ManageV1ProjectsUsageBreakdown
     /// <param name="uttSplit">Filter for requests where utt split was used</param>
     /// <param name="utterances">Filter for requests where utterances was used</param>
     /// <param name="version">Filter for requests where version was used</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UsageBreakdownV1Response"/> instance.</returns>
@@ -128,7 +129,6 @@ public sealed class ManageV1ProjectsUsageBreakdown
         bool? uttSplit,
         bool? utterances,
         bool? version,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/usage/breakdown"),
@@ -178,12 +178,12 @@ public sealed class ManageV1ProjectsUsageBreakdown
                 new Param("utt_split", uttSplit),
                 new Param("utterances", utterances),
                 new Param("version", version)],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<UsageBreakdownV1Response>(),
             Get9ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

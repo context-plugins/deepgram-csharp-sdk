@@ -18,11 +18,13 @@ public sealed class ManageV1ProjectsUsage
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ManageV1ProjectsUsage(RawClient rawClient, Server server)
+    internal ManageV1ProjectsUsage(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -73,7 +75,6 @@ public sealed class ManageV1ProjectsUsage
     /// <param name="uttSplit">Filter for requests where utt split was used</param>
     /// <param name="utterances">Filter for requests where utterances was used</param>
     /// <param name="version">Filter for requests where version was used</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UsageV1Response"/> instance.</returns>
@@ -126,7 +127,6 @@ public sealed class ManageV1ProjectsUsage
         bool? uttSplit,
         bool? utterances,
         bool? version,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/usage"),
@@ -175,12 +175,12 @@ public sealed class ManageV1ProjectsUsage
                 new Param("utt_split", uttSplit),
                 new Param("utterances", utterances),
                 new Param("version", version)],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<UsageV1Response>(),
             Get8ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

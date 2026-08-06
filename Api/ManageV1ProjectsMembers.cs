@@ -16,11 +16,13 @@ public sealed class ManageV1ProjectsMembers
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ManageV1ProjectsMembers(RawClient rawClient, Server server)
+    internal ManageV1ProjectsMembers(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -28,7 +30,6 @@ public sealed class ManageV1ProjectsMembers
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="memberId">The unique identifier of the Member</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteProjectMemberV1Response"/> instance.</returns>
@@ -38,18 +39,17 @@ public sealed class ManageV1ProjectsMembers
     /// </remarks>
     public Task<DeleteProjectMemberV1Response> Delete5(string projectId,
         string memberId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/members/{member_id}"),
             [new TemplateParam("project_id", projectId), new TemplateParam("member_id", memberId)],
             [],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
             EmptyBody.Instance,
             JsonResponse.Create<DeleteProjectMemberV1Response>(),
             Delete5ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -57,7 +57,6 @@ public sealed class ManageV1ProjectsMembers
     /// List Project Members
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectMembersV1Response"/> instance.</returns>
@@ -66,18 +65,17 @@ public sealed class ManageV1ProjectsMembers
     /// Retrieves a list of members for a given project
     /// </remarks>
     public Task<ListProjectMembersV1Response> List8(string projectId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/members"),
             [new TemplateParam("project_id", projectId)],
             [],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectMembersV1Response>(),
             List8ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

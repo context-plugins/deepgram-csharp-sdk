@@ -16,11 +16,13 @@ public sealed class ManageV1ProjectsModels
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ManageV1ProjectsModels(RawClient rawClient, Server server)
+    internal ManageV1ProjectsModels(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -28,7 +30,6 @@ public sealed class ManageV1ProjectsModels
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="modelId">The specific UUID of the model</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetModelV1Response"/> instance.</returns>
@@ -38,18 +39,17 @@ public sealed class ManageV1ProjectsModels
     /// </remarks>
     public Task<GetModelV1Response> Get4(string projectId,
         string modelId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/models/{model_id}"),
             [new TemplateParam("project_id", projectId), new TemplateParam("model_id", modelId)],
             [],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<GetModelV1Response>(),
             Get4ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -58,7 +58,6 @@ public sealed class ManageV1ProjectsModels
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="includeOutdated">returns non-latest versions of models</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListModelsV1Response"/> instance.</returns>
@@ -68,18 +67,17 @@ public sealed class ManageV1ProjectsModels
     /// </remarks>
     public Task<ListModelsV1Response> List5(string projectId,
         bool? includeOutdated,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/models"),
             [new TemplateParam("project_id", projectId)],
             [new Param("include_outdated", includeOutdated)],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListModelsV1Response>(),
             List5ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

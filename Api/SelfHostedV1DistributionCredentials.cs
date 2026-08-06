@@ -18,11 +18,13 @@ public sealed class SelfHostedV1DistributionCredentials
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal SelfHostedV1DistributionCredentials(RawClient rawClient, Server server)
+    internal SelfHostedV1DistributionCredentials(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -31,7 +33,6 @@ public sealed class SelfHostedV1DistributionCredentials
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="scopes">List of permission scopes for the credentials</param>
     /// <param name="provider">The provider of the distribution service</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
@@ -43,19 +44,18 @@ public sealed class SelfHostedV1DistributionCredentials
     public Task<CreateProjectDistributionCredentialsV1Response> Create5(string projectId,
         IReadOnlyList<V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersScopesSchemaItems>? scopes,
         V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersProvider? provider,
-        string authorization,
         CreateProjectDistributionCredentialsV1Request? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/self-hosted/distribution/credentials"),
             [new TemplateParam("project_id", projectId)],
             [new Param("scopes", scopes), new Param("provider", provider)],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<CreateProjectDistributionCredentialsV1Response>(),
             Create5ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -64,7 +64,6 @@ public sealed class SelfHostedV1DistributionCredentials
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="distributionCredentialsId">The UUID of the distribution credentials</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetProjectDistributionCredentialsV1Response"/> instance.</returns>
@@ -74,19 +73,18 @@ public sealed class SelfHostedV1DistributionCredentials
     /// </remarks>
     public Task<GetProjectDistributionCredentialsV1Response> Delete7(string projectId,
         string distributionCredentialsId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/self-hosted/distribution/credentials/{distribution_credentials_id}"),
             [new TemplateParam("project_id", projectId),
                 new TemplateParam("distribution_credentials_id", distributionCredentialsId)],
             [],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
             EmptyBody.Instance,
             JsonResponse.Create<GetProjectDistributionCredentialsV1Response>(),
             Delete7ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -95,7 +93,6 @@ public sealed class SelfHostedV1DistributionCredentials
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="distributionCredentialsId">The UUID of the distribution credentials</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetProjectDistributionCredentialsV1Response"/> instance.</returns>
@@ -105,19 +102,18 @@ public sealed class SelfHostedV1DistributionCredentials
     /// </remarks>
     public Task<GetProjectDistributionCredentialsV1Response> Get11(string projectId,
         string distributionCredentialsId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/self-hosted/distribution/credentials/{distribution_credentials_id}"),
             [new TemplateParam("project_id", projectId),
                 new TemplateParam("distribution_credentials_id", distributionCredentialsId)],
             [],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<GetProjectDistributionCredentialsV1Response>(),
             Get11ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -125,7 +121,6 @@ public sealed class SelfHostedV1DistributionCredentials
     /// List Project Self-Hosted Distribution Credentials
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectDistributionCredentialsV1Response"/> instance.</returns>
@@ -134,18 +129,17 @@ public sealed class SelfHostedV1DistributionCredentials
     /// Lists sets of distribution credentials for the specified project
     /// </remarks>
     public Task<ListProjectDistributionCredentialsV1Response> List17(string projectId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/self-hosted/distribution/credentials"),
             [new TemplateParam("project_id", projectId)],
             [],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectDistributionCredentialsV1Response>(),
             List17ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

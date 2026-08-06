@@ -16,11 +16,13 @@ public sealed class ManageV1ProjectsMembersScopes
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ManageV1ProjectsMembersScopes(RawClient rawClient, Server server)
+    internal ManageV1ProjectsMembersScopes(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -28,7 +30,6 @@ public sealed class ManageV1ProjectsMembersScopes
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="memberId">The unique identifier of the Member</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectMemberScopesV1Response"/> instance.</returns>
@@ -38,18 +39,17 @@ public sealed class ManageV1ProjectsMembersScopes
     /// </remarks>
     public Task<ListProjectMemberScopesV1Response> List9(string projectId,
         string memberId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/members/{member_id}/scopes"),
             [new TemplateParam("project_id", projectId), new TemplateParam("member_id", memberId)],
             [],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectMemberScopesV1Response>(),
             List9ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -58,7 +58,6 @@ public sealed class ManageV1ProjectsMembersScopes
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="memberId">The unique identifier of the Member</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
@@ -69,19 +68,18 @@ public sealed class ManageV1ProjectsMembersScopes
     /// </remarks>
     public Task<UpdateProjectMemberScopesV1Response> Update4(string projectId,
         string memberId,
-        string authorization,
         UpdateProjectMemberScopesV1Request? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/members/{member_id}/scopes"),
             [new TemplateParam("project_id", projectId), new TemplateParam("member_id", memberId)],
             [],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
             JsonRequest.Create(body),
             JsonResponse.Create<UpdateProjectMemberScopesV1Response>(),
             Update4ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

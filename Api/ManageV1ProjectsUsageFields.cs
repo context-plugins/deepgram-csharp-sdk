@@ -17,11 +17,13 @@ public sealed class ManageV1ProjectsUsageFields
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ManageV1ProjectsUsageFields(RawClient rawClient, Server server)
+    internal ManageV1ProjectsUsageFields(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -30,7 +32,6 @@ public sealed class ManageV1ProjectsUsageFields
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="start">Start date of the requested date range. Format accepted is YYYY-MM-DD</param>
     /// <param name="end">End date of the requested date range. Format accepted is YYYY-MM-DD</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UsageFieldsV1Response"/> instance.</returns>
@@ -41,18 +42,17 @@ public sealed class ManageV1ProjectsUsageFields
     public Task<UsageFieldsV1Response> List12(string projectId,
         DateTimeOffset? start,
         DateTimeOffset? end,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/usage/fields"),
             [new TemplateParam("project_id", projectId)],
             [new Param("start", start?.ToDate()), new Param("end", end?.ToDate())],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<UsageFieldsV1Response>(),
             List12ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

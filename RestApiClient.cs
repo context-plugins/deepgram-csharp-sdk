@@ -26,30 +26,31 @@ public sealed class RestApiClient
         var httpLogger = new HttpLogger(options.Logging, "RestApiClient");
         var rawClient =
             new RawClient(httpClient, urlFactory, httpStatusPolicy, headersFactory, resiliencePipelineFactory, httpLogger);
-        AgentV1SettingsThinkModels = new AgentV1SettingsThinkModels(rawClient, server);
-        AuthV1Tokens = new AuthV1Tokens(rawClient, server);
-        ListenV1Media = new ListenV1Media(rawClient, server);
-        ManageV1Models = new ManageV1Models(rawClient, server);
-        ManageV1Projects = new ManageV1Projects(rawClient, server);
-        ManageV1ProjectsBillingBalances = new ManageV1ProjectsBillingBalances(rawClient, server);
-        ManageV1ProjectsBillingBreakdown = new ManageV1ProjectsBillingBreakdown(rawClient, server);
-        ManageV1ProjectsBillingFields = new ManageV1ProjectsBillingFields(rawClient, server);
-        ManageV1ProjectsBillingPurchases = new ManageV1ProjectsBillingPurchases(rawClient, server);
-        ManageV1ProjectsKeys = new ManageV1ProjectsKeys(rawClient, server);
-        ManageV1ProjectsMembers = new ManageV1ProjectsMembers(rawClient, server);
-        ManageV1ProjectsMembersInvites = new ManageV1ProjectsMembersInvites(rawClient, server);
-        ManageV1ProjectsMembersScopes = new ManageV1ProjectsMembersScopes(rawClient, server);
-        ManageV1ProjectsModels = new ManageV1ProjectsModels(rawClient, server);
-        ManageV1ProjectsRequests = new ManageV1ProjectsRequests(rawClient, server);
-        ManageV1ProjectsUsage = new ManageV1ProjectsUsage(rawClient, server);
-        ManageV1ProjectsUsageBreakdown = new ManageV1ProjectsUsageBreakdown(rawClient, server);
-        ManageV1ProjectsUsageFields = new ManageV1ProjectsUsageFields(rawClient, server);
-        ReadV1Text = new ReadV1Text(rawClient, server);
-        SelfHostedV1DistributionCredentials = new SelfHostedV1DistributionCredentials(rawClient, server);
-        SpeakV1Audio = new SpeakV1Audio(rawClient, server);
-        SpeakV2Audio = new SpeakV2Audio(rawClient, server);
-        VoiceAgentConfigurations = new VoiceAgentConfigurations(rawClient, server);
-        VoiceAgentVariables = new VoiceAgentVariables(rawClient, server);
+        var auth = new AuthSchemes(options);
+        AgentV1SettingsThinkModels = new AgentV1SettingsThinkModels(rawClient, server, auth);
+        AuthV1Tokens = new AuthV1Tokens(rawClient, server, auth);
+        ListenV1Media = new ListenV1Media(rawClient, server, auth);
+        ManageV1Models = new ManageV1Models(rawClient, server, auth);
+        ManageV1Projects = new ManageV1Projects(rawClient, server, auth);
+        ManageV1ProjectsBillingBalances = new ManageV1ProjectsBillingBalances(rawClient, server, auth);
+        ManageV1ProjectsBillingBreakdown = new ManageV1ProjectsBillingBreakdown(rawClient, server, auth);
+        ManageV1ProjectsBillingFields = new ManageV1ProjectsBillingFields(rawClient, server, auth);
+        ManageV1ProjectsBillingPurchases = new ManageV1ProjectsBillingPurchases(rawClient, server, auth);
+        ManageV1ProjectsKeys = new ManageV1ProjectsKeys(rawClient, server, auth);
+        ManageV1ProjectsMembers = new ManageV1ProjectsMembers(rawClient, server, auth);
+        ManageV1ProjectsMembersInvites = new ManageV1ProjectsMembersInvites(rawClient, server, auth);
+        ManageV1ProjectsMembersScopes = new ManageV1ProjectsMembersScopes(rawClient, server, auth);
+        ManageV1ProjectsModels = new ManageV1ProjectsModels(rawClient, server, auth);
+        ManageV1ProjectsRequests = new ManageV1ProjectsRequests(rawClient, server, auth);
+        ManageV1ProjectsUsage = new ManageV1ProjectsUsage(rawClient, server, auth);
+        ManageV1ProjectsUsageBreakdown = new ManageV1ProjectsUsageBreakdown(rawClient, server, auth);
+        ManageV1ProjectsUsageFields = new ManageV1ProjectsUsageFields(rawClient, server, auth);
+        ReadV1Text = new ReadV1Text(rawClient, server, auth);
+        SelfHostedV1DistributionCredentials = new SelfHostedV1DistributionCredentials(rawClient, server, auth);
+        SpeakV1Audio = new SpeakV1Audio(rawClient, server, auth);
+        SpeakV2Audio = new SpeakV2Audio(rawClient, server, auth);
+        VoiceAgentConfigurations = new VoiceAgentConfigurations(rawClient, server, auth);
+        VoiceAgentVariables = new VoiceAgentVariables(rawClient, server, auth);
     }
 
     public AgentV1SettingsThinkModels AgentV1SettingsThinkModels { get; }

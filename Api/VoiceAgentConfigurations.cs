@@ -16,18 +16,19 @@ public sealed class VoiceAgentConfigurations
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal VoiceAgentConfigurations(RawClient rawClient, Server server)
+    internal VoiceAgentConfigurations(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
     /// Create an Agent Configuration
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
@@ -37,19 +38,18 @@ public sealed class VoiceAgentConfigurations
     /// Creates a new reusable agent configuration. The <c>config</c> field must be a valid JSON string representing the <c>agent</c> block of a Settings message. The returned <c>agent_id</c> can be passed in place of the full <c>agent</c> object in future Settings messages.
     /// </remarks>
     public Task<CreateAgentConfigurationV1Response> Create(string projectId,
-        string authorization,
         CreateAgentConfigurationV1Request? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/agents"),
             [new TemplateParam("project_id", projectId)],
             [],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<CreateAgentConfigurationV1Response>(),
             CreateErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -58,7 +58,6 @@ public sealed class VoiceAgentConfigurations
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="agentId">The unique identifier of the agent configuration</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="object"/> instance.</returns>
@@ -68,18 +67,17 @@ public sealed class VoiceAgentConfigurations
     /// </remarks>
     public Task<object> Delete(string projectId,
         string agentId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/agents/{agent_id}"),
             [new TemplateParam("project_id", projectId), new TemplateParam("agent_id", agentId)],
             [],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
             EmptyBody.Instance,
             JsonResponse.Create<object>(),
             DeleteErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -88,7 +86,6 @@ public sealed class VoiceAgentConfigurations
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="agentId">The unique identifier of the agent configuration</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AgentConfigurationV1"/> instance.</returns>
@@ -98,18 +95,17 @@ public sealed class VoiceAgentConfigurations
     /// </remarks>
     public Task<AgentConfigurationV1> Get(string projectId,
         string agentId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/agents/{agent_id}"),
             [new TemplateParam("project_id", projectId), new TemplateParam("agent_id", agentId)],
             [],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<AgentConfigurationV1>(),
             GetErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -117,7 +113,6 @@ public sealed class VoiceAgentConfigurations
     /// List Agent Configurations
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListAgentConfigurationsV1Response"/> instance.</returns>
@@ -126,18 +121,17 @@ public sealed class VoiceAgentConfigurations
     /// Returns all agent configurations for the specified project. Configurations are returned in their uninterpolated form—template variable placeholders appear as-is rather than with their substituted values.
     /// </remarks>
     public Task<ListAgentConfigurationsV1Response> List2(string projectId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/agents"),
             [new TemplateParam("project_id", projectId)],
             [],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListAgentConfigurationsV1Response>(),
             List2ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -146,7 +140,6 @@ public sealed class VoiceAgentConfigurations
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="agentId">The unique identifier of the agent configuration</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
@@ -157,19 +150,18 @@ public sealed class VoiceAgentConfigurations
     /// </remarks>
     public Task<AgentConfigurationV1> Update(string projectId,
         string agentId,
-        string authorization,
         UpdateAgentMetadataV1Request? body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/agents/{agent_id}"),
             [new TemplateParam("project_id", projectId), new TemplateParam("agent_id", agentId)],
             [],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
             JsonRequest.Create(body),
             JsonResponse.Create<AgentConfigurationV1>(),
             UpdateErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

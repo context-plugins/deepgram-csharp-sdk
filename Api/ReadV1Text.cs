@@ -18,11 +18,13 @@ public sealed class ReadV1Text
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ReadV1Text(RawClient rawClient, Server server)
+    internal ReadV1Text(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -36,7 +38,6 @@ public sealed class ReadV1Text
     /// <param name="customTopicMode">Sets how the model will interpret strings submitted to the <c>custom_topic</c> param. When <c>strict</c>, the model will only return topics submitted using the <c>custom_topic</c> param. When <c>extended</c>, the model will return its own detected topics in addition to those submitted using the <c>custom_topic</c> param</param>
     /// <param name="customIntent">Custom intents you want the model to detect within your input audio if present</param>
     /// <param name="customIntentMode">Sets how the model will interpret intents submitted to the <c>custom_intent</c> param. When <c>strict</c>, the model will only return intents submitted using the <c>custom_intent</c> param. When <c>extended</c>, the model will return its own detected intents in the <c>custom_intent</c> param.</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="body"></param>
     /// <param name="sentiment">Recognizes the sentiment throughout a transcript or text</param>
     /// <param name="topics">Detect topics throughout a transcript or text</param>
@@ -57,7 +58,6 @@ public sealed class ReadV1Text
         V1ListenPostParametersCustomTopicMode? customTopicMode,
         V1ReadPostParametersCustomIntent? customIntent,
         V1ListenPostParametersCustomTopicMode? customIntentMode,
-        string authorization,
         ReadV1Request? body,
         bool? sentiment = false,
         bool? topics = false,
@@ -79,12 +79,12 @@ public sealed class ReadV1Text
                 new Param("custom_intent", customIntent),
                 new Param("custom_intent_mode", customIntentMode),
                 new Param("language", language)],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<ReadV1Response>(),
             AnalyzeErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

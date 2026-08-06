@@ -67,7 +67,7 @@ catch (SdkException<ListError> ex)
 > Source: [AuthV1Tokens](Api/AuthV1Tokens.cs)
 
 <details>
-<summary><code>Task&lt;GrantV1Response&gt; Grant(string authorization, GrantV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GrantV1Response&gt; Grant(GrantV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -90,7 +90,7 @@ Generates a temporary JSON Web Token (JWT) with a 30-second (by default) TTL and
 ```csharp
 try
 {
-    var response = await client.AuthV1Tokens.Grant(authorization, body);
+    var response = await client.AuthV1Tokens.Grant(body);
     // TODO: Handle 'response' of type GrantV1Response
 }
 catch (SdkException<GrantError> ex)
@@ -112,7 +112,6 @@ catch (SdkException<GrantError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[GrantV1Request?](Models/GrantV1Request.cs)</code> | - |
 
 </dd>
@@ -140,7 +139,7 @@ catch (SdkException<GrantError> ex)
 > Source: [ListenV1Media](Api/ListenV1Media.cs)
 
 <details>
-<summary><code>Task&lt;ListenV1MediaTranscribeResponse200&gt; Transcribe(string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V1ListenPostParametersExtra? extra, V1ListenPostParametersSummarize? summarize, V1ListenPostParametersTag? tag, V1ListenPostParametersCustomTopic? customTopic, V1ListenPostParametersCustomTopicMode? customTopicMode, V1ListenPostParametersCustomIntent? customIntent, V1ListenPostParametersCustomTopicMode? customIntentMode, V1ListenPostParametersDetectLanguage? detectLanguage, V1ListenPostParametersDiarizeModel? diarizeModel, V1ListenPostParametersEncoding? encoding, IReadOnlyList&lt;string&gt;? keyterm, V1ListenPostParametersKeywords? keywords, V1ListenPostParametersModel? model, V1ListenPostParametersRedact? redact, V1ListenPostParametersReplace? replace, V1ListenPostParametersSearch? search, V1ListenPostParametersVersion? version, string authorization, ListenV1RequestUrl? body, bool? sentiment = false, bool? topics = false, bool? intents = false, bool? detectEntities = false, bool? diarize = false, bool? dictation = false, bool? fillerWords = false, string? language = "en", bool? measurements = false, bool? multichannel = false, bool? numerals = false, bool? paragraphs = false, bool? profanityFilter = false, bool? punctuate = false, bool? smartFormat = false, bool? utterances = false, double? uttSplit = 0.8d, bool? mipOptOut = false, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListenV1MediaTranscribeResponse200&gt; Transcribe(string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V1ListenPostParametersExtra? extra, V1ListenPostParametersSummarize? summarize, V1ListenPostParametersTag? tag, V1ListenPostParametersCustomTopic? customTopic, V1ListenPostParametersCustomTopicMode? customTopicMode, V1ListenPostParametersCustomIntent? customIntent, V1ListenPostParametersCustomTopicMode? customIntentMode, V1ListenPostParametersDetectLanguage? detectLanguage, V1ListenPostParametersDiarizeModel? diarizeModel, V1ListenPostParametersEncoding? encoding, IReadOnlyList&lt;string&gt;? keyterm, V1ListenPostParametersKeywords? keywords, V1ListenPostParametersModel? model, V1ListenPostParametersRedact? redact, V1ListenPostParametersReplace? replace, V1ListenPostParametersSearch? search, V1ListenPostParametersVersion? version, ListenV1RequestUrl? body, bool? sentiment = false, bool? topics = false, bool? intents = false, bool? detectEntities = false, bool? diarize = false, bool? dictation = false, bool? fillerWords = false, string? language = "en", bool? measurements = false, bool? multichannel = false, bool? numerals = false, bool? paragraphs = false, bool? profanityFilter = false, bool? punctuate = false, bool? smartFormat = false, bool? utterances = false, double? uttSplit = 0.8d, bool? mipOptOut = false, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -182,7 +181,6 @@ try
         replace,
         search,
         version,
-        authorization,
         body);
     // TODO: Handle 'response' of type ListenV1MediaTranscribeResponse200
 }
@@ -224,7 +222,6 @@ catch (SdkException<TranscribeError> ex)
 | <code>replace</code> | <code>[V1ListenPostParametersReplace?](Models/AnyOf/V1ListenPostParametersReplace.cs)</code> | Search for terms or phrases in submitted audio and replaces them |
 | <code>search</code> | <code>[V1ListenPostParametersSearch?](Models/AnyOf/V1ListenPostParametersSearch.cs)</code> | Search for terms or phrases in submitted audio |
 | <code>version</code> | <code>[V1ListenPostParametersVersion?](Models/AnyOf/V1ListenPostParametersVersion.cs)</code> | Version of an AI model to use |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[ListenV1RequestUrl?](Models/ListenV1RequestUrl.cs)</code> | - |
 | <code>sentiment</code> | <code>bool?</code> | Recognizes the sentiment throughout a transcript or text<br>**Default**: false |
 | <code>topics</code> | <code>bool?</code> | Detect topics throughout a transcript or text<br>**Default**: false |
@@ -270,7 +267,7 @@ catch (SdkException<TranscribeError> ex)
 > Source: [ManageV1Models](Api/ManageV1Models.cs)
 
 <details>
-<summary><code>Task&lt;GetModelV1Response&gt; Get5(string modelId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetModelV1Response&gt; Get5(string modelId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -293,7 +290,7 @@ Returns metadata for a specific public model
 ```csharp
 try
 {
-    var response = await client.ManageV1Models.Get5(modelId, authorization);
+    var response = await client.ManageV1Models.Get5(modelId);
     // TODO: Handle 'response' of type GetModelV1Response
 }
 catch (SdkException<Get5Error> ex)
@@ -316,7 +313,6 @@ catch (SdkException<Get5Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>modelId</code> | <code>string</code> | The specific UUID of the model |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -339,7 +335,7 @@ catch (SdkException<Get5Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListModelsV1Response&gt; List6(bool? includeOutdated, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListModelsV1Response&gt; List6(bool? includeOutdated, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -362,7 +358,7 @@ Returns metadata on all the latest public models. To retrieve custom models, use
 ```csharp
 try
 {
-    var response = await client.ManageV1Models.List6(includeOutdated, authorization);
+    var response = await client.ManageV1Models.List6(includeOutdated);
     // TODO: Handle 'response' of type ListModelsV1Response
 }
 catch (SdkException<List6Error> ex)
@@ -385,7 +381,6 @@ catch (SdkException<List6Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>includeOutdated</code> | <code>bool?</code> | returns non-latest versions of models |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -412,7 +407,7 @@ catch (SdkException<List6Error> ex)
 > Source: [ManageV1Projects](Api/ManageV1Projects.cs)
 
 <details>
-<summary><code>Task&lt;DeleteProjectV1Response&gt; Delete3(string projectId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;DeleteProjectV1Response&gt; Delete3(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -435,7 +430,7 @@ Deletes the specified project
 ```csharp
 try
 {
-    var response = await client.ManageV1Projects.Delete3(projectId, authorization);
+    var response = await client.ManageV1Projects.Delete3(projectId);
     // TODO: Handle 'response' of type DeleteProjectV1Response
 }
 catch (SdkException<Delete3Error> ex)
@@ -458,7 +453,6 @@ catch (SdkException<Delete3Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -481,7 +475,7 @@ catch (SdkException<Delete3Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GetProjectV1Response&gt; Get3(string projectId, double? page, string authorization, double? limit = 10d, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetProjectV1Response&gt; Get3(string projectId, double? page, double? limit = 10d, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -504,7 +498,7 @@ Retrieves information about the specified project
 ```csharp
 try
 {
-    var response = await client.ManageV1Projects.Get3(projectId, page, authorization);
+    var response = await client.ManageV1Projects.Get3(projectId, page);
     // TODO: Handle 'response' of type GetProjectV1Response
 }
 catch (SdkException<Get3Error> ex)
@@ -528,7 +522,6 @@ catch (SdkException<Get3Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>page</code> | <code>double?</code> | Navigate and return the results to retrieve specific portions of information of the response |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>limit</code> | <code>double?</code> | Number of results to return per page. Default 10. Range [1,1000]<br>**Default**: 10d |
 
 </dd>
@@ -552,7 +545,7 @@ catch (SdkException<Get3Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;LeaveProjectV1Response&gt; Leave(string projectId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;LeaveProjectV1Response&gt; Leave(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -575,7 +568,7 @@ Removes the authenticated account from the specific project
 ```csharp
 try
 {
-    var response = await client.ManageV1Projects.Leave(projectId, authorization);
+    var response = await client.ManageV1Projects.Leave(projectId);
     // TODO: Handle 'response' of type LeaveProjectV1Response
 }
 catch (SdkException<LeaveError> ex)
@@ -598,7 +591,6 @@ catch (SdkException<LeaveError> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -621,7 +613,7 @@ catch (SdkException<LeaveError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListProjectsV1Response&gt; List4(string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListProjectsV1Response&gt; List4(RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -644,7 +636,7 @@ Retrieves basic information about the projects associated with the API key
 ```csharp
 try
 {
-    var response = await client.ManageV1Projects.List4(authorization);
+    var response = await client.ManageV1Projects.List4();
     // TODO: Handle 'response' of type ListProjectsV1Response
 }
 catch (SdkException<List4Error> ex)
@@ -655,18 +647,6 @@ catch (SdkException<List4Error> ex)
     }
 }
 ```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -689,7 +669,7 @@ catch (SdkException<List4Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;UpdateProjectV1Response&gt; Update3(string projectId, string authorization, UpdateProjectV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;UpdateProjectV1Response&gt; Update3(string projectId, UpdateProjectV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -712,7 +692,7 @@ Updates the name or other properties of an existing project
 ```csharp
 try
 {
-    var response = await client.ManageV1Projects.Update3(projectId, authorization, body);
+    var response = await client.ManageV1Projects.Update3(projectId, body);
     // TODO: Handle 'response' of type UpdateProjectV1Response
 }
 catch (SdkException<Update3Error> ex)
@@ -735,7 +715,6 @@ catch (SdkException<Update3Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[UpdateProjectV1Request?](Models/UpdateProjectV1Request.cs)</code> | - |
 
 </dd>
@@ -763,7 +742,7 @@ catch (SdkException<Update3Error> ex)
 > Source: [ManageV1ProjectsBillingBalances](Api/ManageV1ProjectsBillingBalances.cs)
 
 <details>
-<summary><code>Task&lt;GetProjectBalanceV1Response&gt; Get10(string projectId, string balanceId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetProjectBalanceV1Response&gt; Get10(string projectId, string balanceId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -786,7 +765,7 @@ Retrieves details about the specified balance
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsBillingBalances.Get10(projectId, balanceId, authorization);
+    var response = await client.ManageV1ProjectsBillingBalances.Get10(projectId, balanceId);
     // TODO: Handle 'response' of type GetProjectBalanceV1Response
 }
 catch (SdkException<Get10Error> ex)
@@ -810,7 +789,6 @@ catch (SdkException<Get10Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>balanceId</code> | <code>string</code> | The unique identifier of the balance |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -833,7 +811,7 @@ catch (SdkException<Get10Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListProjectBalancesV1Response&gt; List13(string projectId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListProjectBalancesV1Response&gt; List13(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -856,7 +834,7 @@ Generates a list of outstanding balances for the specified project
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsBillingBalances.List13(projectId, authorization);
+    var response = await client.ManageV1ProjectsBillingBalances.List13(projectId);
     // TODO: Handle 'response' of type ListProjectBalancesV1Response
 }
 catch (SdkException<List13Error> ex)
@@ -879,7 +857,6 @@ catch (SdkException<List13Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -906,7 +883,7 @@ catch (SdkException<List13Error> ex)
 > Source: [ManageV1ProjectsBillingBreakdown](Api/ManageV1ProjectsBillingBreakdown.cs)
 
 <details>
-<summary><code>Task&lt;BillingBreakdownV1Response&gt; List14(string projectId, DateTimeOffset? start, DateTimeOffset? end, string? accessor, V1ProjectsProjectIdBillingBreakdownGetParametersDeployment? deployment, string? tag, string? lineItem, IReadOnlyList&lt;V1ProjectsProjectIdBillingBreakdownGetParametersGroupingSchemaItems&gt;? grouping, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;BillingBreakdownV1Response&gt; List14(string projectId, DateTimeOffset? start, DateTimeOffset? end, string? accessor, V1ProjectsProjectIdBillingBreakdownGetParametersDeployment? deployment, string? tag, string? lineItem, IReadOnlyList&lt;V1ProjectsProjectIdBillingBreakdownGetParametersGroupingSchemaItems&gt;? grouping, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -936,8 +913,7 @@ try
         deployment,
         tag,
         lineItem,
-        grouping,
-        authorization);
+        grouping);
     // TODO: Handle 'response' of type BillingBreakdownV1Response
 }
 catch (SdkException<List14Error> ex)
@@ -967,7 +943,6 @@ catch (SdkException<List14Error> ex)
 | <code>tag</code> | <code>string?</code> | Filter for requests where a specific tag was used |
 | <code>lineItem</code> | <code>string?</code> | Filter requests by line item (e.g. streaming::nova-3) |
 | <code>grouping</code> | <code>IReadOnlyList&lt;[V1ProjectsProjectIdBillingBreakdownGetParametersGroupingSchemaItems](Models/Enums/V1ProjectsProjectIdBillingBreakdownGetParametersGroupingSchemaItems.cs)&gt;?</code> | Group billing breakdown by one or more dimensions (accessor, deployment, line_item, tags) |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -994,7 +969,7 @@ catch (SdkException<List14Error> ex)
 > Source: [ManageV1ProjectsBillingFields](Api/ManageV1ProjectsBillingFields.cs)
 
 <details>
-<summary><code>Task&lt;ListBillingFieldsV1Response&gt; List15(string projectId, DateTimeOffset? start, DateTimeOffset? end, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListBillingFieldsV1Response&gt; List15(string projectId, DateTimeOffset? start, DateTimeOffset? end, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1017,7 +992,7 @@ Lists the accessors, deployment types, tags, and line items used for billing dat
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsBillingFields.List15(projectId, start, end, authorization);
+    var response = await client.ManageV1ProjectsBillingFields.List15(projectId, start, end);
     // TODO: Handle 'response' of type ListBillingFieldsV1Response
 }
 catch (SdkException<List15Error> ex)
@@ -1042,7 +1017,6 @@ catch (SdkException<List15Error> ex)
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>start</code> | <code>DateTimeOffset?</code> | Start date of the requested date range. Format accepted is YYYY-MM-DD |
 | <code>end</code> | <code>DateTimeOffset?</code> | End date of the requested date range. Format accepted is YYYY-MM-DD |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -1069,7 +1043,7 @@ catch (SdkException<List15Error> ex)
 > Source: [ManageV1ProjectsBillingPurchases](Api/ManageV1ProjectsBillingPurchases.cs)
 
 <details>
-<summary><code>Task&lt;ListProjectPurchasesV1Response&gt; List16(string projectId, string authorization, double? limit = 10d, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListProjectPurchasesV1Response&gt; List16(string projectId, double? limit = 10d, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1092,7 +1066,7 @@ Returns the original purchased amount on an order transaction
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsBillingPurchases.List16(projectId, authorization);
+    var response = await client.ManageV1ProjectsBillingPurchases.List16(projectId);
     // TODO: Handle 'response' of type ListProjectPurchasesV1Response
 }
 catch (SdkException<List16Error> ex)
@@ -1115,7 +1089,6 @@ catch (SdkException<List16Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>limit</code> | <code>double?</code> | Number of results to return per page. Default 10. Range [1,1000]<br>**Default**: 10d |
 
 </dd>
@@ -1143,7 +1116,7 @@ catch (SdkException<List16Error> ex)
 > Source: [ManageV1ProjectsKeys](Api/ManageV1ProjectsKeys.cs)
 
 <details>
-<summary><code>Task&lt;CreateKeyV1Response&gt; Create3(string projectId, string authorization, CreateKeyV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;CreateKeyV1Response&gt; Create3(string projectId, CreateKeyV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1166,7 +1139,7 @@ Creates a new API key with specified settings for the project
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsKeys.Create3(projectId, authorization, body);
+    var response = await client.ManageV1ProjectsKeys.Create3(projectId, body);
     // TODO: Handle 'response' of type CreateKeyV1Response
 }
 catch (SdkException<Create3Error> ex)
@@ -1189,7 +1162,6 @@ catch (SdkException<Create3Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[CreateKeyV1Request?](Models/AnyOf/CreateKeyV1Request.cs)</code> | - |
 
 </dd>
@@ -1213,7 +1185,7 @@ catch (SdkException<Create3Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;DeleteProjectKeyV1Response&gt; Delete4(string projectId, string keyId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;DeleteProjectKeyV1Response&gt; Delete4(string projectId, string keyId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1236,7 +1208,7 @@ Deletes an API key for a specific project
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsKeys.Delete4(projectId, keyId, authorization);
+    var response = await client.ManageV1ProjectsKeys.Delete4(projectId, keyId);
     // TODO: Handle 'response' of type DeleteProjectKeyV1Response
 }
 catch (SdkException<Delete4Error> ex)
@@ -1260,7 +1232,6 @@ catch (SdkException<Delete4Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>keyId</code> | <code>string</code> | The unique identifier of the API key |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -1283,7 +1254,7 @@ catch (SdkException<Delete4Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GetProjectKeyV1Response&gt; Get6(string projectId, string keyId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetProjectKeyV1Response&gt; Get6(string projectId, string keyId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1306,7 +1277,7 @@ Retrieves information about a specified API key
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsKeys.Get6(projectId, keyId, authorization);
+    var response = await client.ManageV1ProjectsKeys.Get6(projectId, keyId);
     // TODO: Handle 'response' of type GetProjectKeyV1Response
 }
 catch (SdkException<Get6Error> ex)
@@ -1330,7 +1301,6 @@ catch (SdkException<Get6Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>keyId</code> | <code>string</code> | The unique identifier of the API key |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -1353,7 +1323,7 @@ catch (SdkException<Get6Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListProjectKeysV1Response&gt; List7(string projectId, V1ProjectsProjectIdKeysGetParametersStatus? status, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListProjectKeysV1Response&gt; List7(string projectId, V1ProjectsProjectIdKeysGetParametersStatus? status, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1376,7 +1346,7 @@ Retrieves all API keys associated with the specified project
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsKeys.List7(projectId, status, authorization);
+    var response = await client.ManageV1ProjectsKeys.List7(projectId, status);
     // TODO: Handle 'response' of type ListProjectKeysV1Response
 }
 catch (SdkException<List7Error> ex)
@@ -1400,7 +1370,6 @@ catch (SdkException<List7Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>status</code> | <code>[V1ProjectsProjectIdKeysGetParametersStatus?](Models/Enums/V1ProjectsProjectIdKeysGetParametersStatus.cs)</code> | Only return keys with a specific status |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -1427,7 +1396,7 @@ catch (SdkException<List7Error> ex)
 > Source: [ManageV1ProjectsMembers](Api/ManageV1ProjectsMembers.cs)
 
 <details>
-<summary><code>Task&lt;DeleteProjectMemberV1Response&gt; Delete5(string projectId, string memberId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;DeleteProjectMemberV1Response&gt; Delete5(string projectId, string memberId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1450,7 +1419,7 @@ Removes a member from the project using their unique member ID
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsMembers.Delete5(projectId, memberId, authorization);
+    var response = await client.ManageV1ProjectsMembers.Delete5(projectId, memberId);
     // TODO: Handle 'response' of type DeleteProjectMemberV1Response
 }
 catch (SdkException<Delete5Error> ex)
@@ -1474,7 +1443,6 @@ catch (SdkException<Delete5Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>memberId</code> | <code>string</code> | The unique identifier of the Member |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -1497,7 +1465,7 @@ catch (SdkException<Delete5Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListProjectMembersV1Response&gt; List8(string projectId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListProjectMembersV1Response&gt; List8(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1520,7 +1488,7 @@ Retrieves a list of members for a given project
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsMembers.List8(projectId, authorization);
+    var response = await client.ManageV1ProjectsMembers.List8(projectId);
     // TODO: Handle 'response' of type ListProjectMembersV1Response
 }
 catch (SdkException<List8Error> ex)
@@ -1543,7 +1511,6 @@ catch (SdkException<List8Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -1570,7 +1537,7 @@ catch (SdkException<List8Error> ex)
 > Source: [ManageV1ProjectsMembersInvites](Api/ManageV1ProjectsMembersInvites.cs)
 
 <details>
-<summary><code>Task&lt;CreateProjectInviteV1Response&gt; Create4(string projectId, string authorization, CreateProjectInviteV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;CreateProjectInviteV1Response&gt; Create4(string projectId, CreateProjectInviteV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1593,7 +1560,7 @@ Generates an invite for a specific project
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsMembersInvites.Create4(projectId, authorization, body);
+    var response = await client.ManageV1ProjectsMembersInvites.Create4(projectId, body);
     // TODO: Handle 'response' of type CreateProjectInviteV1Response
 }
 catch (SdkException<Create4Error> ex)
@@ -1616,7 +1583,6 @@ catch (SdkException<Create4Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[CreateProjectInviteV1Request?](Models/CreateProjectInviteV1Request.cs)</code> | - |
 
 </dd>
@@ -1640,7 +1606,7 @@ catch (SdkException<Create4Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;DeleteProjectInviteV1Response&gt; Delete6(string projectId, string email, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;DeleteProjectInviteV1Response&gt; Delete6(string projectId, string email, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1663,7 +1629,7 @@ Deletes an invite for a specific project
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsMembersInvites.Delete6(projectId, email, authorization);
+    var response = await client.ManageV1ProjectsMembersInvites.Delete6(projectId, email);
     // TODO: Handle 'response' of type DeleteProjectInviteV1Response
 }
 catch (SdkException<Delete6Error> ex)
@@ -1687,7 +1653,6 @@ catch (SdkException<Delete6Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>email</code> | <code>string</code> | The email address of the member |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -1710,7 +1675,7 @@ catch (SdkException<Delete6Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListProjectInvitesV1Response&gt; List10(string projectId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListProjectInvitesV1Response&gt; List10(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1733,7 +1698,7 @@ Generates a list of invites for a specific project
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsMembersInvites.List10(projectId, authorization);
+    var response = await client.ManageV1ProjectsMembersInvites.List10(projectId);
     // TODO: Handle 'response' of type ListProjectInvitesV1Response
 }
 catch (SdkException<List10Error> ex)
@@ -1756,7 +1721,6 @@ catch (SdkException<List10Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -1783,7 +1747,7 @@ catch (SdkException<List10Error> ex)
 > Source: [ManageV1ProjectsMembersScopes](Api/ManageV1ProjectsMembersScopes.cs)
 
 <details>
-<summary><code>Task&lt;ListProjectMemberScopesV1Response&gt; List9(string projectId, string memberId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListProjectMemberScopesV1Response&gt; List9(string projectId, string memberId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1806,7 +1770,7 @@ Retrieves a list of scopes for a specific member
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsMembersScopes.List9(projectId, memberId, authorization);
+    var response = await client.ManageV1ProjectsMembersScopes.List9(projectId, memberId);
     // TODO: Handle 'response' of type ListProjectMemberScopesV1Response
 }
 catch (SdkException<List9Error> ex)
@@ -1830,7 +1794,6 @@ catch (SdkException<List9Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>memberId</code> | <code>string</code> | The unique identifier of the Member |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -1853,7 +1816,7 @@ catch (SdkException<List9Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;UpdateProjectMemberScopesV1Response&gt; Update4(string projectId, string memberId, string authorization, UpdateProjectMemberScopesV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;UpdateProjectMemberScopesV1Response&gt; Update4(string projectId, string memberId, UpdateProjectMemberScopesV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1876,7 +1839,7 @@ Updates the scopes for a specific member
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsMembersScopes.Update4(projectId, memberId, authorization, body);
+    var response = await client.ManageV1ProjectsMembersScopes.Update4(projectId, memberId, body);
     // TODO: Handle 'response' of type UpdateProjectMemberScopesV1Response
 }
 catch (SdkException<Update4Error> ex)
@@ -1900,7 +1863,6 @@ catch (SdkException<Update4Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>memberId</code> | <code>string</code> | The unique identifier of the Member |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[UpdateProjectMemberScopesV1Request?](Models/UpdateProjectMemberScopesV1Request.cs)</code> | - |
 
 </dd>
@@ -1928,7 +1890,7 @@ catch (SdkException<Update4Error> ex)
 > Source: [ManageV1ProjectsModels](Api/ManageV1ProjectsModels.cs)
 
 <details>
-<summary><code>Task&lt;GetModelV1Response&gt; Get4(string projectId, string modelId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetModelV1Response&gt; Get4(string projectId, string modelId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1951,7 +1913,7 @@ Returns metadata for a specific model
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsModels.Get4(projectId, modelId, authorization);
+    var response = await client.ManageV1ProjectsModels.Get4(projectId, modelId);
     // TODO: Handle 'response' of type GetModelV1Response
 }
 catch (SdkException<Get4Error> ex)
@@ -1975,7 +1937,6 @@ catch (SdkException<Get4Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>modelId</code> | <code>string</code> | The specific UUID of the model |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -1998,7 +1959,7 @@ catch (SdkException<Get4Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListModelsV1Response&gt; List5(string projectId, bool? includeOutdated, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListModelsV1Response&gt; List5(string projectId, bool? includeOutdated, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2021,7 +1982,7 @@ Returns metadata on all the latest models that a specific project has access to,
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsModels.List5(projectId, includeOutdated, authorization);
+    var response = await client.ManageV1ProjectsModels.List5(projectId, includeOutdated);
     // TODO: Handle 'response' of type ListModelsV1Response
 }
 catch (SdkException<List5Error> ex)
@@ -2045,7 +2006,6 @@ catch (SdkException<List5Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>includeOutdated</code> | <code>bool?</code> | returns non-latest versions of models |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -2072,7 +2032,7 @@ catch (SdkException<List5Error> ex)
 > Source: [ManageV1ProjectsRequests](Api/ManageV1ProjectsRequests.cs)
 
 <details>
-<summary><code>Task&lt;GetProjectRequestV1Response&gt; Get7(string projectId, string requestId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetProjectRequestV1Response&gt; Get7(string projectId, string requestId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2095,7 +2055,7 @@ Retrieves a specific request for a specific project
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsRequests.Get7(projectId, requestId, authorization);
+    var response = await client.ManageV1ProjectsRequests.Get7(projectId, requestId);
     // TODO: Handle 'response' of type GetProjectRequestV1Response
 }
 catch (SdkException<Get7Error> ex)
@@ -2119,7 +2079,6 @@ catch (SdkException<Get7Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>requestId</code> | <code>string</code> | The unique identifier of the request |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -2142,7 +2101,7 @@ catch (SdkException<Get7Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListProjectRequestsV1Response&gt; List11(string projectId, DateTimeOffset? start, DateTimeOffset? end, double? page, string? accessor, string? requestId, V1ProjectsProjectIdRequestsGetParametersDeployment? deployment, V1ProjectsProjectIdRequestsGetParametersEndpoint? endpoint, V1ProjectsProjectIdRequestsGetParametersMethod? method, V1ProjectsProjectIdRequestsGetParametersStatus? status, string authorization, double? limit = 10d, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListProjectRequestsV1Response&gt; List11(string projectId, DateTimeOffset? start, DateTimeOffset? end, double? page, string? accessor, string? requestId, V1ProjectsProjectIdRequestsGetParametersDeployment? deployment, V1ProjectsProjectIdRequestsGetParametersEndpoint? endpoint, V1ProjectsProjectIdRequestsGetParametersMethod? method, V1ProjectsProjectIdRequestsGetParametersStatus? status, double? limit = 10d, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2174,8 +2133,7 @@ try
         deployment,
         endpoint,
         method,
-        status,
-        authorization);
+        status);
     // TODO: Handle 'response' of type ListProjectRequestsV1Response
 }
 catch (SdkException<List11Error> ex)
@@ -2207,7 +2165,6 @@ catch (SdkException<List11Error> ex)
 | <code>endpoint</code> | <code>[V1ProjectsProjectIdRequestsGetParametersEndpoint?](Models/Enums/V1ProjectsProjectIdRequestsGetParametersEndpoint.cs)</code> | Filter for requests where a specific endpoint was used |
 | <code>method</code> | <code>[V1ProjectsProjectIdRequestsGetParametersMethod?](Models/Enums/V1ProjectsProjectIdRequestsGetParametersMethod.cs)</code> | Filter for requests where a specific method was used |
 | <code>status</code> | <code>[V1ProjectsProjectIdRequestsGetParametersStatus?](Models/Enums/V1ProjectsProjectIdRequestsGetParametersStatus.cs)</code> | Filter for requests that succeeded (status code < 300) or failed (status code >=400) |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>limit</code> | <code>double?</code> | Number of results to return per page. Default 10. Range [1,1000]<br>**Default**: 10d |
 
 </dd>
@@ -2235,7 +2192,7 @@ catch (SdkException<List11Error> ex)
 > Source: [ManageV1ProjectsUsage](Api/ManageV1ProjectsUsage.cs)
 
 <details>
-<summary><code>Task&lt;UsageV1Response&gt; Get8(string projectId, DateTimeOffset? start, DateTimeOffset? end, string? accessor, bool? alternatives, bool? callbackMethod, bool? callback, bool? channels, bool? customIntentMode, bool? customIntent, bool? customTopicMode, bool? customTopic, V1ProjectsProjectIdUsageGetParametersDeployment? deployment, bool? detectEntities, bool? detectLanguage, bool? diarize, bool? dictation, bool? encoding, V1ProjectsProjectIdUsageGetParametersEndpoint? endpoint, bool? extra, bool? fillerWords, bool? intents, bool? keyterm, bool? keywords, bool? language, bool? measurements, V1ProjectsProjectIdUsageGetParametersMethod? method, string? model, bool? multichannel, bool? numerals, bool? paragraphs, bool? profanityFilter, bool? punctuate, bool? redact, bool? replace, bool? sampleRate, bool? search, bool? sentiment, bool? smartFormat, bool? summarize, string? tag, bool? topics, bool? uttSplit, bool? utterances, bool? version, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;UsageV1Response&gt; Get8(string projectId, DateTimeOffset? start, DateTimeOffset? end, string? accessor, bool? alternatives, bool? callbackMethod, bool? callback, bool? channels, bool? customIntentMode, bool? customIntent, bool? customTopicMode, bool? customTopic, V1ProjectsProjectIdUsageGetParametersDeployment? deployment, bool? detectEntities, bool? detectLanguage, bool? diarize, bool? dictation, bool? encoding, V1ProjectsProjectIdUsageGetParametersEndpoint? endpoint, bool? extra, bool? fillerWords, bool? intents, bool? keyterm, bool? keywords, bool? language, bool? measurements, V1ProjectsProjectIdUsageGetParametersMethod? method, string? model, bool? multichannel, bool? numerals, bool? paragraphs, bool? profanityFilter, bool? punctuate, bool? redact, bool? replace, bool? sampleRate, bool? search, bool? sentiment, bool? smartFormat, bool? summarize, string? tag, bool? topics, bool? uttSplit, bool? utterances, bool? version, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2302,8 +2259,7 @@ try
         topics,
         uttSplit,
         utterances,
-        version,
-        authorization);
+        version);
     // TODO: Handle 'response' of type UsageV1Response
 }
 catch (SdkException<Get8Error> ex)
@@ -2370,7 +2326,6 @@ catch (SdkException<Get8Error> ex)
 | <code>uttSplit</code> | <code>bool?</code> | Filter for requests where utt split was used |
 | <code>utterances</code> | <code>bool?</code> | Filter for requests where utterances was used |
 | <code>version</code> | <code>bool?</code> | Filter for requests where version was used |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -2397,7 +2352,7 @@ catch (SdkException<Get8Error> ex)
 > Source: [ManageV1ProjectsUsageBreakdown](Api/ManageV1ProjectsUsageBreakdown.cs)
 
 <details>
-<summary><code>Task&lt;UsageBreakdownV1Response&gt; Get9(string projectId, DateTimeOffset? start, DateTimeOffset? end, V1ProjectsProjectIdUsageBreakdownGetParametersGrouping? grouping, string? accessor, bool? alternatives, bool? callbackMethod, bool? callback, bool? channels, bool? customIntentMode, bool? customIntent, bool? customTopicMode, bool? customTopic, V1ProjectsProjectIdUsageBreakdownGetParametersDeployment? deployment, bool? detectEntities, bool? detectLanguage, bool? diarize, bool? dictation, bool? encoding, V1ProjectsProjectIdUsageBreakdownGetParametersEndpoint? endpoint, bool? extra, bool? fillerWords, bool? intents, bool? keyterm, bool? keywords, bool? language, bool? measurements, V1ProjectsProjectIdUsageBreakdownGetParametersMethod? method, string? model, bool? multichannel, bool? numerals, bool? paragraphs, bool? profanityFilter, bool? punctuate, bool? redact, bool? replace, bool? sampleRate, bool? search, bool? sentiment, bool? smartFormat, bool? summarize, string? tag, bool? topics, bool? uttSplit, bool? utterances, bool? version, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;UsageBreakdownV1Response&gt; Get9(string projectId, DateTimeOffset? start, DateTimeOffset? end, V1ProjectsProjectIdUsageBreakdownGetParametersGrouping? grouping, string? accessor, bool? alternatives, bool? callbackMethod, bool? callback, bool? channels, bool? customIntentMode, bool? customIntent, bool? customTopicMode, bool? customTopic, V1ProjectsProjectIdUsageBreakdownGetParametersDeployment? deployment, bool? detectEntities, bool? detectLanguage, bool? diarize, bool? dictation, bool? encoding, V1ProjectsProjectIdUsageBreakdownGetParametersEndpoint? endpoint, bool? extra, bool? fillerWords, bool? intents, bool? keyterm, bool? keywords, bool? language, bool? measurements, V1ProjectsProjectIdUsageBreakdownGetParametersMethod? method, string? model, bool? multichannel, bool? numerals, bool? paragraphs, bool? profanityFilter, bool? punctuate, bool? redact, bool? replace, bool? sampleRate, bool? search, bool? sentiment, bool? smartFormat, bool? summarize, string? tag, bool? topics, bool? uttSplit, bool? utterances, bool? version, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2465,8 +2420,7 @@ try
         topics,
         uttSplit,
         utterances,
-        version,
-        authorization);
+        version);
     // TODO: Handle 'response' of type UsageBreakdownV1Response
 }
 catch (SdkException<Get9Error> ex)
@@ -2534,7 +2488,6 @@ catch (SdkException<Get9Error> ex)
 | <code>uttSplit</code> | <code>bool?</code> | Filter for requests where utt split was used |
 | <code>utterances</code> | <code>bool?</code> | Filter for requests where utterances was used |
 | <code>version</code> | <code>bool?</code> | Filter for requests where version was used |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -2561,7 +2514,7 @@ catch (SdkException<Get9Error> ex)
 > Source: [ManageV1ProjectsUsageFields](Api/ManageV1ProjectsUsageFields.cs)
 
 <details>
-<summary><code>Task&lt;UsageFieldsV1Response&gt; List12(string projectId, DateTimeOffset? start, DateTimeOffset? end, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;UsageFieldsV1Response&gt; List12(string projectId, DateTimeOffset? start, DateTimeOffset? end, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2584,7 +2537,7 @@ Lists the features, models, tags, languages, and processing method used for requ
 ```csharp
 try
 {
-    var response = await client.ManageV1ProjectsUsageFields.List12(projectId, start, end, authorization);
+    var response = await client.ManageV1ProjectsUsageFields.List12(projectId, start, end);
     // TODO: Handle 'response' of type UsageFieldsV1Response
 }
 catch (SdkException<List12Error> ex)
@@ -2609,7 +2562,6 @@ catch (SdkException<List12Error> ex)
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>start</code> | <code>DateTimeOffset?</code> | Start date of the requested date range. Format accepted is YYYY-MM-DD |
 | <code>end</code> | <code>DateTimeOffset?</code> | End date of the requested date range. Format accepted is YYYY-MM-DD |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -2636,7 +2588,7 @@ catch (SdkException<List12Error> ex)
 > Source: [ReadV1Text](Api/ReadV1Text.cs)
 
 <details>
-<summary><code>Task&lt;ReadV1Response&gt; Analyze(string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V1ReadPostParametersSummarize? summarize, V1ReadPostParametersTag? tag, V1ReadPostParametersCustomTopic? customTopic, V1ListenPostParametersCustomTopicMode? customTopicMode, V1ReadPostParametersCustomIntent? customIntent, V1ListenPostParametersCustomTopicMode? customIntentMode, string authorization, ReadV1Request? body, bool? sentiment = false, bool? topics = false, bool? intents = false, string? language = "en", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ReadV1Response&gt; Analyze(string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V1ReadPostParametersSummarize? summarize, V1ReadPostParametersTag? tag, V1ReadPostParametersCustomTopic? customTopic, V1ListenPostParametersCustomTopicMode? customTopicMode, V1ReadPostParametersCustomIntent? customIntent, V1ListenPostParametersCustomTopicMode? customIntentMode, ReadV1Request? body, bool? sentiment = false, bool? topics = false, bool? intents = false, string? language = "en", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2667,7 +2619,6 @@ try
         customTopicMode,
         customIntent,
         customIntentMode,
-        authorization,
         body);
     // TODO: Handle 'response' of type ReadV1Response
 }
@@ -2698,7 +2649,6 @@ catch (SdkException<AnalyzeError> ex)
 | <code>customTopicMode</code> | <code>[V1ListenPostParametersCustomTopicMode?](Models/Enums/V1ListenPostParametersCustomTopicMode.cs)</code> | Sets how the model will interpret strings submitted to the `custom_topic` param. When `strict`, the model will only return topics submitted using the `custom_topic` param. When `extended`, the model will return its own detected topics in addition to those submitted using the `custom_topic` param |
 | <code>customIntent</code> | <code>[V1ReadPostParametersCustomIntent?](Models/AnyOf/V1ReadPostParametersCustomIntent.cs)</code> | Custom intents you want the model to detect within your input audio if present |
 | <code>customIntentMode</code> | <code>[V1ListenPostParametersCustomTopicMode?](Models/Enums/V1ListenPostParametersCustomTopicMode.cs)</code> | Sets how the model will interpret intents submitted to the `custom_intent` param. When `strict`, the model will only return intents submitted using the `custom_intent` param. When `extended`, the model will return its own detected intents in the `custom_intent` param. |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[ReadV1Request?](Models/AnyOf/ReadV1Request.cs)</code> | - |
 | <code>sentiment</code> | <code>bool?</code> | Recognizes the sentiment throughout a transcript or text<br>**Default**: false |
 | <code>topics</code> | <code>bool?</code> | Detect topics throughout a transcript or text<br>**Default**: false |
@@ -2730,7 +2680,7 @@ catch (SdkException<AnalyzeError> ex)
 > Source: [SelfHostedV1DistributionCredentials](Api/SelfHostedV1DistributionCredentials.cs)
 
 <details>
-<summary><code>Task&lt;CreateProjectDistributionCredentialsV1Response&gt; Create5(string projectId, IReadOnlyList&lt;V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersScopesSchemaItems&gt;? scopes, V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersProvider? provider, string authorization, CreateProjectDistributionCredentialsV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;CreateProjectDistributionCredentialsV1Response&gt; Create5(string projectId, IReadOnlyList&lt;V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersScopesSchemaItems&gt;? scopes, V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersProvider? provider, CreateProjectDistributionCredentialsV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2753,11 +2703,7 @@ Creates a set of distribution credentials for the specified project
 ```csharp
 try
 {
-    var response = await client.SelfHostedV1DistributionCredentials.Create5(projectId,
-        scopes,
-        provider,
-        authorization,
-        body);
+    var response = await client.SelfHostedV1DistributionCredentials.Create5(projectId, scopes, provider, body);
     // TODO: Handle 'response' of type CreateProjectDistributionCredentialsV1Response
 }
 catch (SdkException<Create5Error> ex)
@@ -2782,7 +2728,6 @@ catch (SdkException<Create5Error> ex)
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>scopes</code> | <code>IReadOnlyList&lt;[V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersScopesSchemaItems](Models/Enums/V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersScopesSchemaItems.cs)&gt;?</code> | List of permission scopes for the credentials |
 | <code>provider</code> | <code>[V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersProvider?](Models/Enums/V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersProvider.cs)</code> | The provider of the distribution service |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[CreateProjectDistributionCredentialsV1Request?](Models/CreateProjectDistributionCredentialsV1Request.cs)</code> | - |
 
 </dd>
@@ -2806,7 +2751,7 @@ catch (SdkException<Create5Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GetProjectDistributionCredentialsV1Response&gt; Delete7(string projectId, string distributionCredentialsId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetProjectDistributionCredentialsV1Response&gt; Delete7(string projectId, string distributionCredentialsId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2829,9 +2774,7 @@ Deletes a set of distribution credentials for the specified project
 ```csharp
 try
 {
-    var response = await client.SelfHostedV1DistributionCredentials.Delete7(projectId,
-        distributionCredentialsId,
-        authorization);
+    var response = await client.SelfHostedV1DistributionCredentials.Delete7(projectId, distributionCredentialsId);
     // TODO: Handle 'response' of type GetProjectDistributionCredentialsV1Response
 }
 catch (SdkException<Delete7Error> ex)
@@ -2855,7 +2798,6 @@ catch (SdkException<Delete7Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>distributionCredentialsId</code> | <code>string</code> | The UUID of the distribution credentials |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -2878,7 +2820,7 @@ catch (SdkException<Delete7Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GetProjectDistributionCredentialsV1Response&gt; Get11(string projectId, string distributionCredentialsId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetProjectDistributionCredentialsV1Response&gt; Get11(string projectId, string distributionCredentialsId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2901,9 +2843,7 @@ Returns a set of distribution credentials for the specified project
 ```csharp
 try
 {
-    var response = await client.SelfHostedV1DistributionCredentials.Get11(projectId,
-        distributionCredentialsId,
-        authorization);
+    var response = await client.SelfHostedV1DistributionCredentials.Get11(projectId, distributionCredentialsId);
     // TODO: Handle 'response' of type GetProjectDistributionCredentialsV1Response
 }
 catch (SdkException<Get11Error> ex)
@@ -2927,7 +2867,6 @@ catch (SdkException<Get11Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>distributionCredentialsId</code> | <code>string</code> | The UUID of the distribution credentials |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -2950,7 +2889,7 @@ catch (SdkException<Get11Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListProjectDistributionCredentialsV1Response&gt; List17(string projectId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListProjectDistributionCredentialsV1Response&gt; List17(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2973,7 +2912,7 @@ Lists sets of distribution credentials for the specified project
 ```csharp
 try
 {
-    var response = await client.SelfHostedV1DistributionCredentials.List17(projectId, authorization);
+    var response = await client.SelfHostedV1DistributionCredentials.List17(projectId);
     // TODO: Handle 'response' of type ListProjectDistributionCredentialsV1Response
 }
 catch (SdkException<List17Error> ex)
@@ -2996,7 +2935,6 @@ catch (SdkException<List17Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -3023,7 +2961,7 @@ catch (SdkException<List17Error> ex)
 > Source: [SpeakV1Audio](Api/SpeakV1Audio.cs)
 
 <details>
-<summary><code>Task&lt;object&gt; Generate(string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V1SpeakPostParametersTag? tag, V1SpeakPostParametersBitRate? bitRate, V1SpeakPostParametersContainer? container, V1SpeakPostParametersEncoding? encoding, V1SpeakPostParametersModel? model, V1SpeakPostParametersSampleRate? sampleRate, string authorization, SpeakV1Request? body, bool? mipOptOut = false, double? speed = 1d, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;object&gt; Generate(string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V1SpeakPostParametersTag? tag, V1SpeakPostParametersBitRate? bitRate, V1SpeakPostParametersContainer? container, V1SpeakPostParametersEncoding? encoding, V1SpeakPostParametersModel? model, V1SpeakPostParametersSampleRate? sampleRate, SpeakV1Request? body, bool? mipOptOut = false, double? speed = 1d, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3054,7 +2992,6 @@ try
         encoding,
         model,
         sampleRate,
-        authorization,
         body);
     // TODO: Handle 'response' of type object
 }
@@ -3085,7 +3022,6 @@ catch (SdkException<GenerateError> ex)
 | <code>encoding</code> | <code>[V1SpeakPostParametersEncoding?](Models/AnyOf/V1SpeakPostParametersEncoding.cs)</code> | Encoding allows you to specify the expected encoding of your audio output |
 | <code>model</code> | <code>[V1SpeakPostParametersModel?](Models/Enums/V1SpeakPostParametersModel.cs)</code> | AI model used to process submitted text |
 | <code>sampleRate</code> | <code>[V1SpeakPostParametersSampleRate?](Models/AnyOf/V1SpeakPostParametersSampleRate.cs)</code> | Sample Rate specifies the sample rate for the output audio. Based on the encoding, different sample rates are supported. For some encodings, the sample rate is not configurable |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[SpeakV1Request?](Models/SpeakV1Request.cs)</code> | - |
 | <code>mipOptOut</code> | <code>bool?</code> | Opts out requests from the Deepgram Model Improvement Program. Refer to our Docs for pricing impacts before setting this to true. https://dpgr.am/deepgram-mip<br>**Default**: false |
 | <code>speed</code> | <code>double?</code> | Speaking rate multiplier that adjusts the pace of generated speech while preserving natural prosody and voice quality. Not yet supported in all languages.<br>**Default**: 1d |
@@ -3115,7 +3051,7 @@ catch (SdkException<GenerateError> ex)
 > Source: [SpeakV2Audio](Api/SpeakV2Audio.cs)
 
 <details>
-<summary><code>Task&lt;SpeakV2AcceptedResponse&gt; Generate2(string model, string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V2SpeakPostParametersTag? tag, V2SpeakPostParametersBitRate? bitRate, V2SpeakPostParametersContainer? container, V2SpeakPostParametersEncoding? encoding, V2SpeakPostParametersSampleRate? sampleRate, V2SpeakPostParametersPriority? priority, string authorization, SpeakV2Request? body, bool? mipOptOut = false, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;SpeakV2AcceptedResponse&gt; Generate2(string model, string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V2SpeakPostParametersTag? tag, V2SpeakPostParametersBitRate? bitRate, V2SpeakPostParametersContainer? container, V2SpeakPostParametersEncoding? encoding, V2SpeakPostParametersSampleRate? sampleRate, V2SpeakPostParametersPriority? priority, SpeakV2Request? body, bool? mipOptOut = false, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3147,7 +3083,6 @@ try
         encoding,
         sampleRate,
         priority,
-        authorization,
         body);
     // TODO: Handle 'response' of type SpeakV2AcceptedResponse
 }
@@ -3179,7 +3114,6 @@ catch (SdkException<Generate2Error> ex)
 | <code>encoding</code> | <code>[V2SpeakPostParametersEncoding?](Models/AnyOf/V2SpeakPostParametersEncoding.cs)</code> | Encoding allows you to specify the expected encoding of your audio output |
 | <code>sampleRate</code> | <code>[V2SpeakPostParametersSampleRate?](Models/AnyOf/V2SpeakPostParametersSampleRate.cs)</code> | Sample Rate specifies the sample rate for the output audio. Based on the encoding, different sample rates are supported. For some encodings, the sample rate is not configurable |
 | <code>priority</code> | <code>[V2SpeakPostParametersPriority?](Models/Enums/V2SpeakPostParametersPriority.cs)</code> | Processing priority for asynchronous (callback) requests. The only supported value is low. |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[SpeakV2Request?](Models/SpeakV2Request.cs)</code> | - |
 | <code>mipOptOut</code> | <code>bool?</code> | Opts out requests from the Deepgram Model Improvement Program. Refer to our Docs for pricing impacts before setting this to true. https://dpgr.am/deepgram-mip<br>**Default**: false |
 
@@ -3208,7 +3142,7 @@ catch (SdkException<Generate2Error> ex)
 > Source: [VoiceAgentConfigurations](Api/VoiceAgentConfigurations.cs)
 
 <details>
-<summary><code>Task&lt;CreateAgentConfigurationV1Response&gt; Create(string projectId, string authorization, CreateAgentConfigurationV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;CreateAgentConfigurationV1Response&gt; Create(string projectId, CreateAgentConfigurationV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3231,7 +3165,7 @@ Creates a new reusable agent configuration. The `config` field must be a valid J
 ```csharp
 try
 {
-    var response = await client.VoiceAgentConfigurations.Create(projectId, authorization, body);
+    var response = await client.VoiceAgentConfigurations.Create(projectId, body);
     // TODO: Handle 'response' of type CreateAgentConfigurationV1Response
 }
 catch (SdkException<CreateError> ex)
@@ -3254,7 +3188,6 @@ catch (SdkException<CreateError> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[CreateAgentConfigurationV1Request?](Models/CreateAgentConfigurationV1Request.cs)</code> | - |
 
 </dd>
@@ -3278,7 +3211,7 @@ catch (SdkException<CreateError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;object&gt; Delete(string projectId, string agentId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;object&gt; Delete(string projectId, string agentId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3301,7 +3234,7 @@ Deletes the specified agent configuration. Deleting an agent configuration can c
 ```csharp
 try
 {
-    var response = await client.VoiceAgentConfigurations.Delete(projectId, agentId, authorization);
+    var response = await client.VoiceAgentConfigurations.Delete(projectId, agentId);
     // TODO: Handle 'response' of type object
 }
 catch (SdkException<DeleteError> ex)
@@ -3325,7 +3258,6 @@ catch (SdkException<DeleteError> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>agentId</code> | <code>string</code> | The unique identifier of the agent configuration |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -3348,7 +3280,7 @@ catch (SdkException<DeleteError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;AgentConfigurationV1&gt; Get(string projectId, string agentId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;AgentConfigurationV1&gt; Get(string projectId, string agentId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3371,7 +3303,7 @@ Returns the specified agent configuration in its uninterpolated form
 ```csharp
 try
 {
-    var response = await client.VoiceAgentConfigurations.Get(projectId, agentId, authorization);
+    var response = await client.VoiceAgentConfigurations.Get(projectId, agentId);
     // TODO: Handle 'response' of type AgentConfigurationV1
 }
 catch (SdkException<GetError> ex)
@@ -3395,7 +3327,6 @@ catch (SdkException<GetError> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>agentId</code> | <code>string</code> | The unique identifier of the agent configuration |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -3418,7 +3349,7 @@ catch (SdkException<GetError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListAgentConfigurationsV1Response&gt; List2(string projectId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListAgentConfigurationsV1Response&gt; List2(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3441,7 +3372,7 @@ Returns all agent configurations for the specified project. Configurations are r
 ```csharp
 try
 {
-    var response = await client.VoiceAgentConfigurations.List2(projectId, authorization);
+    var response = await client.VoiceAgentConfigurations.List2(projectId);
     // TODO: Handle 'response' of type ListAgentConfigurationsV1Response
 }
 catch (SdkException<List2Error> ex)
@@ -3464,7 +3395,6 @@ catch (SdkException<List2Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -3487,7 +3417,7 @@ catch (SdkException<List2Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;AgentConfigurationV1&gt; Update(string projectId, string agentId, string authorization, UpdateAgentMetadataV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;AgentConfigurationV1&gt; Update(string projectId, string agentId, UpdateAgentMetadataV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3510,7 +3440,7 @@ Updates the metadata associated with an agent configuration. The config itself i
 ```csharp
 try
 {
-    var response = await client.VoiceAgentConfigurations.Update(projectId, agentId, authorization, body);
+    var response = await client.VoiceAgentConfigurations.Update(projectId, agentId, body);
     // TODO: Handle 'response' of type AgentConfigurationV1
 }
 catch (SdkException<UpdateError> ex)
@@ -3534,7 +3464,6 @@ catch (SdkException<UpdateError> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>agentId</code> | <code>string</code> | The unique identifier of the agent configuration |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[UpdateAgentMetadataV1Request?](Models/UpdateAgentMetadataV1Request.cs)</code> | - |
 
 </dd>
@@ -3562,7 +3491,7 @@ catch (SdkException<UpdateError> ex)
 > Source: [VoiceAgentVariables](Api/VoiceAgentVariables.cs)
 
 <details>
-<summary><code>Task&lt;AgentVariableV1&gt; Create2(string projectId, string authorization, CreateAgentVariableV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;AgentVariableV1&gt; Create2(string projectId, CreateAgentVariableV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3585,7 +3514,7 @@ Creates a new template variable. Variables follow the `DG_<VARIABLE_NAME>` namin
 ```csharp
 try
 {
-    var response = await client.VoiceAgentVariables.Create2(projectId, authorization, body);
+    var response = await client.VoiceAgentVariables.Create2(projectId, body);
     // TODO: Handle 'response' of type AgentVariableV1
 }
 catch (SdkException<Create2Error> ex)
@@ -3608,7 +3537,6 @@ catch (SdkException<Create2Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[CreateAgentVariableV1Request?](Models/CreateAgentVariableV1Request.cs)</code> | - |
 
 </dd>
@@ -3632,7 +3560,7 @@ catch (SdkException<Create2Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;object&gt; Delete2(string projectId, string variableId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;object&gt; Delete2(string projectId, string variableId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3655,7 +3583,7 @@ Deletes the specified template variable
 ```csharp
 try
 {
-    var response = await client.VoiceAgentVariables.Delete2(projectId, variableId, authorization);
+    var response = await client.VoiceAgentVariables.Delete2(projectId, variableId);
     // TODO: Handle 'response' of type object
 }
 catch (SdkException<Delete2Error> ex)
@@ -3679,7 +3607,6 @@ catch (SdkException<Delete2Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>variableId</code> | <code>string</code> | The unique identifier of the agent variable |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -3702,7 +3629,7 @@ catch (SdkException<Delete2Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;AgentVariableV1&gt; Get2(string projectId, string variableId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;AgentVariableV1&gt; Get2(string projectId, string variableId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3725,7 +3652,7 @@ Returns the specified template variable
 ```csharp
 try
 {
-    var response = await client.VoiceAgentVariables.Get2(projectId, variableId, authorization);
+    var response = await client.VoiceAgentVariables.Get2(projectId, variableId);
     // TODO: Handle 'response' of type AgentVariableV1
 }
 catch (SdkException<Get2Error> ex)
@@ -3749,7 +3676,6 @@ catch (SdkException<Get2Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>variableId</code> | <code>string</code> | The unique identifier of the agent variable |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -3772,7 +3698,7 @@ catch (SdkException<Get2Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListAgentVariablesV1Response&gt; List3(string projectId, string authorization, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ListAgentVariablesV1Response&gt; List3(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3795,7 +3721,7 @@ Returns all template variables for the specified project
 ```csharp
 try
 {
-    var response = await client.VoiceAgentVariables.List3(projectId, authorization);
+    var response = await client.VoiceAgentVariables.List3(projectId);
     // TODO: Handle 'response' of type ListAgentVariablesV1Response
 }
 catch (SdkException<List3Error> ex)
@@ -3818,7 +3744,6 @@ catch (SdkException<List3Error> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 
 </dd>
 </dl>
@@ -3841,7 +3766,7 @@ catch (SdkException<List3Error> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;AgentVariableV1&gt; Update2(string projectId, string variableId, string authorization, UpdateAgentVariableV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;AgentVariableV1&gt; Update2(string projectId, string variableId, UpdateAgentVariableV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3864,7 +3789,7 @@ Updates the value of an existing template variable
 ```csharp
 try
 {
-    var response = await client.VoiceAgentVariables.Update2(projectId, variableId, authorization, body);
+    var response = await client.VoiceAgentVariables.Update2(projectId, variableId, body);
     // TODO: Handle 'response' of type AgentVariableV1
 }
 catch (SdkException<Update2Error> ex)
@@ -3888,7 +3813,6 @@ catch (SdkException<Update2Error> ex)
 | --- | --- | --- |
 | <code>projectId</code> | <code>string</code> | The unique identifier of the project |
 | <code>variableId</code> | <code>string</code> | The unique identifier of the agent variable |
-| <code>authorization</code> | <code>string</code> | Use `Authorization: Token <API_KEY>`<br>Example: `Authorization: Token 12345abcdef` |
 | <code>body</code> | <code>[UpdateAgentVariableV1Request?](Models/UpdateAgentVariableV1Request.cs)</code> | - |
 
 </dd>

@@ -19,11 +19,13 @@ public sealed class ManageV1ProjectsBillingBreakdown
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ManageV1ProjectsBillingBreakdown(RawClient rawClient, Server server)
+    internal ManageV1ProjectsBillingBreakdown(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -37,7 +39,6 @@ public sealed class ManageV1ProjectsBillingBreakdown
     /// <param name="tag">Filter for requests where a specific tag was used</param>
     /// <param name="lineItem">Filter requests by line item (e.g. streaming::nova-3)</param>
     /// <param name="grouping">Group billing breakdown by one or more dimensions (accessor, deployment, line_item, tags)</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BillingBreakdownV1Response"/> instance.</returns>
@@ -53,7 +54,6 @@ public sealed class ManageV1ProjectsBillingBreakdown
         string? tag,
         string? lineItem,
         IReadOnlyList<V1ProjectsProjectIdBillingBreakdownGetParametersGroupingSchemaItems>? grouping,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/billing/breakdown"),
@@ -65,12 +65,12 @@ public sealed class ManageV1ProjectsBillingBreakdown
                 new Param("tag", tag),
                 new Param("line_item", lineItem),
                 new Param("grouping", grouping)],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<BillingBreakdownV1Response>(),
             List14ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

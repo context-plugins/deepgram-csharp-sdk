@@ -15,18 +15,19 @@ public sealed class ManageV1ProjectsBillingPurchases
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ManageV1ProjectsBillingPurchases(RawClient rawClient, Server server)
+    internal ManageV1ProjectsBillingPurchases(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
     /// List Project Purchases
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="limit">Number of results to return per page. Default 10. Range [1,1000]</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
@@ -36,19 +37,18 @@ public sealed class ManageV1ProjectsBillingPurchases
     /// Returns the original purchased amount on an order transaction
     /// </remarks>
     public Task<ListProjectPurchasesV1Response> List16(string projectId,
-        string authorization,
         double? limit = 10d,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/purchases"),
             [new TemplateParam("project_id", projectId)],
             [new Param("limit", limit)],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectPurchasesV1Response>(),
             List16ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

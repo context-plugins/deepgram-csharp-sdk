@@ -15,11 +15,13 @@ public sealed class ManageV1ProjectsBillingBalances
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ManageV1ProjectsBillingBalances(RawClient rawClient, Server server)
+    internal ManageV1ProjectsBillingBalances(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -27,7 +29,6 @@ public sealed class ManageV1ProjectsBillingBalances
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="balanceId">The unique identifier of the balance</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetProjectBalanceV1Response"/> instance.</returns>
@@ -37,18 +38,17 @@ public sealed class ManageV1ProjectsBillingBalances
     /// </remarks>
     public Task<GetProjectBalanceV1Response> Get10(string projectId,
         string balanceId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/balances/{balance_id}"),
             [new TemplateParam("project_id", projectId), new TemplateParam("balance_id", balanceId)],
             [],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<GetProjectBalanceV1Response>(),
             Get10ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -56,7 +56,6 @@ public sealed class ManageV1ProjectsBillingBalances
     /// Get Project Balances
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectBalancesV1Response"/> instance.</returns>
@@ -65,18 +64,17 @@ public sealed class ManageV1ProjectsBillingBalances
     /// Generates a list of outstanding balances for the specified project
     /// </remarks>
     public Task<ListProjectBalancesV1Response> List13(string projectId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/balances"),
             [new TemplateParam("project_id", projectId)],
             [],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectBalancesV1Response>(),
             List13ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

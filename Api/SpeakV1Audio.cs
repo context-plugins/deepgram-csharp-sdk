@@ -18,11 +18,13 @@ public sealed class SpeakV1Audio
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal SpeakV1Audio(RawClient rawClient, Server server)
+    internal SpeakV1Audio(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -36,7 +38,6 @@ public sealed class SpeakV1Audio
     /// <param name="encoding">Encoding allows you to specify the expected encoding of your audio output</param>
     /// <param name="model">AI model used to process submitted text</param>
     /// <param name="sampleRate">Sample Rate specifies the sample rate for the output audio. Based on the encoding, different sample rates are supported. For some encodings, the sample rate is not configurable</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="body"></param>
     /// <param name="mipOptOut">Opts out requests from the Deepgram Model Improvement Program. Refer to our Docs for pricing impacts before setting this to true. https://dpgr.am/deepgram-mip</param>
     /// <param name="speed">Speaking rate multiplier that adjusts the pace of generated speech while preserving natural prosody and voice quality. Not yet supported in all languages.</param>
@@ -55,7 +56,6 @@ public sealed class SpeakV1Audio
         V1SpeakPostParametersEncoding? encoding,
         V1SpeakPostParametersModel? model,
         V1SpeakPostParametersSampleRate? sampleRate,
-        string authorization,
         SpeakV1Request? body,
         bool? mipOptOut = false,
         double? speed = 1d,
@@ -73,12 +73,12 @@ public sealed class SpeakV1Audio
                 new Param("model", model),
                 new Param("sample_rate", sampleRate),
                 new Param("speed", speed)],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<object>(),
             GenerateErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

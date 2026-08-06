@@ -18,11 +18,13 @@ public sealed class ManageV1ProjectsRequests
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ManageV1ProjectsRequests(RawClient rawClient, Server server)
+    internal ManageV1ProjectsRequests(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -30,7 +32,6 @@ public sealed class ManageV1ProjectsRequests
     /// </summary>
     /// <param name="projectId">The unique identifier of the project</param>
     /// <param name="requestId">The unique identifier of the request</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetProjectRequestV1Response"/> instance.</returns>
@@ -40,18 +41,17 @@ public sealed class ManageV1ProjectsRequests
     /// </remarks>
     public Task<GetProjectRequestV1Response> Get7(string projectId,
         string requestId,
-        string authorization,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/v1/projects/{project_id}/requests/{request_id}"),
             [new TemplateParam("project_id", projectId), new TemplateParam("request_id", requestId)],
             [],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<GetProjectRequestV1Response>(),
             Get7ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 
@@ -68,7 +68,6 @@ public sealed class ManageV1ProjectsRequests
     /// <param name="endpoint">Filter for requests where a specific endpoint was used</param>
     /// <param name="method">Filter for requests where a specific method was used</param>
     /// <param name="status">Filter for requests that succeeded (status code &lt; 300) or failed (status code &gt;=400)</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="limit">Number of results to return per page. Default 10. Range [1,1000]</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
@@ -87,7 +86,6 @@ public sealed class ManageV1ProjectsRequests
         V1ProjectsProjectIdRequestsGetParametersEndpoint? endpoint,
         V1ProjectsProjectIdRequestsGetParametersMethod? method,
         V1ProjectsProjectIdRequestsGetParametersStatus? status,
-        string authorization,
         double? limit = 10d,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
@@ -103,12 +101,12 @@ public sealed class ManageV1ProjectsRequests
                 new Param("endpoint", endpoint),
                 new Param("method", method),
                 new Param("status", status)],
-            [new HeaderParam("Authorization", authorization)],
+            [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectRequestsV1Response>(),
             List11ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

@@ -14,11 +14,13 @@ public sealed class AgentV1SettingsThinkModels
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal AgentV1SettingsThinkModels(RawClient rawClient, Server server)
+    internal AgentV1SettingsThinkModels(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -41,7 +43,7 @@ public sealed class AgentV1SettingsThinkModels
             EmptyBody.Instance,
             JsonResponse.Create<AgentThinkModelsV1Response>(),
             ListErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

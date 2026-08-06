@@ -18,11 +18,13 @@ public sealed class SpeakV2Audio
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal SpeakV2Audio(RawClient rawClient, Server server)
+    internal SpeakV2Audio(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -37,7 +39,6 @@ public sealed class SpeakV2Audio
     /// <param name="encoding">Encoding allows you to specify the expected encoding of your audio output</param>
     /// <param name="sampleRate">Sample Rate specifies the sample rate for the output audio. Based on the encoding, different sample rates are supported. For some encodings, the sample rate is not configurable</param>
     /// <param name="priority">Processing priority for asynchronous (callback) requests. The only supported value is low.</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="body"></param>
     /// <param name="mipOptOut">Opts out requests from the Deepgram Model Improvement Program. Refer to our Docs for pricing impacts before setting this to true. https://dpgr.am/deepgram-mip</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
@@ -56,7 +57,6 @@ public sealed class SpeakV2Audio
         V2SpeakPostParametersEncoding? encoding,
         V2SpeakPostParametersSampleRate? sampleRate,
         V2SpeakPostParametersPriority? priority,
-        string authorization,
         SpeakV2Request? body,
         bool? mipOptOut = false,
         RequestOptions? requestOptions = null,
@@ -73,12 +73,12 @@ public sealed class SpeakV2Audio
                 new Param("encoding", encoding),
                 new Param("sample_rate", sampleRate),
                 new Param("priority", priority)],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<SpeakV2AcceptedResponse>(),
             Generate2ErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }

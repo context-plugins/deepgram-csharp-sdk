@@ -19,11 +19,13 @@ public sealed class ListenV1Media
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
+    private readonly AuthSchemes _auth;
 
-    internal ListenV1Media(RawClient rawClient, Server server)
+    internal ListenV1Media(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
+        _auth = auth;
     }
 
     /// <summary>
@@ -48,7 +50,6 @@ public sealed class ListenV1Media
     /// <param name="replace">Search for terms or phrases in submitted audio and replaces them</param>
     /// <param name="search">Search for terms or phrases in submitted audio</param>
     /// <param name="version">Version of an AI model to use</param>
-    /// <param name="authorization">Use <c>Authorization: Token &lt;API_KEY&gt;</c> Example: <c>Authorization: Token 12345abcdef</c></param>
     /// <param name="body"></param>
     /// <param name="sentiment">Recognizes the sentiment throughout a transcript or text</param>
     /// <param name="topics">Detect topics throughout a transcript or text</param>
@@ -94,7 +95,6 @@ public sealed class ListenV1Media
         V1ListenPostParametersReplace? replace,
         V1ListenPostParametersSearch? search,
         V1ListenPostParametersVersion? version,
-        string authorization,
         ListenV1RequestUrl? body,
         bool? sentiment = false,
         bool? topics = false,
@@ -155,12 +155,12 @@ public sealed class ListenV1Media
                 new Param("utt_split", uttSplit),
                 new Param("version", version),
                 new Param("mip_opt_out", mipOptOut)],
-            [new HeaderParam("Authorization", authorization), new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<ListenV1MediaTranscribeResponse200>(),
             TranscribeErrorResponse.Instance,
-            [],
+            [_auth.ApiKeyAuth],
             requestOptions,
             ct);
 }
