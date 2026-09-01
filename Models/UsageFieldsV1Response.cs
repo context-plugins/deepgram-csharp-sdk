@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record UsageFieldsV1Response
 {
@@ -32,4 +33,7 @@ public record UsageFieldsV1Response
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("features")]
     public IReadOnlyList<string>? Features { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

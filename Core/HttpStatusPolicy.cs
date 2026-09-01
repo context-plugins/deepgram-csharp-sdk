@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace RestApi.Core;
+namespace Deepgram.Core;
 
 internal sealed class HttpStatusPolicy
 {

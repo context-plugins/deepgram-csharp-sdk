@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RestApi.Core.Models;
+using Deepgram.Core.Models;
 
-namespace RestApi.Core;
+namespace Deepgram.Core;
 
 internal sealed class QueryParameterFactory
 {

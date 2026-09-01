@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Extensions.Logging;
 
-namespace RestApi.Core.Logging;
+namespace Deepgram.Core.Logging;
 
 internal static partial class SdkLog
 {

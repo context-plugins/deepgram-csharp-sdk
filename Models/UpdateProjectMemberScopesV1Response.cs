@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record UpdateProjectMemberScopesV1Response
 {
@@ -10,4 +11,7 @@ public record UpdateProjectMemberScopesV1Response
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("message")]
     public string? Message { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

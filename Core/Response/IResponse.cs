@@ -2,7 +2,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RestApi.Core.Response;
+namespace Deepgram.Core.Response;
 
 internal interface IResponse<TResponse>
 {

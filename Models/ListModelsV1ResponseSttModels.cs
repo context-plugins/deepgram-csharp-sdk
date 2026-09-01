@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ListModelsV1ResponseSttModels
 {
@@ -40,4 +41,7 @@ public record ListModelsV1ResponseSttModels
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("formatted_output")]
     public bool? FormattedOutput { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

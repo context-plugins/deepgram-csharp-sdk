@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 
-namespace RestApi.Core.Configuration;
+namespace Deepgram.Core.Configuration;
 
 public record LoggingOptions
 {

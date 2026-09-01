@@ -1,6 +1,9 @@
-namespace RestApi.Core.Models;
+namespace Deepgram.Core.Models;
 
 internal readonly record struct MultipartParam(
-    string Key,
+    string? Key,
     object? Value,
-    string? ContentType = null);
+    string? ContentType = null)
+{
+    public MultipartParam(object? value) : this(null, value) { }
+}

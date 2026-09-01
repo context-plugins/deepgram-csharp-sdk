@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ListenV1ResponseResultsChannelsItems
 {
@@ -16,4 +17,7 @@ public record ListenV1ResponseResultsChannelsItems
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("detected_language")]
     public string? DetectedLanguage { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

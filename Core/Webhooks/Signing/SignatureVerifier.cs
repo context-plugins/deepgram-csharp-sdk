@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace RestApi.Core.Webhooks.Signing;
+namespace Deepgram.Core.Webhooks.Signing;
 
 internal sealed class SignatureVerifier
 {

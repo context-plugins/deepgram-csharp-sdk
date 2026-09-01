@@ -1,7 +1,8 @@
 using System;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ListProjectPurchasesV1ResponseOrdersItems
 {
@@ -28,4 +29,7 @@ public record ListProjectPurchasesV1ResponseOrdersItems
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("order_type")]
     public string? OrderType { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

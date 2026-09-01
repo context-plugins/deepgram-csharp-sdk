@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record UsageFieldsV1ResponseModelsItems
 {
@@ -31,4 +32,7 @@ public record UsageFieldsV1ResponseModelsItems
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("model_id")]
     public string? ModelId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,6 +1,6 @@
 using System.Net.Http;
 
-namespace RestApi.Core.Request;
+namespace Deepgram.Core.Request;
 
 internal interface IRequest
 {

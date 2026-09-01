@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 #endif
 
-namespace RestApi.Core.Models;
+namespace Deepgram.Core.Models;
 
 public sealed class BinaryContent : IDisposable
 #if NET6_0_OR_GREATER

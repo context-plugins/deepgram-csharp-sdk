@@ -1,11 +1,11 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using RestApi.Core.ErrorResponse;
+using Deepgram.Core.ErrorResponse;
 
-namespace RestApi.Core.Response;
+namespace Deepgram.Core.Response;
 
-public sealed class RawErrorBodyResponse : IResponse<RawError>
+internal sealed class RawErrorBodyResponse : IResponse<RawError>
 {
     public static RawErrorBodyResponse Instance { get; } = new();
 

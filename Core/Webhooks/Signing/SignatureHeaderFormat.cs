@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace RestApi.Core.Webhooks.Signing;
+namespace Deepgram.Core.Webhooks.Signing;
 
 internal abstract record SignatureHeaderFormat
 {

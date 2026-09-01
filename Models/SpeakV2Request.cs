@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// Request body for Flux TTS batch (REST) text-to-speech conversion. The full block of text is synthesized in a single request and returned as one audio response.
@@ -12,4 +13,7 @@ public record SpeakV2Request
     /// </summary>
     [JsonPropertyName("text")]
     public required string Text { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

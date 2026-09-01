@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using RestApi.Core.Enum;
+using Deepgram.Core.Enum;
 
-namespace RestApi.Models.Enums;
+namespace Deepgram.Models.Enums;
 
 /// <summary>
 /// Our public models available to all accounts

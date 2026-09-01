@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record GetProjectKeyV1ResponseItemMemberApiKey
 {
@@ -29,4 +30,7 @@ public record GetProjectKeyV1ResponseItemMemberApiKey
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("created")]
     public DateTimeOffset? Created { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

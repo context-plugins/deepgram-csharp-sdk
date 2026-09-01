@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record SharedIntentsResultsIntentsSegmentsItems
 {
@@ -20,4 +21,7 @@ public record SharedIntentsResultsIntentsSegmentsItems
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("intents")]
     public IReadOnlyList<SharedIntentsResultsIntentsSegmentsItemsIntentsItems>? Intents { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

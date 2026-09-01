@@ -1,9 +1,9 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using RestApi.Core.Extensions;
+using Deepgram.Core.Extensions;
 
-namespace RestApi.Core.Converters;
+namespace Deepgram.Core.Converters;
 
 internal sealed class DateOnlyDateTimeOffsetConverter : JsonConverter<DateTimeOffset>
 {

@@ -1,7 +1,7 @@
 using System;
 using System.Text.Json;
 
-namespace RestApi.Core.Webhooks;
+namespace Deepgram.Core.Webhooks;
 
 internal abstract record WebhookTypeSource
 {

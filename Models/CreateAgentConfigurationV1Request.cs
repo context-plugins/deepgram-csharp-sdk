@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// Request body for creating an agent configuration
@@ -26,4 +27,7 @@ public record CreateAgentConfigurationV1Request
     /// </summary>
     [JsonPropertyName("api_version")]
     public int? ApiVersion { get; init; } = 1;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

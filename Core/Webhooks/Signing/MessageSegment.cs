@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RestApi.Core.Webhooks.Signing;
+namespace Deepgram.Core.Webhooks.Signing;
 
 internal abstract record MessageSegment
 {

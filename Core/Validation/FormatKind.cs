@@ -1,4 +1,4 @@
-namespace RestApi.Core.Validation;
+namespace Deepgram.Core.Validation;
 
 public enum FormatKind
 {

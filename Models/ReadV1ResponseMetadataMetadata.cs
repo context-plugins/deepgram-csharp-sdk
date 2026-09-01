@@ -1,7 +1,8 @@
 using System;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ReadV1ResponseMetadataMetadata
 {
@@ -32,4 +33,7 @@ public record ReadV1ResponseMetadataMetadata
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("intents_info")]
     public ReadV1ResponseMetadataMetadataIntentsInfo? IntentsInfo { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

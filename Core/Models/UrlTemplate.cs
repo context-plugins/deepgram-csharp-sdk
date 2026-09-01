@@ -1,3 +1,3 @@
-namespace RestApi.Core.Models;
+namespace Deepgram.Core.Models;
 
 internal readonly record struct UrlTemplate(string BaseUrl, string Path, TemplateParam[] Variables);

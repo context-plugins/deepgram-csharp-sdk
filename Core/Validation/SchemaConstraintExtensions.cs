@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
 
-namespace RestApi.Core.Validation;
+namespace Deepgram.Core.Validation;
 
 internal static class SchemaConstraintExtensions
 {

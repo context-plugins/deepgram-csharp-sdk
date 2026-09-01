@@ -1,7 +1,7 @@
-using RestApi.Core.Models;
-using RestApi.Servers;
+using Deepgram.Core.Models;
+using Deepgram.Servers;
 
-namespace RestApi;
+namespace Deepgram;
 
 public class Server
 {

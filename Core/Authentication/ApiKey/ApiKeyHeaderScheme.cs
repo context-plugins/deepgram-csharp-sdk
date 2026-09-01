@@ -2,7 +2,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RestApi.Core.Authentication.ApiKey;
+namespace Deepgram.Core.Authentication.ApiKey;
 
 internal sealed class ApiKeyHeaderScheme : IAuthScheme
 {

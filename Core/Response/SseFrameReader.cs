@@ -5,9 +5,9 @@ using System.Net.ServerSentEvents;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using RestApi.Core.Exceptions;
+using Deepgram.Core.Exceptions;
 
-namespace RestApi.Core.Response;
+namespace Deepgram.Core.Response;
 
 internal static class SseFrameReader
 {

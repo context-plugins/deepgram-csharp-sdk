@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 
-namespace RestApi.Core.Configuration;
+namespace Deepgram.Core.Configuration;
 
 public record RetryOptions
 {

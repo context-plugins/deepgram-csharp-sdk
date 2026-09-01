@@ -1,8 +1,8 @@
 using System;
 using System.Text.Json.Serialization;
-using RestApi.Core.Enum;
+using Deepgram.Core.Enum;
 
-namespace RestApi.Servers;
+namespace Deepgram.Servers;
 
 [JsonConverter(typeof(StringEnumConverter<ServerEnvironment>))]
 public record ServerEnvironment : StringEnum<ServerEnvironment>

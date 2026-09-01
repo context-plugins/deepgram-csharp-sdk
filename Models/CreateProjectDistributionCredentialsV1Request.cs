@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// Request body for creating distribution credentials
@@ -13,4 +14,7 @@ public record CreateProjectDistributionCredentialsV1Request
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("comment")]
     public string? Comment { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

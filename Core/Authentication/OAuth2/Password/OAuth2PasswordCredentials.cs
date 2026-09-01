@@ -1,4 +1,4 @@
-namespace RestApi.Core.Authentication.OAuth2.Password;
+namespace Deepgram.Core.Authentication.OAuth2.Password;
 
 public sealed class OAuth2PasswordCredentials
 {

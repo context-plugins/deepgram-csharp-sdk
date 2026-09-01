@@ -1,7 +1,8 @@
 using System;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// Accepted response for asynchronous transcription requests
@@ -13,4 +14,7 @@ public record ListenV1AcceptedResponse
     /// </summary>
     [JsonPropertyName("request_id")]
     public required Guid RequestId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

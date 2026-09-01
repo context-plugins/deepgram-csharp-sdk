@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using Polly;
 using Polly.Retry;
 using Polly.Timeout;
-using RestApi.Core.Configuration;
-using RestApi.Core.Logging;
-using RestApi.Core.Request;
+using Deepgram.Core.Configuration;
+using Deepgram.Core.Logging;
+using Deepgram.Core.Request;
 
-namespace RestApi.Core;
+namespace Deepgram.Core;
 
 internal sealed class ResiliencePipelineFactory
 {

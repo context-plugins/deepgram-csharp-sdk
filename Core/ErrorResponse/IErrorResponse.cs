@@ -2,7 +2,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RestApi.Core.ErrorResponse;
+namespace Deepgram.Core.ErrorResponse;
 
 public interface IErrorResponse<TError>
 {

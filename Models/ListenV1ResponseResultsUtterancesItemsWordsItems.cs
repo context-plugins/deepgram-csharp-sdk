@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ListenV1ResponseResultsUtterancesItemsWordsItems
 {
@@ -31,4 +32,7 @@ public record ListenV1ResponseResultsUtterancesItemsWordsItems
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("punctuated_word")]
     public string? PunctuatedWord { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

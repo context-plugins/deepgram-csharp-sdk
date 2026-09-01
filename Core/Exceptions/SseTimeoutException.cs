@@ -1,6 +1,6 @@
 using System;
 
-namespace RestApi.Core.Exceptions;
+namespace Deepgram.Core.Exceptions;
 
 public sealed class SseTimeoutException : SseException
 {

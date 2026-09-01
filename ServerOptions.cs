@@ -1,6 +1,6 @@
-using RestApi.Servers;
+using Deepgram.Servers;
 
-namespace RestApi;
+namespace Deepgram;
 
 public class ServerOptions
 {

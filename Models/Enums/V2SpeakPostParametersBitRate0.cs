@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using RestApi.Core.Enum;
+using Deepgram.Core.Enum;
 
-namespace RestApi.Models.Enums;
+namespace Deepgram.Models.Enums;
 
 /// <summary>
 /// Encoding - mp3(default). Supported bitrates - 8000, 16000, 24000, 32000, 40000, 48000(default) bps.

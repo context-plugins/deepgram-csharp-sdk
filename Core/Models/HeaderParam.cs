@@ -1,3 +1,3 @@
-namespace RestApi.Core.Models;
+namespace Deepgram.Core.Models;
 
 public readonly record struct HeaderParam(string Key, object? Value);

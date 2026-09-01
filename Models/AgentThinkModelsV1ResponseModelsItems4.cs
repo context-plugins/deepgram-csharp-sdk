@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// AWS Bedrock models (custom models accepted)
@@ -24,4 +25,7 @@ public record AgentThinkModelsV1ResponseModelsItems4
     /// </summary>
     [JsonPropertyName("provider")]
     public required object Provider { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

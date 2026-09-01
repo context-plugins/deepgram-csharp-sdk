@@ -2,10 +2,10 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using RestApi.Core.Models;
-using RestApi.Core.Response;
+using Deepgram.Core.Models;
+using Deepgram.Core.Response;
 
-namespace RestApi.Core.ErrorResponse;
+namespace Deepgram.Core.ErrorResponse;
 
 public abstract class ApiError
 {

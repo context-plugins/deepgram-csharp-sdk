@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RestApi.Core.Webhooks;
+namespace Deepgram.Core.Webhooks;
 
 public sealed class WebhookRequest
 {

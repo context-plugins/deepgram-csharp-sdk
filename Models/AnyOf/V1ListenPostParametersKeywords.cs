@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using RestApi.Core.Extensions;
-using RestApi.Core.Models;
+using Deepgram.Core.Extensions;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models.AnyOf;
+namespace Deepgram.Models.AnyOf;
 
 [JsonConverter(typeof(V1ListenPostParametersKeywordsConverter))]
 public record V1ListenPostParametersKeywords

@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using RestApi.Core.Enum;
+using Deepgram.Core.Enum;
 
-namespace RestApi.Models.Enums;
+namespace Deepgram.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<V1SpeakPostParametersModel>))]
 public sealed record V1SpeakPostParametersModel : StringEnum<V1SpeakPostParametersModel>

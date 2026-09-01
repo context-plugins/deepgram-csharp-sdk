@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// Request body for updating agent configuration metadata
@@ -13,4 +14,7 @@ public record UpdateAgentMetadataV1Request
     /// </summary>
     [JsonPropertyName("metadata")]
     public required IReadOnlyDictionary<string, string> Metadata { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

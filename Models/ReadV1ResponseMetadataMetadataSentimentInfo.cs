@@ -1,7 +1,8 @@
 using System;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ReadV1ResponseMetadataMetadataSentimentInfo
 {
@@ -16,4 +17,7 @@ public record ReadV1ResponseMetadataMetadataSentimentInfo
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("output_tokens")]
     public int? OutputTokens { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

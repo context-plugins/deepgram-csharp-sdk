@@ -1,10 +1,10 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using RestApi.Core.Extensions;
-using RestApi.Core.Models;
+using Deepgram.Core.Extensions;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models.AnyOf;
+namespace Deepgram.Models.AnyOf;
 
 [JsonConverter(typeof(ReadV1RequestConverter))]
 public record ReadV1Request

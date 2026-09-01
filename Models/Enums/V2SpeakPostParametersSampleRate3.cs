@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using RestApi.Core.Enum;
+using Deepgram.Core.Enum;
 
-namespace RestApi.Models.Enums;
+namespace Deepgram.Models.Enums;
 
 /// <summary>
 /// Encoding - flac. Supported sample rates - 8000, 16000, 22050, 32000, 48000 Hz.

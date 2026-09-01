@@ -2,9 +2,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
-using RestApi.Core.Models;
+using Deepgram.Core.Models;
 
-namespace RestApi.Core.Response;
+namespace Deepgram.Core.Response;
 
 internal sealed class BinaryResponse : IResponse<BinaryContent>
 {

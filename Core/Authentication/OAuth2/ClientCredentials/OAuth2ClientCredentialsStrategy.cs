@@ -4,12 +4,12 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using RestApi.Core.ErrorResponse;
-using RestApi.Core.Models;
-using RestApi.Core.Request;
-using RestApi.Core.Response;
+using Deepgram.Core.ErrorResponse;
+using Deepgram.Core.Models;
+using Deepgram.Core.Request;
+using Deepgram.Core.Response;
 
-namespace RestApi.Core.Authentication.OAuth2.ClientCredentials;
+namespace Deepgram.Core.Authentication.OAuth2.ClientCredentials;
 
 internal sealed class OAuth2ClientCredentialsStrategy : IOAuth2TokenStrategy<OAuth2ClientCredentials>
 {

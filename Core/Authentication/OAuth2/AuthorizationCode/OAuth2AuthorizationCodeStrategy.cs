@@ -5,12 +5,12 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using RestApi.Core.ErrorResponse;
-using RestApi.Core.Models;
-using RestApi.Core.Request;
-using RestApi.Core.Response;
+using Deepgram.Core.ErrorResponse;
+using Deepgram.Core.Models;
+using Deepgram.Core.Request;
+using Deepgram.Core.Response;
 
-namespace RestApi.Core.Authentication.OAuth2.AuthorizationCode;
+namespace Deepgram.Core.Authentication.OAuth2.AuthorizationCode;
 
 internal sealed class OAuth2AuthorizationCodeStrategy
     : IOAuth2RefreshableTokenStrategy<OAuth2AuthorizationCodeCredentials>
@@ -112,13 +112,8 @@ internal sealed class OAuth2AuthorizationCodeStrategy
         return [new HeaderParam("Authorization", $"Basic {encoded}")];
     }
 
-    private static IReadOnlyList<Param> BodyParams(string clientId, string? clientSecret)
-    {
-        List<Param> parameters = [new("client_id", clientId)];
-        if (clientSecret is not null)
-            parameters.Add(new Param("client_secret", clientSecret));
-        return parameters;
-    }
+    private static IReadOnlyList<Param> BodyParams(string clientId, string? clientSecret) =>
+        [new("client_id", clientId), new("client_secret", clientSecret)];
 
     private static IReadOnlyCollection<Param> BuildAuthorizationQueryParams(
         OAuth2AuthorizationCodeCredentials credentials, PkceValues? pkce)

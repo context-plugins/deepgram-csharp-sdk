@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ListenV1ResponseResultsChannelsItemsAlternativesItemsWordsItems
 {
@@ -19,4 +20,7 @@ public record ListenV1ResponseResultsChannelsItemsAlternativesItemsWordsItems
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("confidence")]
     public double? Confidence { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

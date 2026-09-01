@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RestApi.Core;
+namespace Deepgram.Core;
 
 internal sealed class AsyncLock
 {

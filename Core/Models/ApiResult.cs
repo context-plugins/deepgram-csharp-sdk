@@ -2,9 +2,9 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Http.Headers;
-using RestApi.Core.Exceptions;
+using Deepgram.Core.Exceptions;
 
-namespace RestApi.Core.Models;
+namespace Deepgram.Core.Models;
 
 /// <summary>
 ///     Represents either a successful response of type <typeparamref name="TResponse" />

@@ -1,9 +1,10 @@
 using System;
 using System.Text.Json.Serialization;
-using RestApi.Core.Validation;
-using RestApi.Core.Validation.Attributes;
+using Deepgram.Core.Models;
+using Deepgram.Core.Validation;
+using Deepgram.Core.Validation.Attributes;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ListProjectDistributionCredentialsV1ResponseDistributionCredentialsItemsMember
 {
@@ -19,4 +20,7 @@ public record ListProjectDistributionCredentialsV1ResponseDistributionCredential
     [JsonPropertyName("email")]
     [Format(FormatKind.Email)]
     public required string Email { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

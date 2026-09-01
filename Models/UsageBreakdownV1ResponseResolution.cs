@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record UsageBreakdownV1ResponseResolution
 {
@@ -15,4 +16,7 @@ public record UsageBreakdownV1ResponseResolution
     /// </summary>
     [JsonPropertyName("amount")]
     public required double Amount { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

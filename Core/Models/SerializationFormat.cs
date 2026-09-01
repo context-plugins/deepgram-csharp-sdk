@@ -1,4 +1,4 @@
-namespace RestApi.Core.Models;
+namespace Deepgram.Core.Models;
 
 internal enum SerializationFormat
 {

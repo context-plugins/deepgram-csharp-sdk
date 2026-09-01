@@ -1,8 +1,8 @@
 using System;
 using Microsoft.Extensions.Logging;
-using RestApi.Core.Configuration;
+using Deepgram.Core.Configuration;
 
-namespace RestApi.Core.Logging;
+namespace Deepgram.Core.Logging;
 
 internal static class LoggingEnvironment
 {

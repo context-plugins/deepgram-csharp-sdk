@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using RestApi.Core.Enum;
+using Deepgram.Core.Enum;
 
-namespace RestApi.Models.Enums;
+namespace Deepgram.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<ListBillingFieldsV1ResponseDeploymentsItems>))]
 public sealed record ListBillingFieldsV1ResponseDeploymentsItems : StringEnum<ListBillingFieldsV1ResponseDeploymentsItems>

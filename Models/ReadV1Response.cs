@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// The standard text response
@@ -12,4 +13,7 @@ public record ReadV1Response
 
     [JsonPropertyName("results")]
     public required ReadV1ResponseResults Results { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

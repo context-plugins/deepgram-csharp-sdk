@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ListenV1ResponseResultsChannelsItemsAlternativesItems
 {
@@ -32,4 +33,7 @@ public record ListenV1ResponseResultsChannelsItemsAlternativesItems
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("topics")]
     public IReadOnlyList<ListenV1ResponseResultsChannelsItemsAlternativesItemsTopicsItems>? Topics { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

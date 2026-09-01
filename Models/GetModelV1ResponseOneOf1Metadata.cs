@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using RestApi.Core.Validation;
-using RestApi.Core.Validation.Attributes;
+using Deepgram.Core.Models;
+using Deepgram.Core.Validation;
+using Deepgram.Core.Validation.Attributes;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record GetModelV1ResponseOneOf1Metadata
 {
@@ -36,4 +37,7 @@ public record GetModelV1ResponseOneOf1Metadata
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("use_cases")]
     public IReadOnlyList<string>? UseCases { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

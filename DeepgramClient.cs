@@ -1,14 +1,14 @@
 using System.Net.Http;
-using RestApi.Api;
-using RestApi.Core;
-using RestApi.Core.Logging;
-using RestApi.Core.Models;
+using Deepgram.Api;
+using Deepgram.Core;
+using Deepgram.Core.Logging;
+using Deepgram.Core.Models;
 
-namespace RestApi;
+namespace Deepgram;
 
-public sealed class RestApiClient
+public sealed class DeepgramClient
 {
-    public RestApiClient(HttpClient httpClient, RestApiClientOptions options)
+    public DeepgramClient(HttpClient httpClient, DeepgramClientOptions options)
     {
         var server = new Server(options.Environment, options.Server);
         var queryParameterFactory = new QueryParameterFactory([]);
@@ -16,16 +16,22 @@ public sealed class RestApiClient
         var urlFactory = new UriFactory(queryParameterFactory, templateParamsFactory);
         var httpStatusPolicy = new HttpStatusPolicy([]);
         var headersFactory =
-            new HeadersFactory([new HeaderParam("User-Agent", "RestApiClient/1.0.0 CSharp"),
+            new HeadersFactory([new HeaderParam("User-Agent", "DeepgramClient/1.0.0 CSharp"),
                     new HeaderParam("X-APIMatic-Lang", "CSharp"),
                     new HeaderParam("X-APIMatic-Package-Version", "1.0.0"),
                     new HeaderParam("X-APIMatic-Gen-Version", "4.0.0"),
                     new HeaderParam("X-APIMatic-OS", RuntimeEnvironment.Os),
                     new HeaderParam("X-APIMatic-Runtime", RuntimeEnvironment.Runtime)]);
         var resiliencePipelineFactory = new ResiliencePipelineFactory(options.Retry);
-        var httpLogger = new HttpLogger(options.Logging, "RestApiClient");
+        var httpLogger = new HttpLogger(options.Logging, "DeepgramClient");
         var rawClient =
-            new RawClient(httpClient, urlFactory, httpStatusPolicy, headersFactory, resiliencePipelineFactory, httpLogger);
+            new RawClient(httpClient,
+                urlFactory,
+                httpStatusPolicy,
+                headersFactory,
+                resiliencePipelineFactory,
+                httpLogger,
+                options.Hooks);
         var auth = new AuthSchemes(options);
         AgentV1SettingsThinkModels = new AgentV1SettingsThinkModels(rawClient, server, auth);
         AuthV1Tokens = new AuthV1Tokens(rawClient, server, auth);

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RestApi.Core.Extensions;
+namespace Deepgram.Core.Extensions;
 
 internal static class CollectionExtensions
 {

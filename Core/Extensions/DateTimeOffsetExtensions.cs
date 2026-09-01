@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace RestApi.Core.Extensions;
+namespace Deepgram.Core.Extensions;
 
 internal static class DateTimeOffsetExtensions
 {

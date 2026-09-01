@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RestApi.Core.Authentication.OAuth2;
+namespace Deepgram.Core.Authentication.OAuth2;
 
 /// <summary>
 /// Token acquisition strategy for OAuth2 grant types where the scheme does not manage refresh

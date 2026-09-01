@@ -1,11 +1,11 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using RestApi.Core.ErrorResponse;
-using RestApi.Core.Models;
-using RestApi.Models.AnyOf;
+using Deepgram.Core.ErrorResponse;
+using Deepgram.Core.Models;
+using Deepgram.Models.AnyOf;
 
-namespace RestApi.Errors;
+namespace Deepgram.Errors;
 
 public sealed class Get11Error : ApiError
 {

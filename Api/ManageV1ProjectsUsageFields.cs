@@ -2,16 +2,16 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using RestApi.Core;
-using RestApi.Core.Exceptions;
-using RestApi.Core.Extensions;
-using RestApi.Core.Models;
-using RestApi.Core.Request;
-using RestApi.Core.Response;
-using RestApi.Errors;
-using RestApi.Models;
+using Deepgram.Core;
+using Deepgram.Core.Exceptions;
+using Deepgram.Core.Extensions;
+using Deepgram.Core.Models;
+using Deepgram.Core.Request;
+using Deepgram.Core.Response;
+using Deepgram.Errors;
+using Deepgram.Models;
 
-namespace RestApi.Api;
+namespace Deepgram.Api;
 
 public sealed class ManageV1ProjectsUsageFields
 {

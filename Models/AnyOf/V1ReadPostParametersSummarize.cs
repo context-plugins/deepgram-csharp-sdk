@@ -1,11 +1,11 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using RestApi.Core.Extensions;
-using RestApi.Core.Models;
-using RestApi.Models.Enums;
+using Deepgram.Core.Extensions;
+using Deepgram.Core.Models;
+using Deepgram.Models.Enums;
 
-namespace RestApi.Models.AnyOf;
+namespace Deepgram.Models.AnyOf;
 
 [JsonConverter(typeof(V1ReadPostParametersSummarizeConverter))]
 public record V1ReadPostParametersSummarize

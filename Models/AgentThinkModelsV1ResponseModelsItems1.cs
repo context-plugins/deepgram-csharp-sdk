@@ -1,7 +1,8 @@
 using System.Text.Json.Serialization;
-using RestApi.Models.Enums;
+using Deepgram.Core.Models;
+using Deepgram.Models.Enums;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// Anthropic models
@@ -25,4 +26,7 @@ public record AgentThinkModelsV1ResponseModelsItems1
     /// </summary>
     [JsonPropertyName("provider")]
     public required object Provider { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

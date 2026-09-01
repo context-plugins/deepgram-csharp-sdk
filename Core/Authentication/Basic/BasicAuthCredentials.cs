@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace RestApi.Core.Authentication.Basic;
+namespace Deepgram.Core.Authentication.Basic;
 
 public sealed class BasicAuthCredentials
 {

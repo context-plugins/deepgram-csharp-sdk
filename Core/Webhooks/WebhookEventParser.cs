@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace RestApi.Core.Webhooks;
+namespace Deepgram.Core.Webhooks;
 
 public abstract class WebhookEventParser<TEvent>
     where TEvent : class

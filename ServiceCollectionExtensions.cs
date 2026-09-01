@@ -3,15 +3,15 @@ using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace RestApi;
+namespace Deepgram;
 
 public static class ServiceCollectionExtensions
 {
     extension(IServiceCollection services)
     {
-        public IServiceCollection AddRestApiClient(Action<RestApiClientOptions>? configure = null)
+        public IServiceCollection AddDeepgramClient(Action<DeepgramClientOptions>? configure = null)
         {
-            var options = new RestApiClientOptions();
+            var options = new DeepgramClientOptions();
             configure?.Invoke(options);
             services.AddHttpClient();
             services.AddSingleton(sp =>
@@ -23,7 +23,7 @@ public static class ServiceCollectionExtensions
                         };
                     var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
                     var httpClient = httpClientFactory.CreateClient();
-                    return new RestApiClient(httpClient, options);
+                    return new DeepgramClient(httpClient, options);
                 });
             return services;
         }

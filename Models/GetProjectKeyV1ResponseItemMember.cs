@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record GetProjectKeyV1ResponseItemMember
 {
@@ -23,4 +24,7 @@ public record GetProjectKeyV1ResponseItemMember
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("api_key")]
     public GetProjectKeyV1ResponseItemMemberApiKey? ApiKey { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

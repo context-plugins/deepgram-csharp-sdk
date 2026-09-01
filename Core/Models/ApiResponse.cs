@@ -1,7 +1,7 @@
-using RestApi.Core.ErrorResponse;
-using RestApi.Core.Response;
+using Deepgram.Core.ErrorResponse;
+using Deepgram.Core.Response;
 
-namespace RestApi.Core.Models;
+namespace Deepgram.Core.Models;
 
 internal sealed class ApiResponse<TResponse, TError>
 {

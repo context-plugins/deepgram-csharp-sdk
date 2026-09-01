@@ -1,7 +1,7 @@
 using System;
 using System.Net.Http.Headers;
 
-namespace RestApi.Core.Models;
+namespace Deepgram.Core.Models;
 
 public sealed class ErrorByteContent
 {

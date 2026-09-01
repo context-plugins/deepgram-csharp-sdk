@@ -1,6 +1,6 @@
 using System;
 
-namespace RestApi.Core.Webhooks.Signing;
+namespace Deepgram.Core.Webhooks.Signing;
 
 internal abstract record SignatureDigestEncoding
 {

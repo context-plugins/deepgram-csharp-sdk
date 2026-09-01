@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using RestApi.Models.Enums;
+using Deepgram.Core.Models;
+using Deepgram.Models.Enums;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ListBillingFieldsV1Response
 {
@@ -34,4 +35,7 @@ public record ListBillingFieldsV1Response
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("line_items")]
     public IReadOnlyDictionary<string, string>? LineItems { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

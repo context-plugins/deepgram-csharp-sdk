@@ -1,6 +1,6 @@
 # Reference
 
-> Source: [RestApiClient](RestApiClient.cs)
+> Source: [DeepgramClient](DeepgramClient.cs)
 
 ## AgentV1SettingsThinkModels
 
@@ -35,9 +35,9 @@ try
 }
 catch (SdkException<ListError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type ListError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -95,9 +95,9 @@ try
 }
 catch (SdkException<GrantError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type GrantError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -186,9 +186,9 @@ try
 }
 catch (SdkException<TranscribeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetListenV1Response(out var error))
     {
-        // TODO: Handle 'error' of type TranscribeError
+        // TODO: Handle 'error' of type ListenV1Response
     }
 }
 ```
@@ -295,9 +295,9 @@ try
 }
 catch (SdkException<Get5Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Get5Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -363,9 +363,9 @@ try
 }
 catch (SdkException<List6Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List6Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -435,9 +435,9 @@ try
 }
 catch (SdkException<Delete3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Delete3Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -503,9 +503,9 @@ try
 }
 catch (SdkException<Get3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Get3Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -573,9 +573,9 @@ try
 }
 catch (SdkException<LeaveError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type LeaveError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -641,9 +641,9 @@ try
 }
 catch (SdkException<List4Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List4Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -697,9 +697,9 @@ try
 }
 catch (SdkException<Update3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Update3Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -770,9 +770,9 @@ try
 }
 catch (SdkException<Get10Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Get10Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -839,9 +839,9 @@ try
 }
 catch (SdkException<List13Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List13Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -918,9 +918,9 @@ try
 }
 catch (SdkException<List14Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List14Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -997,9 +997,9 @@ try
 }
 catch (SdkException<List15Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List15Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1071,9 +1071,9 @@ try
 }
 catch (SdkException<List16Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List16Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1144,9 +1144,9 @@ try
 }
 catch (SdkException<Create3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Create3Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1213,9 +1213,9 @@ try
 }
 catch (SdkException<Delete4Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Delete4Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1282,9 +1282,9 @@ try
 }
 catch (SdkException<Get6Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Get6Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1351,9 +1351,9 @@ try
 }
 catch (SdkException<List7Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List7Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1424,9 +1424,9 @@ try
 }
 catch (SdkException<Delete5Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Delete5Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1493,9 +1493,9 @@ try
 }
 catch (SdkException<List8Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List8Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1565,9 +1565,9 @@ try
 }
 catch (SdkException<Create4Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Create4Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1634,9 +1634,9 @@ try
 }
 catch (SdkException<Delete6Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Delete6Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1703,9 +1703,9 @@ try
 }
 catch (SdkException<List10Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List10Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1775,9 +1775,9 @@ try
 }
 catch (SdkException<List9Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List9Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1844,9 +1844,9 @@ try
 }
 catch (SdkException<Update4Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Update4Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1918,9 +1918,9 @@ try
 }
 catch (SdkException<Get4Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Get4Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -1987,9 +1987,9 @@ try
 }
 catch (SdkException<List5Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List5Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2060,9 +2060,9 @@ try
 }
 catch (SdkException<Get7Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Get7Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2138,9 +2138,9 @@ try
 }
 catch (SdkException<List11Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List11Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2264,9 +2264,9 @@ try
 }
 catch (SdkException<Get8Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Get8Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2425,9 +2425,9 @@ try
 }
 catch (SdkException<Get9Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Get9Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2542,9 +2542,9 @@ try
 }
 catch (SdkException<List12Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List12Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2624,9 +2624,9 @@ try
 }
 catch (SdkException<AnalyzeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type AnalyzeError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2708,9 +2708,9 @@ try
 }
 catch (SdkException<Create5Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Create5Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2779,9 +2779,9 @@ try
 }
 catch (SdkException<Delete7Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Delete7Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2848,9 +2848,9 @@ try
 }
 catch (SdkException<Get11Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Get11Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2917,9 +2917,9 @@ try
 }
 catch (SdkException<List17Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List17Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -2997,9 +2997,9 @@ try
 }
 catch (SdkException<GenerateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type GenerateError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3088,9 +3088,9 @@ try
 }
 catch (SdkException<Generate2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Generate2Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3170,9 +3170,9 @@ try
 }
 catch (SdkException<CreateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type CreateError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3239,9 +3239,9 @@ try
 }
 catch (SdkException<DeleteError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type DeleteError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3308,9 +3308,9 @@ try
 }
 catch (SdkException<GetError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type GetError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3377,9 +3377,9 @@ try
 }
 catch (SdkException<List2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List2Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3445,9 +3445,9 @@ try
 }
 catch (SdkException<UpdateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type UpdateError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3519,9 +3519,9 @@ try
 }
 catch (SdkException<Create2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Create2Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3588,9 +3588,9 @@ try
 }
 catch (SdkException<Delete2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Delete2Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3657,9 +3657,9 @@ try
 }
 catch (SdkException<Get2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Get2Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3726,9 +3726,9 @@ try
 }
 catch (SdkException<List3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type List3Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -3794,9 +3794,9 @@ try
 }
 catch (SdkException<Update2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type Update2Error
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```

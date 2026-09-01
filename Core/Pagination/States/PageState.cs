@@ -1,7 +1,7 @@
 using System;
 using System.Net.Http.Headers;
 
-namespace RestApi.Core.Pagination.States;
+namespace Deepgram.Core.Pagination.States;
 
 internal sealed record PageState<TResponse> : IPageState<TResponse, PageState<TResponse>>
 {

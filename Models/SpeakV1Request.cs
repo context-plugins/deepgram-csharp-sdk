@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// Request body for text-to-speech conversion
@@ -12,4 +13,7 @@ public record SpeakV1Request
     /// </summary>
     [JsonPropertyName("text")]
     public required string Text { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

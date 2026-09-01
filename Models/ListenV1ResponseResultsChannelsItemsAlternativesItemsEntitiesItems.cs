@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ListenV1ResponseResultsChannelsItemsAlternativesItemsEntitiesItems
 {
@@ -27,4 +28,7 @@ public record ListenV1ResponseResultsChannelsItemsAlternativesItemsEntitiesItems
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("end_word")]
     public double? EndWord { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

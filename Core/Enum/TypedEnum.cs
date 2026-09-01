@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace RestApi.Core.Enum;
+namespace Deepgram.Core.Enum;
 
 /// <summary>
 /// Base class for type-safe enum pattern with flexible serialization

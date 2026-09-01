@@ -1,6 +1,6 @@
-using RestApi.Core.Models;
+using Deepgram.Core.Models;
 
-namespace RestApi.Servers;
+namespace Deepgram.Servers;
 
 public class DefaultOptions
 {

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Net.Http;
-using RestApi.Core.Authentication;
-using RestApi.Core.Request;
+using Deepgram.Core.Authentication;
+using Deepgram.Core.Request;
 
-namespace RestApi.Core.Models;
+namespace Deepgram.Core.Models;
 
 internal sealed class ApiRequest
 {

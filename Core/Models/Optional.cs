@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace RestApi.Core.Models;
+namespace Deepgram.Core.Models;
 
 [DebuggerDisplay("{GetDebuggerDisplay(),nq}")]
 internal readonly record struct Optional<TValue>

@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record SharedTopicsResultsTopicsSegmentsItems
 {
@@ -20,4 +21,7 @@ public record SharedTopicsResultsTopicsSegmentsItems
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("topics")]
     public IReadOnlyList<SharedTopicsResultsTopicsSegmentsItemsTopicsItems>? Topics { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

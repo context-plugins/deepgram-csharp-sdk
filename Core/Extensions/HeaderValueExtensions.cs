@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
 
-namespace RestApi.Core.Extensions;
+namespace Deepgram.Core.Extensions;
 
 internal static class HeaderValueExtensions
 {

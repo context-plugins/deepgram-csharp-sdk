@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace RestApi.Core;
+namespace Deepgram.Core;
 
 internal static class RuntimeEnvironment
 {

@@ -1,6 +1,6 @@
-using RestApi.Core.Enum;
+using Deepgram.Core.Enum;
 
-namespace RestApi.Core.Webhooks;
+namespace Deepgram.Core.Webhooks;
 
 public abstract record WebhookEvent<TPayload>
 {

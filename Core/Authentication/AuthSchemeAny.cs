@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using RestApi.Core.Exceptions;
+using Deepgram.Core.Exceptions;
 
-namespace RestApi.Core.Authentication;
+namespace Deepgram.Core.Authentication;
 
 /// <summary>
 /// Represents multiple alternative schemes (OR logic).

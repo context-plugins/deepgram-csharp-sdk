@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record CreateProjectDistributionCredentialsV1ResponseDistributionCredentials
 {
@@ -36,4 +37,7 @@ public record CreateProjectDistributionCredentialsV1ResponseDistributionCredenti
     /// </summary>
     [JsonPropertyName("created")]
     public required DateTimeOffset Created { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

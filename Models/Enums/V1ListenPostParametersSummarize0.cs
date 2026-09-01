@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using RestApi.Core.Enum;
+using Deepgram.Core.Enum;
 
-namespace RestApi.Models.Enums;
+namespace Deepgram.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<V1ListenPostParametersSummarize0>))]
 public sealed record V1ListenPostParametersSummarize0 : StringEnum<V1ListenPostParametersSummarize0>

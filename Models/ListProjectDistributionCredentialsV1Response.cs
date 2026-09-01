@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ListProjectDistributionCredentialsV1Response
 {
@@ -11,4 +12,7 @@ public record ListProjectDistributionCredentialsV1Response
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("distribution_credentials")]
     public IReadOnlyList<ListProjectDistributionCredentialsV1ResponseDistributionCredentialsItems>? DistributionCredentials { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

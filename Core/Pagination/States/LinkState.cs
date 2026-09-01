@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
-using RestApi.Core.Models;
+using Deepgram.Core.Models;
 
-namespace RestApi.Core.Pagination.States;
+namespace Deepgram.Core.Pagination.States;
 
 internal sealed record LinkState<TResponse> : IPageState<TResponse, LinkState<TResponse>>
 {

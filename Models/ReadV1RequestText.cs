@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record ReadV1RequestText
 {
@@ -9,4 +10,7 @@ public record ReadV1RequestText
     /// </summary>
     [JsonPropertyName("text")]
     public required string Text { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

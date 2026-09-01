@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Net.Http.Headers;
-using RestApi.Core.Models;
+using Deepgram.Core.Models;
 
-namespace RestApi.Core.Extensions;
+namespace Deepgram.Core.Extensions;
 
 internal static class HttpRequestExtensions
 {

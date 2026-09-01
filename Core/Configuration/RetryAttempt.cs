@@ -1,7 +1,7 @@
 using System;
 using System.Net;
 
-namespace RestApi.Core.Configuration;
+namespace Deepgram.Core.Configuration;
 
 public sealed record RetryAttempt
 {

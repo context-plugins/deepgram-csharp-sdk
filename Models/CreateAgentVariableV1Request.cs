@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// Request body for creating an agent variable
@@ -24,4 +25,7 @@ public record CreateAgentVariableV1Request
     /// </summary>
     [JsonPropertyName("api_version")]
     public int? ApiVersion { get; init; } = 1;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

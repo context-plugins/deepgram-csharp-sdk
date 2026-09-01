@@ -1,6 +1,6 @@
 using System;
 
-namespace RestApi.Core.Exceptions;
+namespace Deepgram.Core.Exceptions;
 
 public abstract class SseException : Exception
 {

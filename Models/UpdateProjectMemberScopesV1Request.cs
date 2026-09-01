@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 public record UpdateProjectMemberScopesV1Request
 {
@@ -9,4 +10,7 @@ public record UpdateProjectMemberScopesV1Request
     /// </summary>
     [JsonPropertyName("scope")]
     public required string Scope { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

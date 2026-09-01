@@ -1,6 +1,6 @@
 using System.Net.Http.Headers;
 
-namespace RestApi.Core.Pagination.States;
+namespace Deepgram.Core.Pagination.States;
 
 internal interface IPageState<in TResponse, out TState>
 {

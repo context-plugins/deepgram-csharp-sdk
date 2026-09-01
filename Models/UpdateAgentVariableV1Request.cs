@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using Deepgram.Core.Models;
 
-namespace RestApi.Models;
+namespace Deepgram.Models;
 
 /// <summary>
 /// Request body for updating an agent variable
@@ -12,4 +13,7 @@ public record UpdateAgentVariableV1Request
     /// </summary>
     [JsonPropertyName("value")]
     public required object Value { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

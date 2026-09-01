@@ -1,15 +1,15 @@
-using RestApi.Core.Authentication;
-using RestApi.Core.Authentication.ApiKey;
-using RestApi.Core.Authentication.Bearer;
+using Deepgram.Core.Authentication;
+using Deepgram.Core.Authentication.ApiKey;
+using Deepgram.Core.Authentication.Bearer;
 
-namespace RestApi;
+namespace Deepgram;
 
 internal sealed class AuthSchemes
 {
     public IAuthScheme ApiKeyAuth { get; }
     public IAuthScheme JwtAuth { get; }
 
-    public AuthSchemes(RestApiClientOptions options)
+    public AuthSchemes(DeepgramClientOptions options)
     {
         ApiKeyAuth = ApiKeyHeaderScheme.Create("Authorization", options.ApiKeyAuth);
         JwtAuth = BearerAuthScheme.Create(options.JwtAuth);

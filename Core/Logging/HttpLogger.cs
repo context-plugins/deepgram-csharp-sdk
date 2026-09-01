@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using RestApi.Core.Configuration;
+using Deepgram.Core.Configuration;
 
-namespace RestApi.Core.Logging;
+namespace Deepgram.Core.Logging;
 
 internal sealed class HttpLogger
 {
