@@ -1,5 +1,3 @@
-using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using Deepgram.Core.ErrorResponse;
 using Deepgram.Core.Models;
@@ -11,7 +9,8 @@ public sealed class Create2Error : ApiError
 {
     private readonly Optional<ErrorResponseModel> _errorResponseModelValue;
 
-    private Create2Error(Optional<ErrorResponseModel> errorResponseModelValue, Optional<RawError> fallback) : base(fallback)
+    private Create2Error(Optional<ErrorResponseModel> errorResponseModelValue,
+        Optional<RawError> fallback) : base(fallback)
     {
         _errorResponseModelValue = errorResponseModelValue;
     }
@@ -24,22 +23,12 @@ public sealed class Create2Error : ApiError
     public bool TryGetErrorResponseModel(out ErrorResponseModel value) =>
         _errorResponseModelValue.TryGetValue(out value);
 
-    internal static Task<Create2Error> Create(HttpResponseMessage response, CancellationToken ct) =>
-        (int)response.StatusCode switch
+    private static Task<Create2Error> Create(FailedResponse response) =>
+        response.StatusCode switch
         {
-            400 => FromJson<ErrorResponseModel>(response, ct).As(AsErrorResponseModel),
-            _ => FromRawBody(response, ct).As(AsFallback)
+            400 => response.Json<ErrorResponseModel>().As(AsErrorResponseModel),
+            _ => response.RawBody().As(AsFallback)
         };
-}
 
-internal sealed class Create2ErrorResponse : IErrorResponse<Create2Error>
-{
-    public static Create2ErrorResponse Instance { get; } = new();
-
-    private Create2ErrorResponse()
-    {
-    }
-
-    public Task<Create2Error> Map(HttpResponseMessage response, CancellationToken ct) =>
-        Create2Error.Create(response, ct);
+    internal static ApiErrorResponse<Create2Error> Response { get; } = new(Create);
 }

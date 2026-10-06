@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 using Deepgram.Core.Enum;
 
@@ -7,7 +8,7 @@ namespace Deepgram.Models.Enums;
 /// Method type for the request
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<V1ProjectsProjectIdUsageBreakdownGetParametersMethod>))]
-public sealed record V1ProjectsProjectIdUsageBreakdownGetParametersMethod : StringEnum<V1ProjectsProjectIdUsageBreakdownGetParametersMethod>
+public sealed record V1ProjectsProjectIdUsageBreakdownGetParametersMethod : OpenStringEnum<V1ProjectsProjectIdUsageBreakdownGetParametersMethod>
 {
     private V1ProjectsProjectIdUsageBreakdownGetParametersMethod(string value) : base(value)
     {
@@ -19,6 +20,23 @@ public sealed record V1ProjectsProjectIdUsageBreakdownGetParametersMethod : Stri
 
     public static readonly V1ProjectsProjectIdUsageBreakdownGetParametersMethod Streaming = new("streaming");
 
-    public static V1ProjectsProjectIdUsageBreakdownGetParametersMethod FromValue(string value) =>
-        FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onSync,
+        Func<TResult> onAsync,
+        Func<TResult> onStreaming,
+        Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == Sync => onSync(),
+            _ when this == Async => onAsync(),
+            _ when this == Streaming => onStreaming(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onSync, Action onAsync, Action onStreaming, Action<string> otherwise)
+    {
+        if (this == Sync) onSync();
+        else if (this == Async) onAsync();
+        else if (this == Streaming) onStreaming();
+        else otherwise(Value);
+    }
 }

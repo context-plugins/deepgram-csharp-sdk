@@ -8,16 +8,17 @@ Accessor: `client.ManageV1ProjectsUsageFields` · Source: `Api/ManageV1ProjectsU
 
 ### List12
 
-- **Signature**: `List12(string projectId, DateTimeOffset? start, DateTimeOffset? end, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `start` — nullable, no default → **must pass explicitly**
-  - `end` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `start` ← `start`, `end` ← `end`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `List12(List12Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
+- **Query params (wire ← C#)**: `start` ← `Start`, `end` ← `End`
 - **Returns**: `UsageFieldsV1Response`
-- **Error**: `SdkException<List12Error>` — **Case A (typed)**
+- **Error**: `ApiException<List12Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `List12Request` | `Requests/ManageV1ProjectsUsageFields/List12Request.cs` |
 | `UsageFieldsV1Response` | `Models/UsageFieldsV1Response.cs` |
 | `List12Error` | `Errors/List12Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |

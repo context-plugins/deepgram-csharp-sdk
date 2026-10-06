@@ -15,6 +15,7 @@ public record ListProjectBalancesV1ResponseBalancesItems
     /// <summary>
     /// The amount of the balance
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("amount")]
     public double? Amount { get; init; } = 0d;
 

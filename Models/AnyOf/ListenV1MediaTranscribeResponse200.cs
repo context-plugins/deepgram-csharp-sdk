@@ -26,8 +26,7 @@ public record ListenV1MediaTranscribeResponse200
     public static ListenV1MediaTranscribeResponse200 ListenV1AcceptedResponse(ListenV1AcceptedResponse value) =>
         new(default, Optional<ListenV1AcceptedResponse>.Some(value));
 
-    public bool TryGetListenV1Response(out ListenV1Response value) =>
-        _listenV1ResponseValue.TryGetValue(out value);
+    public bool TryGetListenV1Response(out ListenV1Response value) => _listenV1ResponseValue.TryGetValue(out value);
 
     public bool TryGetListenV1AcceptedResponse(out ListenV1AcceptedResponse value) =>
         _listenV1AcceptedResponseValue.TryGetValue(out value);
@@ -51,13 +50,15 @@ file sealed class ListenV1MediaTranscribeResponse200Converter : JsonConverter<Li
         {
             return ListenV1MediaTranscribeResponse200.ListenV1Response(listenV1ResponseValue);
         }
-        if (JsonSerializer.TryDeserialize<ListenV1AcceptedResponse>(root,
+        if (JsonSerializer.TryDeserialize<ListenV1AcceptedResponse>(
+            root,
             options,
             out var listenV1AcceptedResponseValue))
         {
             return ListenV1MediaTranscribeResponse200.ListenV1AcceptedResponse(listenV1AcceptedResponseValue);
         }
-        throw new JsonException($"JSON does not match ListenV1Response or ListenV1AcceptedResponse schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match ListenV1Response or ListenV1AcceptedResponse schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer,
@@ -74,7 +75,8 @@ file sealed class ListenV1MediaTranscribeResponse200Converter : JsonConverter<Li
         }
         else
         {
-            throw new JsonException($"{nameof(ListenV1MediaTranscribeResponse200)} contains no valid value to serialize.");
+            throw new JsonException(
+                $"{nameof(ListenV1MediaTranscribeResponse200)} contains no valid value to serialize.");
         }
     }
 }

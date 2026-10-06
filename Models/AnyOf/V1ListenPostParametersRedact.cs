@@ -19,11 +19,11 @@ public record V1ListenPostParametersRedact
         Optional<IReadOnlyList<V1ListenPostParametersRedactSchemaOneOf1Items>> listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue)
     {
         _stringValue = stringValue;
-        _listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue = listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue;
+        _listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue =
+            listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue;
     }
 
-    public static V1ListenPostParametersRedact String(string value) =>
-        new(Optional<string>.Some(value), default);
+    public static V1ListenPostParametersRedact String(string value) => new(Optional<string>.Some(value), default);
 
     public static V1ListenPostParametersRedact ListOfV1ListenPostParametersRedactSchemaOneOf1Items(IReadOnlyList<V1ListenPostParametersRedactSchemaOneOf1Items> value) =>
         new(default, Optional<IReadOnlyList<V1ListenPostParametersRedactSchemaOneOf1Items>>.Some(value));
@@ -49,24 +49,26 @@ file sealed class V1ListenPostParametersRedactConverter : JsonConverter<V1Listen
             var value = root.GetString()!;
             return V1ListenPostParametersRedact.String(value);
         }
-        if (JsonSerializer.TryDeserialize<IReadOnlyList<V1ListenPostParametersRedactSchemaOneOf1Items>>(root,
+        if (JsonSerializer.TryDeserialize<IReadOnlyList<V1ListenPostParametersRedactSchemaOneOf1Items>>(
+            root,
             options,
             out var listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue))
         {
-            return V1ListenPostParametersRedact.ListOfV1ListenPostParametersRedactSchemaOneOf1Items(listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue);
+            return V1ListenPostParametersRedact.ListOfV1ListenPostParametersRedactSchemaOneOf1Items(
+                listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue);
         }
-        throw new JsonException($"JSON does not match string or IReadOnlyList<V1ListenPostParametersRedactSchemaOneOf1Items> schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match string or IReadOnlyList<V1ListenPostParametersRedactSchemaOneOf1Items> schemas: {root.ToString()}");
     }
 
-    public override void Write(Utf8JsonWriter writer,
-        V1ListenPostParametersRedact value,
-        JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, V1ListenPostParametersRedact value, JsonSerializerOptions options)
     {
         if (value.TryGetString(out var stringValue))
         {
             JsonSerializer.Serialize(writer, stringValue, options);
         }
-        else if (value.TryGetListOfV1ListenPostParametersRedactSchemaOneOf1Items(out var listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue))
+        else if (value.TryGetListOfV1ListenPostParametersRedactSchemaOneOf1Items(
+            out var listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue))
         {
             JsonSerializer.Serialize(writer, listOfV1ListenPostParametersRedactSchemaOneOf1ItemsValue, options);
         }

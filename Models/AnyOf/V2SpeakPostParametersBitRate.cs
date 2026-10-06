@@ -45,7 +45,8 @@ file sealed class V2SpeakPostParametersBitRateConverter : JsonConverter<V2SpeakP
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<V2SpeakPostParametersBitRate0>(root,
+        if (JsonSerializer.TryDeserialize<V2SpeakPostParametersBitRate0>(
+            root,
             options,
             out var v2SpeakPostParametersBitRate0Value))
         {
@@ -61,9 +62,7 @@ file sealed class V2SpeakPostParametersBitRateConverter : JsonConverter<V2SpeakP
         throw new JsonException($"JSON does not match V2SpeakPostParametersBitRate0 or int schemas: {root.ToString()}");
     }
 
-    public override void Write(Utf8JsonWriter writer,
-        V2SpeakPostParametersBitRate value,
-        JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, V2SpeakPostParametersBitRate value, JsonSerializerOptions options)
     {
         if (value.TryGetV2SpeakPostParametersBitRate0(out var v2SpeakPostParametersBitRate0Value))
         {

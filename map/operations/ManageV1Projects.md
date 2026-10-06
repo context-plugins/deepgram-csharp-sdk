@@ -8,51 +8,59 @@ Accessor: `client.ManageV1Projects` · Source: `Api/ManageV1Projects.cs` · 5 op
 
 ### Delete3
 
-- **Signature**: `Delete3(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Delete3(Delete3Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
 - **Returns**: `DeleteProjectV1Response`
-- **Error**: `SdkException<Delete3Error>` — **Case A (typed)**
+- **Error**: `ApiException<Delete3Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Delete3Request` | `Requests/ManageV1Projects/Delete3Request.cs` |
 | `DeleteProjectV1Response` | `Models/DeleteProjectV1Response.cs` |
 | `Delete3Error` | `Errors/Delete3Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Get3
 
-- **Signature**: `Get3(string projectId, double? page, double? limit = 10d, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `page` — nullable, no default → **must pass explicitly**
-  - defaults: `limit` = `10d`
-- **Query params (wire ← C#)**: `limit` ← `limit`, `page` ← `page`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Get3(Get3Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
+- **Query params (wire ← C#)**: `limit` ← `Limit`, `page` ← `Page`
 - **Returns**: `GetProjectV1Response`
-- **Error**: `SdkException<Get3Error>` — **Case A (typed)**
+- **Error**: `ApiException<Get3Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Get3Request` | `Requests/ManageV1Projects/Get3Request.cs` |
 | `GetProjectV1Response` | `Models/GetProjectV1Response.cs` |
 | `Get3Error` | `Errors/Get3Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Leave
 
-- **Signature**: `Leave(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Leave(LeaveRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
 - **Returns**: `LeaveProjectV1Response`
-- **Error**: `SdkException<LeaveError>` — **Case A (typed)**
+- **Error**: `ApiException<LeaveError>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `LeaveRequest` | `Requests/ManageV1Projects/LeaveRequest.cs` |
 | `LeaveProjectV1Response` | `Models/LeaveProjectV1Response.cs` |
 | `LeaveError` | `Errors/LeaveError.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List4
 
-- **Signature**: `List4(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `List4(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ListProjectsV1Response`
-- **Error**: `SdkException<List4Error>` — **Case A (typed)**
+- **Error**: `ApiException<List4Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
@@ -63,14 +71,16 @@ Accessor: `client.ManageV1Projects` · Source: `Api/ManageV1Projects.cs` · 5 op
 
 ### Update3
 
-- **Signature**: `Update3(string projectId, UpdateProjectV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Update3(Update3Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
 - **Returns**: `UpdateProjectV1Response`
-- **Error**: `SdkException<Update3Error>` — **Case A (typed)**
+- **Error**: `ApiException<Update3Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Update3Request` | `Requests/ManageV1Projects/Update3Request.cs` |
 | `UpdateProjectV1Request` | `Models/UpdateProjectV1Request.cs` |
 | `UpdateProjectV1Response` | `Models/UpdateProjectV1Response.cs` |
 | `Update3Error` | `Errors/Update3Error.cs` |

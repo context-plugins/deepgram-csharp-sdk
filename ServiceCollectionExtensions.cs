@@ -11,20 +11,23 @@ public static class ServiceCollectionExtensions
     {
         public IServiceCollection AddDeepgramClient(Action<DeepgramClientOptions>? configure = null)
         {
-            var options = new DeepgramClientOptions();
-            configure?.Invoke(options);
             services.AddHttpClient();
             services.AddSingleton(sp =>
+            {
+                var options = new DeepgramClientOptions
                 {
-                    options.Logging =
-                        options.Logging with
-                        {
-                            LoggerFactory = options.Logging.LoggerFactory ?? sp.GetService<ILoggerFactory>()
-                        };
-                    var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
-                    var httpClient = httpClientFactory.CreateClient();
-                    return new DeepgramClient(httpClient, options);
-                });
+                    TimeProvider = sp.GetService<TimeProvider>() ?? TimeProvider.System,
+                };
+                configure?.Invoke(options);
+                options.Logging =
+                    options.Logging with
+                    {
+                        LoggerFactory = options.Logging.LoggerFactory ?? sp.GetService<ILoggerFactory>()
+                    };
+                var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
+                var httpClient = httpClientFactory.CreateClient();
+                return new DeepgramClient(httpClient, options);
+            });
             return services;
         }
     }

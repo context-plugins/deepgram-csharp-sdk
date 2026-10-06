@@ -21,16 +21,14 @@ public record V1ListenPostParametersSearch
         _listOfStringValue = listOfStringValue;
     }
 
-    public static V1ListenPostParametersSearch String(string value) =>
-        new(Optional<string>.Some(value), default);
+    public static V1ListenPostParametersSearch String(string value) => new(Optional<string>.Some(value), default);
 
     public static V1ListenPostParametersSearch ListOfString(IReadOnlyList<string> value) =>
         new(default, Optional<IReadOnlyList<string>>.Some(value));
 
     public bool TryGetString(out string value) => _stringValue.TryGetValue(out value);
 
-    public bool TryGetListOfString(out IReadOnlyList<string> value) =>
-        _listOfStringValue.TryGetValue(out value);
+    public bool TryGetListOfString(out IReadOnlyList<string> value) => _listOfStringValue.TryGetValue(out value);
 
     public static implicit operator V1ListenPostParametersSearch(string value) => String(value);
 }
@@ -55,9 +53,7 @@ file sealed class V1ListenPostParametersSearchConverter : JsonConverter<V1Listen
         throw new JsonException($"JSON does not match string or IReadOnlyList<string> schemas: {root.ToString()}");
     }
 
-    public override void Write(Utf8JsonWriter writer,
-        V1ListenPostParametersSearch value,
-        JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, V1ListenPostParametersSearch value, JsonSerializerOptions options)
     {
         if (value.TryGetString(out var stringValue))
         {

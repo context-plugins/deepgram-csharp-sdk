@@ -8,26 +8,32 @@ Accessor: `client.ManageV1ProjectsMembers` · Source: `Api/ManageV1ProjectsMembe
 
 ### Delete5
 
-- **Signature**: `Delete5(string projectId, string memberId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Delete5(Delete5Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`, `MemberId`
 - **Returns**: `DeleteProjectMemberV1Response`
-- **Error**: `SdkException<Delete5Error>` — **Case A (typed)**
+- **Error**: `ApiException<Delete5Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Delete5Request` | `Requests/ManageV1ProjectsMembers/Delete5Request.cs` |
 | `DeleteProjectMemberV1Response` | `Models/DeleteProjectMemberV1Response.cs` |
 | `Delete5Error` | `Errors/Delete5Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List8
 
-- **Signature**: `List8(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `List8(List8Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
 - **Returns**: `ListProjectMembersV1Response`
-- **Error**: `SdkException<List8Error>` — **Case A (typed)**
+- **Error**: `ApiException<List8Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `List8Request` | `Requests/ManageV1ProjectsMembers/List8Request.cs` |
 | `ListProjectMembersV1Response` | `Models/ListProjectMembersV1Response.cs` |
 | `List8Error` | `Errors/List8Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |

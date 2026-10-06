@@ -9,8 +9,7 @@ using Deepgram.Core.Request;
 using Deepgram.Core.Response;
 using Deepgram.Errors;
 using Deepgram.Models;
-using Deepgram.Models.AnyOf;
-using Deepgram.Models.Enums;
+using Deepgram.Requests.ManageV1ProjectsKeys;
 
 namespace Deepgram.Api;
 
@@ -30,112 +29,108 @@ public sealed class ManageV1ProjectsKeys
     /// <summary>
     /// Create a Project Key
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateKeyV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Create3Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Create3Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Creates a new API key with specified settings for the project
     /// </remarks>
-    public Task<CreateKeyV1Response> Create3(string projectId,
-        CreateKeyV1Request? body,
+    public Task<CreateKeyV1Response> Create3(Create3Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/keys"),
-            [new TemplateParam("project_id", projectId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/keys"),
+            [new TemplateParam("project_id", request.ProjectId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<CreateKeyV1Response>(),
-            Create3ErrorResponse.Instance,
+            Create3Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Delete a Project Key
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="keyId">The unique identifier of the API key</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteProjectKeyV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Delete4Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Delete4Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Deletes an API key for a specific project
     /// </remarks>
-    public Task<DeleteProjectKeyV1Response> Delete4(string projectId,
-        string keyId,
+    public Task<DeleteProjectKeyV1Response> Delete4(Delete4Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/keys/{key_id}"),
-            [new TemplateParam("project_id", projectId), new TemplateParam("key_id", keyId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/keys/{key_id}"),
+            [new TemplateParam("project_id", request.ProjectId), new TemplateParam("key_id", request.KeyId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
             EmptyBody.Instance,
             JsonResponse.Create<DeleteProjectKeyV1Response>(),
-            Delete4ErrorResponse.Instance,
+            Delete4Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get a Project Key
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="keyId">The unique identifier of the API key</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetProjectKeyV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Get6Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Get6Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieves information about a specified API key
     /// </remarks>
-    public Task<GetProjectKeyV1Response> Get6(string projectId,
-        string keyId,
+    public Task<GetProjectKeyV1Response> Get6(Get6Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/keys/{key_id}"),
-            [new TemplateParam("project_id", projectId), new TemplateParam("key_id", keyId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/keys/{key_id}"),
+            [new TemplateParam("project_id", request.ProjectId), new TemplateParam("key_id", request.KeyId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<GetProjectKeyV1Response>(),
-            Get6ErrorResponse.Instance,
+            Get6Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// List Project Keys
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="status">Only return keys with a specific status</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectKeysV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="List7Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="List7Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieves all API keys associated with the specified project
     /// </remarks>
-    public Task<ListProjectKeysV1Response> List7(string projectId,
-        V1ProjectsProjectIdKeysGetParametersStatus? status,
+    public Task<ListProjectKeysV1Response> List7(List7Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/keys"),
-            [new TemplateParam("project_id", projectId)],
-            [new Param("status", status)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/keys"),
+            [new TemplateParam("project_id", request.ProjectId)],
+            [new Param("status", request.Status)],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectKeysV1Response>(),
-            List7ErrorResponse.Instance,
+            List7Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 }

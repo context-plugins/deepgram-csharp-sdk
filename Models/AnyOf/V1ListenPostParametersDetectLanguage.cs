@@ -21,16 +21,14 @@ public record V1ListenPostParametersDetectLanguage
         _listOfStringValue = listOfStringValue;
     }
 
-    public static V1ListenPostParametersDetectLanguage Bool(bool value) =>
-        new(Optional<bool>.Some(value), default);
+    public static V1ListenPostParametersDetectLanguage Bool(bool value) => new(Optional<bool>.Some(value), default);
 
     public static V1ListenPostParametersDetectLanguage ListOfString(IReadOnlyList<string> value) =>
         new(default, Optional<IReadOnlyList<string>>.Some(value));
 
     public bool TryGetBool(out bool value) => _boolValue.TryGetValue(out value);
 
-    public bool TryGetListOfString(out IReadOnlyList<string> value) =>
-        _listOfStringValue.TryGetValue(out value);
+    public bool TryGetListOfString(out IReadOnlyList<string> value) => _listOfStringValue.TryGetValue(out value);
 
     public static implicit operator V1ListenPostParametersDetectLanguage(bool value) => Bool(value);
 }
@@ -68,7 +66,8 @@ file sealed class V1ListenPostParametersDetectLanguageConverter : JsonConverter<
         }
         else
         {
-            throw new JsonException($"{nameof(V1ListenPostParametersDetectLanguage)} contains no valid value to serialize.");
+            throw new JsonException(
+                $"{nameof(V1ListenPostParametersDetectLanguage)} contains no valid value to serialize.");
         }
     }
 }

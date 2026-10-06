@@ -8,14 +8,15 @@ Accessor: `client.AuthV1Tokens` · Source: `Api/AuthV1Tokens.cs` · 1 operation
 
 ### Grant
 
-- **Signature**: `Grant(GrantV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Grant(GrantRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `GrantV1Response`
-- **Error**: `SdkException<GrantError>` — **Case A (typed)**
+- **Error**: `ApiException<GrantError>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `GrantRequest` | `Requests/AuthV1Tokens/GrantRequest.cs` |
 | `GrantV1Request` | `Models/GrantV1Request.cs` |
 | `GrantV1Response` | `Models/GrantV1Response.cs` |
 | `GrantError` | `Errors/GrantError.cs` |

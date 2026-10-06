@@ -8,16 +8,17 @@ Accessor: `client.SpeakV2Audio` · Source: `Api/SpeakV2Audio.cs` · 1 operation
 
 ### Generate2
 
-- **Signature**: `Generate2(string model, string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V2SpeakPostParametersTag? tag, V2SpeakPostParametersBitRate? bitRate, V2SpeakPostParametersContainer? container, V2SpeakPostParametersEncoding? encoding, V2SpeakPostParametersSampleRate? sampleRate, V2SpeakPostParametersPriority? priority, SpeakV2Request? body, bool? mipOptOut = false, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 9 params (`callback` … `body`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `mipOptOut` = `false`
-- **Query params (wire ← C#)**: `model` ← `model`, `callback` ← `callback`, `callback_method` ← `callbackMethod`, `mip_opt_out` ← `mipOptOut`, `tag` ← `tag`, `bit_rate` ← `bitRate`, `container` ← `container`, `encoding` ← `encoding`, `sample_rate` ← `sampleRate`, `priority` ← `priority`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Generate2(Generate2Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Model`
+- **Query params (wire ← C#)**: `model` ← `Model`, `callback` ← `Callback`, `callback_method` ← `CallbackMethod`, `mip_opt_out` ← `MipOptOut`, `tag` ← `Tag`, `bit_rate` ← `BitRate`, `container` ← `Container`, `encoding` ← `Encoding`, `sample_rate` ← `SampleRate`, `priority` ← `Priority`
 - **Returns**: `SpeakV2AcceptedResponse`
-- **Error**: `SdkException<Generate2Error>` — **Case A (typed)**
+- **Error**: `ApiException<Generate2Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Generate2Request` | `Requests/SpeakV2Audio/Generate2Request.cs` |
 | `V1ListenPostParametersCallbackMethod` | `Models/Enums/V1ListenPostParametersCallbackMethod.cs` |
 | `V2SpeakPostParametersTag` | `Models/AnyOf/V2SpeakPostParametersTag.cs` |
 | `V2SpeakPostParametersBitRate` | `Models/AnyOf/V2SpeakPostParametersBitRate.cs` |

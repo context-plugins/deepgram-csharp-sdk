@@ -8,9 +8,10 @@ Accessor: `client.AgentV1SettingsThinkModels` · Source: `Api/AgentV1SettingsThi
 
 ### List
 
-- **Signature**: `List(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `List(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `AgentThinkModelsV1Response`
-- **Error**: `SdkException<ListError>` — **Case A (typed)**
+- **Error**: `ApiException<ListError>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |

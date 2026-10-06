@@ -8,14 +8,16 @@ Accessor: `client.VoiceAgentVariables` · Source: `Api/VoiceAgentVariables.cs` �
 
 ### Create2
 
-- **Signature**: `Create2(string projectId, CreateAgentVariableV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Create2(Create2Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
 - **Returns**: `AgentVariableV1`
-- **Error**: `SdkException<Create2Error>` — **Case A (typed)**
+- **Error**: `ApiException<Create2Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Create2Request` | `Requests/VoiceAgentVariables/Create2Request.cs` |
 | `CreateAgentVariableV1Request` | `Models/CreateAgentVariableV1Request.cs` |
 | `AgentVariableV1` | `Models/AgentVariableV1.cs` |
 | `Create2Error` | `Errors/Create2Error.cs` |
@@ -23,52 +25,63 @@ Accessor: `client.VoiceAgentVariables` · Source: `Api/VoiceAgentVariables.cs` �
 
 ### Delete2
 
-- **Signature**: `Delete2(string projectId, string variableId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Delete2(Delete2Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`, `VariableId`
 - **Returns**: `object`
-- **Error**: `SdkException<Delete2Error>` — **Case A (typed)**
+- **Error**: `ApiException<Delete2Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Delete2Request` | `Requests/VoiceAgentVariables/Delete2Request.cs` |
 | `Delete2Error` | `Errors/Delete2Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Get2
 
-- **Signature**: `Get2(string projectId, string variableId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Get2(Get2Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`, `VariableId`
 - **Returns**: `AgentVariableV1`
-- **Error**: `SdkException<Get2Error>` — **Case A (typed)**
+- **Error**: `ApiException<Get2Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Get2Request` | `Requests/VoiceAgentVariables/Get2Request.cs` |
 | `AgentVariableV1` | `Models/AgentVariableV1.cs` |
 | `Get2Error` | `Errors/Get2Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List3
 
-- **Signature**: `List3(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `List3(List3Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
 - **Returns**: `ListAgentVariablesV1Response`
-- **Error**: `SdkException<List3Error>` — **Case A (typed)**
+- **Error**: `ApiException<List3Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `List3Request` | `Requests/VoiceAgentVariables/List3Request.cs` |
 | `ListAgentVariablesV1Response` | `Models/ListAgentVariablesV1Response.cs` |
 | `List3Error` | `Errors/List3Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Update2
 
-- **Signature**: `Update2(string projectId, string variableId, UpdateAgentVariableV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Update2(Update2Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`, `VariableId`
 - **Returns**: `AgentVariableV1`
-- **Error**: `SdkException<Update2Error>` — **Case A (typed)**
+- **Error**: `ApiException<Update2Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Update2Request` | `Requests/VoiceAgentVariables/Update2Request.cs` |
 | `UpdateAgentVariableV1Request` | `Models/UpdateAgentVariableV1Request.cs` |
 | `AgentVariableV1` | `Models/AgentVariableV1.cs` |
 | `Update2Error` | `Errors/Update2Error.cs` |

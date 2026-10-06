@@ -113,49 +113,57 @@ file sealed class V1SpeakPostParametersEncodingConverter : JsonConverter<V1Speak
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding0>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding0>(
+            root,
             options,
             out var v1SpeakPostParametersEncoding0Value))
         {
             return V1SpeakPostParametersEncoding.V1SpeakPostParametersEncoding0(v1SpeakPostParametersEncoding0Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding1>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding1>(
+            root,
             options,
             out var v1SpeakPostParametersEncoding1Value))
         {
             return V1SpeakPostParametersEncoding.V1SpeakPostParametersEncoding1(v1SpeakPostParametersEncoding1Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding2>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding2>(
+            root,
             options,
             out var v1SpeakPostParametersEncoding2Value))
         {
             return V1SpeakPostParametersEncoding.V1SpeakPostParametersEncoding2(v1SpeakPostParametersEncoding2Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding3>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding3>(
+            root,
             options,
             out var v1SpeakPostParametersEncoding3Value))
         {
             return V1SpeakPostParametersEncoding.V1SpeakPostParametersEncoding3(v1SpeakPostParametersEncoding3Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding4>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding4>(
+            root,
             options,
             out var v1SpeakPostParametersEncoding4Value))
         {
             return V1SpeakPostParametersEncoding.V1SpeakPostParametersEncoding4(v1SpeakPostParametersEncoding4Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding5>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding5>(
+            root,
             options,
             out var v1SpeakPostParametersEncoding5Value))
         {
             return V1SpeakPostParametersEncoding.V1SpeakPostParametersEncoding5(v1SpeakPostParametersEncoding5Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding6>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersEncoding6>(
+            root,
             options,
             out var v1SpeakPostParametersEncoding6Value))
         {
             return V1SpeakPostParametersEncoding.V1SpeakPostParametersEncoding6(v1SpeakPostParametersEncoding6Value);
         }
-        throw new JsonException($"JSON does not match V1SpeakPostParametersEncoding0 or V1SpeakPostParametersEncoding1 or V1SpeakPostParametersEncoding2 or V1SpeakPostParametersEncoding3 or V1SpeakPostParametersEncoding4 or V1SpeakPostParametersEncoding5 or V1SpeakPostParametersEncoding6 schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match V1SpeakPostParametersEncoding0 or V1SpeakPostParametersEncoding1 or V1SpeakPostParametersEncoding2 or V1SpeakPostParametersEncoding3 or V1SpeakPostParametersEncoding4 or V1SpeakPostParametersEncoding5 or V1SpeakPostParametersEncoding6 schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer,

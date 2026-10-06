@@ -24,8 +24,7 @@ public record ErrorResponseModel
         _errorResponseModernErrorValue = errorResponseModernErrorValue;
     }
 
-    public static ErrorResponseModel String(string value) =>
-        new(Optional<string>.Some(value), default, default);
+    public static ErrorResponseModel String(string value) => new(Optional<string>.Some(value), default, default);
 
     public static ErrorResponseModel ErrorResponseLegacyError(ErrorResponseLegacyError value) =>
         new(default, Optional<ErrorResponseLegacyError>.Some(value), default);
@@ -63,19 +62,22 @@ file sealed class ErrorResponseModelConverter : JsonConverter<ErrorResponseModel
             var value = root.GetString()!;
             return ErrorResponseModel.String(value);
         }
-        if (JsonSerializer.TryDeserialize<ErrorResponseLegacyError>(root,
+        if (JsonSerializer.TryDeserialize<ErrorResponseLegacyError>(
+            root,
             options,
             out var errorResponseLegacyErrorValue))
         {
             return ErrorResponseModel.ErrorResponseLegacyError(errorResponseLegacyErrorValue);
         }
-        if (JsonSerializer.TryDeserialize<ErrorResponseModernError>(root,
+        if (JsonSerializer.TryDeserialize<ErrorResponseModernError>(
+            root,
             options,
             out var errorResponseModernErrorValue))
         {
             return ErrorResponseModel.ErrorResponseModernError(errorResponseModernErrorValue);
         }
-        throw new JsonException($"JSON does not match string or ErrorResponseLegacyError or ErrorResponseModernError schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match string or ErrorResponseLegacyError or ErrorResponseModernError schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, ErrorResponseModel value, JsonSerializerOptions options)

@@ -8,16 +8,16 @@ Accessor: `client.SpeakV1Audio` · Source: `Api/SpeakV1Audio.cs` · 1 operation
 
 ### Generate
 
-- **Signature**: `Generate(string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V1SpeakPostParametersTag? tag, V1SpeakPostParametersBitRate? bitRate, V1SpeakPostParametersContainer? container, V1SpeakPostParametersEncoding? encoding, V1SpeakPostParametersModel? model, V1SpeakPostParametersSampleRate? sampleRate, SpeakV1Request? body, bool? mipOptOut = false, double? speed = 1d, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 9 params (`callback` … `body`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `mipOptOut` = `false`, `speed` = `1d`
-- **Query params (wire ← C#)**: `callback` ← `callback`, `callback_method` ← `callbackMethod`, `mip_opt_out` ← `mipOptOut`, `tag` ← `tag`, `bit_rate` ← `bitRate`, `container` ← `container`, `encoding` ← `encoding`, `model` ← `model`, `sample_rate` ← `sampleRate`, `speed` ← `speed`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Generate(GenerateRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `callback` ← `Callback`, `callback_method` ← `CallbackMethod`, `mip_opt_out` ← `MipOptOut`, `tag` ← `Tag`, `bit_rate` ← `BitRate`, `container` ← `Container`, `encoding` ← `Encoding`, `model` ← `Model`, `sample_rate` ← `SampleRate`, `speed` ← `Speed`
 - **Returns**: `object`
-- **Error**: `SdkException<GenerateError>` — **Case A (typed)**
+- **Error**: `ApiException<GenerateError>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `GenerateRequest` | `Requests/SpeakV1Audio/GenerateRequest.cs` |
 | `V1ListenPostParametersCallbackMethod` | `Models/Enums/V1ListenPostParametersCallbackMethod.cs` |
 | `V1SpeakPostParametersTag` | `Models/AnyOf/V1SpeakPostParametersTag.cs` |
 | `V1SpeakPostParametersBitRate` | `Models/AnyOf/V1SpeakPostParametersBitRate.cs` |

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using Deepgram.Core.Request;
 using Deepgram.Core.Response;
 using Deepgram.Errors;
 using Deepgram.Models;
-using Deepgram.Models.Enums;
+using Deepgram.Requests.SelfHostedV1DistributionCredentials;
 
 namespace Deepgram.Api;
 
@@ -30,116 +29,116 @@ public sealed class SelfHostedV1DistributionCredentials
     /// <summary>
     /// Create a Project Self-Hosted Distribution Credential
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="scopes">List of permission scopes for the credentials</param>
-    /// <param name="provider">The provider of the distribution service</param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateProjectDistributionCredentialsV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Create5Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Create5Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Creates a set of distribution credentials for the specified project
     /// </remarks>
-    public Task<CreateProjectDistributionCredentialsV1Response> Create5(string projectId,
-        IReadOnlyList<V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersScopesSchemaItems>? scopes,
-        V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersProvider? provider,
-        CreateProjectDistributionCredentialsV1Request? body,
+    public Task<CreateProjectDistributionCredentialsV1Response> Create5(Create5Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/self-hosted/distribution/credentials"),
-            [new TemplateParam("project_id", projectId)],
-            [new Param("scopes", scopes), new Param("provider", provider)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/self-hosted/distribution/credentials"),
+            [new TemplateParam("project_id", request.ProjectId)],
+            [new Param("scopes", request.Scopes), new Param("provider", request.Provider)],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<CreateProjectDistributionCredentialsV1Response>(),
-            Create5ErrorResponse.Instance,
+            Create5Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Delete a Project Self-Hosted Distribution Credential
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="distributionCredentialsId">The UUID of the distribution credentials</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetProjectDistributionCredentialsV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Delete7Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Delete7Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Deletes a set of distribution credentials for the specified project
     /// </remarks>
-    public Task<GetProjectDistributionCredentialsV1Response> Delete7(string projectId,
-        string distributionCredentialsId,
+    public Task<GetProjectDistributionCredentialsV1Response> Delete7(Delete7Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/self-hosted/distribution/credentials/{distribution_credentials_id}"),
-            [new TemplateParam("project_id", projectId),
-                new TemplateParam("distribution_credentials_id", distributionCredentialsId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default(
+                "/v1/projects/{project_id}/self-hosted/distribution/credentials/{distribution_credentials_id}"),
+            [
+                new TemplateParam("project_id", request.ProjectId),
+                new TemplateParam("distribution_credentials_id", request.DistributionCredentialsId),
+            ],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
             EmptyBody.Instance,
             JsonResponse.Create<GetProjectDistributionCredentialsV1Response>(),
-            Delete7ErrorResponse.Instance,
+            Delete7Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get a Project Self-Hosted Distribution Credential
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="distributionCredentialsId">The UUID of the distribution credentials</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetProjectDistributionCredentialsV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Get11Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Get11Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns a set of distribution credentials for the specified project
     /// </remarks>
-    public Task<GetProjectDistributionCredentialsV1Response> Get11(string projectId,
-        string distributionCredentialsId,
+    public Task<GetProjectDistributionCredentialsV1Response> Get11(Get11Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/self-hosted/distribution/credentials/{distribution_credentials_id}"),
-            [new TemplateParam("project_id", projectId),
-                new TemplateParam("distribution_credentials_id", distributionCredentialsId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default(
+                "/v1/projects/{project_id}/self-hosted/distribution/credentials/{distribution_credentials_id}"),
+            [
+                new TemplateParam("project_id", request.ProjectId),
+                new TemplateParam("distribution_credentials_id", request.DistributionCredentialsId),
+            ],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<GetProjectDistributionCredentialsV1Response>(),
-            Get11ErrorResponse.Instance,
+            Get11Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// List Project Self-Hosted Distribution Credentials
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectDistributionCredentialsV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="List17Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="List17Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Lists sets of distribution credentials for the specified project
     /// </remarks>
-    public Task<ListProjectDistributionCredentialsV1Response> List17(string projectId,
+    public Task<ListProjectDistributionCredentialsV1Response> List17(List17Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/self-hosted/distribution/credentials"),
-            [new TemplateParam("project_id", projectId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/self-hosted/distribution/credentials"),
+            [new TemplateParam("project_id", request.ProjectId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectDistributionCredentialsV1Response>(),
-            List17ErrorResponse.Instance,
+            List17Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 }

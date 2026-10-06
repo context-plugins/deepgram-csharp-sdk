@@ -87,37 +87,48 @@ file sealed class V1SpeakPostParametersSampleRateConverter : JsonConverter<V1Spe
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersSampleRate0>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersSampleRate0>(
+            root,
             options,
             out var v1SpeakPostParametersSampleRate0Value))
         {
-            return V1SpeakPostParametersSampleRate.V1SpeakPostParametersSampleRate0(v1SpeakPostParametersSampleRate0Value);
+            return V1SpeakPostParametersSampleRate.V1SpeakPostParametersSampleRate0(
+                v1SpeakPostParametersSampleRate0Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersSampleRate1>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersSampleRate1>(
+            root,
             options,
             out var v1SpeakPostParametersSampleRate1Value))
         {
-            return V1SpeakPostParametersSampleRate.V1SpeakPostParametersSampleRate1(v1SpeakPostParametersSampleRate1Value);
+            return V1SpeakPostParametersSampleRate.V1SpeakPostParametersSampleRate1(
+                v1SpeakPostParametersSampleRate1Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersSampleRate2>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersSampleRate2>(
+            root,
             options,
             out var v1SpeakPostParametersSampleRate2Value))
         {
-            return V1SpeakPostParametersSampleRate.V1SpeakPostParametersSampleRate2(v1SpeakPostParametersSampleRate2Value);
+            return V1SpeakPostParametersSampleRate.V1SpeakPostParametersSampleRate2(
+                v1SpeakPostParametersSampleRate2Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersSampleRate3>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersSampleRate3>(
+            root,
             options,
             out var v1SpeakPostParametersSampleRate3Value))
         {
-            return V1SpeakPostParametersSampleRate.V1SpeakPostParametersSampleRate3(v1SpeakPostParametersSampleRate3Value);
+            return V1SpeakPostParametersSampleRate.V1SpeakPostParametersSampleRate3(
+                v1SpeakPostParametersSampleRate3Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersSampleRate4>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersSampleRate4>(
+            root,
             options,
             out var v1SpeakPostParametersSampleRate4Value))
         {
-            return V1SpeakPostParametersSampleRate.V1SpeakPostParametersSampleRate4(v1SpeakPostParametersSampleRate4Value);
+            return V1SpeakPostParametersSampleRate.V1SpeakPostParametersSampleRate4(
+                v1SpeakPostParametersSampleRate4Value);
         }
-        throw new JsonException($"JSON does not match V1SpeakPostParametersSampleRate0 or V1SpeakPostParametersSampleRate1 or V1SpeakPostParametersSampleRate2 or V1SpeakPostParametersSampleRate3 or V1SpeakPostParametersSampleRate4 schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match V1SpeakPostParametersSampleRate0 or V1SpeakPostParametersSampleRate1 or V1SpeakPostParametersSampleRate2 or V1SpeakPostParametersSampleRate3 or V1SpeakPostParametersSampleRate4 schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer,

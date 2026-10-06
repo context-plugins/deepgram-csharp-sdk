@@ -8,6 +8,7 @@ using Deepgram.Core.Request;
 using Deepgram.Core.Response;
 using Deepgram.Errors;
 using Deepgram.Models;
+using Deepgram.Requests.ManageV1ProjectsBillingPurchases;
 
 namespace Deepgram.Api;
 
@@ -27,28 +28,27 @@ public sealed class ManageV1ProjectsBillingPurchases
     /// <summary>
     /// List Project Purchases
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="limit">Number of results to return per page. Default 10. Range [1,1000]</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectPurchasesV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="List16Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="List16Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns the original purchased amount on an order transaction
     /// </remarks>
-    public Task<ListProjectPurchasesV1Response> List16(string projectId,
-        double? limit = 10d,
+    public Task<ListProjectPurchasesV1Response> List16(List16Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/purchases"),
-            [new TemplateParam("project_id", projectId)],
-            [new Param("limit", limit)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/purchases"),
+            [new TemplateParam("project_id", request.ProjectId)],
+            [new Param("limit", request.Limit)],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectPurchasesV1Response>(),
-            List16ErrorResponse.Instance,
+            List16Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 }

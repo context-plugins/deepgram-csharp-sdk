@@ -21,16 +21,14 @@ public record V1ListenPostParametersCustomTopic
         _listOfStringValue = listOfStringValue;
     }
 
-    public static V1ListenPostParametersCustomTopic String(string value) =>
-        new(Optional<string>.Some(value), default);
+    public static V1ListenPostParametersCustomTopic String(string value) => new(Optional<string>.Some(value), default);
 
     public static V1ListenPostParametersCustomTopic ListOfString(IReadOnlyList<string> value) =>
         new(default, Optional<IReadOnlyList<string>>.Some(value));
 
     public bool TryGetString(out string value) => _stringValue.TryGetValue(out value);
 
-    public bool TryGetListOfString(out IReadOnlyList<string> value) =>
-        _listOfStringValue.TryGetValue(out value);
+    public bool TryGetListOfString(out IReadOnlyList<string> value) => _listOfStringValue.TryGetValue(out value);
 
     public static implicit operator V1ListenPostParametersCustomTopic(string value) => String(value);
 }
@@ -69,7 +67,8 @@ file sealed class V1ListenPostParametersCustomTopicConverter : JsonConverter<V1L
         }
         else
         {
-            throw new JsonException($"{nameof(V1ListenPostParametersCustomTopic)} contains no valid value to serialize.");
+            throw new JsonException(
+                $"{nameof(V1ListenPostParametersCustomTopic)} contains no valid value to serialize.");
         }
     }
 }

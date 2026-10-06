@@ -1,5 +1,3 @@
-using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using Deepgram.Core.ErrorResponse;
 using Deepgram.Core.Models;
@@ -11,7 +9,8 @@ public sealed class List14Error : ApiError
 {
     private readonly Optional<ErrorResponseModel> _errorResponseModelValue;
 
-    private List14Error(Optional<ErrorResponseModel> errorResponseModelValue, Optional<RawError> fallback) : base(fallback)
+    private List14Error(Optional<ErrorResponseModel> errorResponseModelValue,
+        Optional<RawError> fallback) : base(fallback)
     {
         _errorResponseModelValue = errorResponseModelValue;
     }
@@ -24,22 +23,12 @@ public sealed class List14Error : ApiError
     public bool TryGetErrorResponseModel(out ErrorResponseModel value) =>
         _errorResponseModelValue.TryGetValue(out value);
 
-    internal static Task<List14Error> Create(HttpResponseMessage response, CancellationToken ct) =>
-        (int)response.StatusCode switch
+    private static Task<List14Error> Create(FailedResponse response) =>
+        response.StatusCode switch
         {
-            400 => FromJson<ErrorResponseModel>(response, ct).As(AsErrorResponseModel),
-            _ => FromRawBody(response, ct).As(AsFallback)
+            400 => response.Json<ErrorResponseModel>().As(AsErrorResponseModel),
+            _ => response.RawBody().As(AsFallback)
         };
-}
 
-internal sealed class List14ErrorResponse : IErrorResponse<List14Error>
-{
-    public static List14ErrorResponse Instance { get; } = new();
-
-    private List14ErrorResponse()
-    {
-    }
-
-    public Task<List14Error> Map(HttpResponseMessage response, CancellationToken ct) =>
-        List14Error.Create(response, ct);
+    internal static ApiErrorResponse<List14Error> Response { get; } = new(Create);
 }

@@ -8,16 +8,17 @@ Accessor: `client.ManageV1ProjectsBillingFields` · Source: `Api/ManageV1Project
 
 ### List15
 
-- **Signature**: `List15(string projectId, DateTimeOffset? start, DateTimeOffset? end, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `start` — nullable, no default → **must pass explicitly**
-  - `end` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `start` ← `start`, `end` ← `end`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `List15(List15Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
+- **Query params (wire ← C#)**: `start` ← `Start`, `end` ← `End`
 - **Returns**: `ListBillingFieldsV1Response`
-- **Error**: `SdkException<List15Error>` — **Case A (typed)**
+- **Error**: `ApiException<List15Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `List15Request` | `Requests/ManageV1ProjectsBillingFields/List15Request.cs` |
 | `ListBillingFieldsV1Response` | `Models/ListBillingFieldsV1Response.cs` |
 | `List15Error` | `Errors/List15Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |

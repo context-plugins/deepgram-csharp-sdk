@@ -24,8 +24,7 @@ public record V1ListenPostParametersVersion
     public static V1ListenPostParametersVersion V1ListenPostParametersVersion0(V1ListenPostParametersVersion0 value) =>
         new(Optional<V1ListenPostParametersVersion0>.Some(value), default);
 
-    public static V1ListenPostParametersVersion String(string value) =>
-        new(default, Optional<string>.Some(value));
+    public static V1ListenPostParametersVersion String(string value) => new(default, Optional<string>.Some(value));
 
     public bool TryGetV1ListenPostParametersVersion0(out V1ListenPostParametersVersion0 value) =>
         _v1ListenPostParametersVersion0Value.TryGetValue(out value);
@@ -46,7 +45,8 @@ file sealed class V1ListenPostParametersVersionConverter : JsonConverter<V1Liste
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<V1ListenPostParametersVersion0>(root,
+        if (JsonSerializer.TryDeserialize<V1ListenPostParametersVersion0>(
+            root,
             options,
             out var v1ListenPostParametersVersion0Value))
         {
@@ -57,7 +57,8 @@ file sealed class V1ListenPostParametersVersionConverter : JsonConverter<V1Liste
             var value = root.GetString()!;
             return V1ListenPostParametersVersion.String(value);
         }
-        throw new JsonException($"JSON does not match V1ListenPostParametersVersion0 or string schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match V1ListenPostParametersVersion0 or string schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer,

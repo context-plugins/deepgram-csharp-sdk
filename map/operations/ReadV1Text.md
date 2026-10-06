@@ -8,16 +8,16 @@ Accessor: `client.ReadV1Text` · Source: `Api/ReadV1Text.cs` · 1 operation
 
 ### Analyze
 
-- **Signature**: `Analyze(string? callback, V1ListenPostParametersCallbackMethod? callbackMethod, V1ReadPostParametersSummarize? summarize, V1ReadPostParametersTag? tag, V1ReadPostParametersCustomTopic? customTopic, V1ListenPostParametersCustomTopicMode? customTopicMode, V1ReadPostParametersCustomIntent? customIntent, V1ListenPostParametersCustomTopicMode? customIntentMode, ReadV1Request? body, bool? sentiment = false, bool? topics = false, bool? intents = false, string? language = "en", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 9 params (`callback` … `body`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `sentiment` = `false`, `topics` = `false`, `intents` = `false`, `language` = `"en"`
-- **Query params (wire ← C#)**: `callback` ← `callback`, `callback_method` ← `callbackMethod`, `sentiment` ← `sentiment`, `summarize` ← `summarize`, `tag` ← `tag`, `topics` ← `topics`, `custom_topic` ← `customTopic`, `custom_topic_mode` ← `customTopicMode`, `intents` ← `intents`, `custom_intent` ← `customIntent`, `custom_intent_mode` ← `customIntentMode`, `language` ← `language`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Analyze(AnalyzeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `callback` ← `Callback`, `callback_method` ← `CallbackMethod`, `sentiment` ← `Sentiment`, `summarize` ← `Summarize`, `tag` ← `Tag`, `topics` ← `Topics`, `custom_topic` ← `CustomTopic`, `custom_topic_mode` ← `CustomTopicMode`, `intents` ← `Intents`, `custom_intent` ← `CustomIntent`, `custom_intent_mode` ← `CustomIntentMode`, `language` ← `Language`
 - **Returns**: `ReadV1Response`
-- **Error**: `SdkException<AnalyzeError>` — **Case A (typed)**
+- **Error**: `ApiException<AnalyzeError>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `AnalyzeRequest` | `Requests/ReadV1Text/AnalyzeRequest.cs` |
 | `V1ListenPostParametersCallbackMethod` | `Models/Enums/V1ListenPostParametersCallbackMethod.cs` |
 | `V1ReadPostParametersSummarize` | `Models/AnyOf/V1ReadPostParametersSummarize.cs` |
 | `V1ReadPostParametersTag` | `Models/AnyOf/V1ReadPostParametersTag.cs` |

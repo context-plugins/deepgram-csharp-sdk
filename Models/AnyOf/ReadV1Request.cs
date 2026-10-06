@@ -26,11 +26,9 @@ public record ReadV1Request
     public static ReadV1Request ReadV1RequestText(ReadV1RequestText value) =>
         new(default, Optional<ReadV1RequestText>.Some(value));
 
-    public bool TryGetReadV1RequestUrl(out ReadV1RequestUrl value) =>
-        _readV1RequestUrlValue.TryGetValue(out value);
+    public bool TryGetReadV1RequestUrl(out ReadV1RequestUrl value) => _readV1RequestUrlValue.TryGetValue(out value);
 
-    public bool TryGetReadV1RequestText(out ReadV1RequestText value) =>
-        _readV1RequestTextValue.TryGetValue(out value);
+    public bool TryGetReadV1RequestText(out ReadV1RequestText value) => _readV1RequestTextValue.TryGetValue(out value);
 
     public static implicit operator ReadV1Request(ReadV1RequestUrl value) => ReadV1RequestUrl(value);
 
@@ -51,7 +49,8 @@ file sealed class ReadV1RequestConverter : JsonConverter<ReadV1Request>
         {
             return ReadV1Request.ReadV1RequestText(readV1RequestTextValue);
         }
-        throw new JsonException($"JSON does not match ReadV1RequestUrl or ReadV1RequestText schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match ReadV1RequestUrl or ReadV1RequestText schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, ReadV1Request value, JsonSerializerOptions options)

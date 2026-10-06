@@ -1,10 +1,11 @@
+using System;
 using System.Text.Json.Serialization;
 using Deepgram.Core.Enum;
 
 namespace Deepgram.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<V1ListenPostParametersCustomIntentMode>))]
-public sealed record V1ListenPostParametersCustomIntentMode : StringEnum<V1ListenPostParametersCustomIntentMode>
+public sealed record V1ListenPostParametersCustomIntentMode : OpenStringEnum<V1ListenPostParametersCustomIntentMode>
 {
     private V1ListenPostParametersCustomIntentMode(string value) : base(value)
     {
@@ -14,5 +15,18 @@ public sealed record V1ListenPostParametersCustomIntentMode : StringEnum<V1Liste
 
     public static readonly V1ListenPostParametersCustomIntentMode Strict = new("strict");
 
-    public static V1ListenPostParametersCustomIntentMode FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onExtended, Func<TResult> onStrict, Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == Extended => onExtended(),
+            _ when this == Strict => onStrict(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onExtended, Action onStrict, Action<string> otherwise)
+    {
+        if (this == Extended) onExtended();
+        else if (this == Strict) onStrict();
+        else otherwise(Value);
+    }
 }

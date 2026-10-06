@@ -86,37 +86,48 @@ file sealed class AgentThinkModelsV1ResponseModelsItemsConverter : JsonConverter
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<AgentThinkModelsV1ResponseModelsItems0>(root,
+        if (JsonSerializer.TryDeserialize<AgentThinkModelsV1ResponseModelsItems0>(
+            root,
             options,
             out var agentThinkModelsV1ResponseModelsItems0Value))
         {
-            return AgentThinkModelsV1ResponseModelsItems.AgentThinkModelsV1ResponseModelsItems0(agentThinkModelsV1ResponseModelsItems0Value);
+            return AgentThinkModelsV1ResponseModelsItems.AgentThinkModelsV1ResponseModelsItems0(
+                agentThinkModelsV1ResponseModelsItems0Value);
         }
-        if (JsonSerializer.TryDeserialize<AgentThinkModelsV1ResponseModelsItems1>(root,
+        if (JsonSerializer.TryDeserialize<AgentThinkModelsV1ResponseModelsItems1>(
+            root,
             options,
             out var agentThinkModelsV1ResponseModelsItems1Value))
         {
-            return AgentThinkModelsV1ResponseModelsItems.AgentThinkModelsV1ResponseModelsItems1(agentThinkModelsV1ResponseModelsItems1Value);
+            return AgentThinkModelsV1ResponseModelsItems.AgentThinkModelsV1ResponseModelsItems1(
+                agentThinkModelsV1ResponseModelsItems1Value);
         }
-        if (JsonSerializer.TryDeserialize<AgentThinkModelsV1ResponseModelsItems2>(root,
+        if (JsonSerializer.TryDeserialize<AgentThinkModelsV1ResponseModelsItems2>(
+            root,
             options,
             out var agentThinkModelsV1ResponseModelsItems2Value))
         {
-            return AgentThinkModelsV1ResponseModelsItems.AgentThinkModelsV1ResponseModelsItems2(agentThinkModelsV1ResponseModelsItems2Value);
+            return AgentThinkModelsV1ResponseModelsItems.AgentThinkModelsV1ResponseModelsItems2(
+                agentThinkModelsV1ResponseModelsItems2Value);
         }
-        if (JsonSerializer.TryDeserialize<AgentThinkModelsV1ResponseModelsItems3>(root,
+        if (JsonSerializer.TryDeserialize<AgentThinkModelsV1ResponseModelsItems3>(
+            root,
             options,
             out var agentThinkModelsV1ResponseModelsItems3Value))
         {
-            return AgentThinkModelsV1ResponseModelsItems.AgentThinkModelsV1ResponseModelsItems3(agentThinkModelsV1ResponseModelsItems3Value);
+            return AgentThinkModelsV1ResponseModelsItems.AgentThinkModelsV1ResponseModelsItems3(
+                agentThinkModelsV1ResponseModelsItems3Value);
         }
-        if (JsonSerializer.TryDeserialize<AgentThinkModelsV1ResponseModelsItems4>(root,
+        if (JsonSerializer.TryDeserialize<AgentThinkModelsV1ResponseModelsItems4>(
+            root,
             options,
             out var agentThinkModelsV1ResponseModelsItems4Value))
         {
-            return AgentThinkModelsV1ResponseModelsItems.AgentThinkModelsV1ResponseModelsItems4(agentThinkModelsV1ResponseModelsItems4Value);
+            return AgentThinkModelsV1ResponseModelsItems.AgentThinkModelsV1ResponseModelsItems4(
+                agentThinkModelsV1ResponseModelsItems4Value);
         }
-        throw new JsonException($"JSON does not match AgentThinkModelsV1ResponseModelsItems0 or AgentThinkModelsV1ResponseModelsItems1 or AgentThinkModelsV1ResponseModelsItems2 or AgentThinkModelsV1ResponseModelsItems3 or AgentThinkModelsV1ResponseModelsItems4 schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match AgentThinkModelsV1ResponseModelsItems0 or AgentThinkModelsV1ResponseModelsItems1 or AgentThinkModelsV1ResponseModelsItems2 or AgentThinkModelsV1ResponseModelsItems3 or AgentThinkModelsV1ResponseModelsItems4 schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer,
@@ -127,25 +138,30 @@ file sealed class AgentThinkModelsV1ResponseModelsItemsConverter : JsonConverter
         {
             JsonSerializer.Serialize(writer, agentThinkModelsV1ResponseModelsItems0Value, options);
         }
-        else if (value.TryGetAgentThinkModelsV1ResponseModelsItems1(out var agentThinkModelsV1ResponseModelsItems1Value))
+        else if (value.TryGetAgentThinkModelsV1ResponseModelsItems1(
+            out var agentThinkModelsV1ResponseModelsItems1Value))
         {
             JsonSerializer.Serialize(writer, agentThinkModelsV1ResponseModelsItems1Value, options);
         }
-        else if (value.TryGetAgentThinkModelsV1ResponseModelsItems2(out var agentThinkModelsV1ResponseModelsItems2Value))
+        else if (value.TryGetAgentThinkModelsV1ResponseModelsItems2(
+            out var agentThinkModelsV1ResponseModelsItems2Value))
         {
             JsonSerializer.Serialize(writer, agentThinkModelsV1ResponseModelsItems2Value, options);
         }
-        else if (value.TryGetAgentThinkModelsV1ResponseModelsItems3(out var agentThinkModelsV1ResponseModelsItems3Value))
+        else if (value.TryGetAgentThinkModelsV1ResponseModelsItems3(
+            out var agentThinkModelsV1ResponseModelsItems3Value))
         {
             JsonSerializer.Serialize(writer, agentThinkModelsV1ResponseModelsItems3Value, options);
         }
-        else if (value.TryGetAgentThinkModelsV1ResponseModelsItems4(out var agentThinkModelsV1ResponseModelsItems4Value))
+        else if (value.TryGetAgentThinkModelsV1ResponseModelsItems4(
+            out var agentThinkModelsV1ResponseModelsItems4Value))
         {
             JsonSerializer.Serialize(writer, agentThinkModelsV1ResponseModelsItems4Value, options);
         }
         else
         {
-            throw new JsonException($"{nameof(AgentThinkModelsV1ResponseModelsItems)} contains no valid value to serialize.");
+            throw new JsonException(
+                $"{nameof(AgentThinkModelsV1ResponseModelsItems)} contains no valid value to serialize.");
         }
     }
 }

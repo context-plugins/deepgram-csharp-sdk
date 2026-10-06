@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 using Deepgram.Core.Enum;
 
@@ -7,7 +8,7 @@ namespace Deepgram.Models.Enums;
 /// No container.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<V1SpeakPostParametersContainer0>))]
-public sealed record V1SpeakPostParametersContainer0 : StringEnum<V1SpeakPostParametersContainer0>
+public sealed record V1SpeakPostParametersContainer0 : OpenStringEnum<V1SpeakPostParametersContainer0>
 {
     private V1SpeakPostParametersContainer0(string value) : base(value)
     {
@@ -15,5 +16,16 @@ public sealed record V1SpeakPostParametersContainer0 : StringEnum<V1SpeakPostPar
 
     public static readonly V1SpeakPostParametersContainer0 None = new("none");
 
-    public static V1SpeakPostParametersContainer0 FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onNone, Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == None => onNone(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onNone, Action<string> otherwise)
+    {
+        if (this == None) onNone();
+        else otherwise(Value);
+    }
 }

@@ -8,28 +8,32 @@ Accessor: `client.ManageV1Models` · Source: `Api/ManageV1Models.cs` · 2 operat
 
 ### Get5
 
-- **Signature**: `Get5(string modelId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Get5(Get5Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ModelId`
 - **Returns**: `GetModelV1Response`
-- **Error**: `SdkException<Get5Error>` — **Case A (typed)**
+- **Error**: `ApiException<Get5Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Get5Request` | `Requests/ManageV1Models/Get5Request.cs` |
 | `GetModelV1Response` | `Models/AnyOf/GetModelV1Response.cs` |
 | `Get5Error` | `Errors/Get5Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List6
 
-- **Signature**: `List6(bool? includeOutdated, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `includeOutdated` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `include_outdated` ← `includeOutdated`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `List6(List6Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `include_outdated` ← `IncludeOutdated`
 - **Returns**: `ListModelsV1Response`
-- **Error**: `SdkException<List6Error>` — **Case A (typed)**
+- **Error**: `ApiException<List6Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `List6Request` | `Requests/ManageV1Models/List6Request.cs` |
 | `ListModelsV1Response` | `Models/ListModelsV1Response.cs` |
 | `List6Error` | `Errors/List6Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |

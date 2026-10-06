@@ -9,6 +9,7 @@ using Deepgram.Core.Request;
 using Deepgram.Core.Response;
 using Deepgram.Errors;
 using Deepgram.Models;
+using Deepgram.Requests.ManageV1ProjectsMembersScopes;
 
 namespace Deepgram.Api;
 
@@ -28,58 +29,54 @@ public sealed class ManageV1ProjectsMembersScopes
     /// <summary>
     /// List Project Member Scopes
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="memberId">The unique identifier of the Member</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectMemberScopesV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="List9Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="List9Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieves a list of scopes for a specific member
     /// </remarks>
-    public Task<ListProjectMemberScopesV1Response> List9(string projectId,
-        string memberId,
+    public Task<ListProjectMemberScopesV1Response> List9(List9Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/members/{member_id}/scopes"),
-            [new TemplateParam("project_id", projectId), new TemplateParam("member_id", memberId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/members/{member_id}/scopes"),
+            [new TemplateParam("project_id", request.ProjectId), new TemplateParam("member_id", request.MemberId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectMemberScopesV1Response>(),
-            List9ErrorResponse.Instance,
+            List9Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Update Project Member Scopes
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="memberId">The unique identifier of the Member</param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateProjectMemberScopesV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Update4Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Update4Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Updates the scopes for a specific member
     /// </remarks>
-    public Task<UpdateProjectMemberScopesV1Response> Update4(string projectId,
-        string memberId,
-        UpdateProjectMemberScopesV1Request? body,
+    public Task<UpdateProjectMemberScopesV1Response> Update4(Update4Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/members/{member_id}/scopes"),
-            [new TemplateParam("project_id", projectId), new TemplateParam("member_id", memberId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/members/{member_id}/scopes"),
+            [new TemplateParam("project_id", request.ProjectId), new TemplateParam("member_id", request.MemberId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<UpdateProjectMemberScopesV1Response>(),
-            Update4ErrorResponse.Instance,
+            Update4Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 }

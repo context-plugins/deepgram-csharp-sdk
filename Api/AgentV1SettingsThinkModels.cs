@@ -27,23 +27,24 @@ public sealed class AgentV1SettingsThinkModels
     /// List Agent Think Models
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AgentThinkModelsV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="ListError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="ListError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieves the available think models that can be used for AI agent processing
     /// </remarks>
     public Task<AgentThinkModelsV1Response> List(RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/agent/settings/think/models"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/agent/settings/think/models"),
             [],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<AgentThinkModelsV1Response>(),
-            ListErrorResponse.Instance,
+            ListError.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 }

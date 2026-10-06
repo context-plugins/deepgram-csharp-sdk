@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Deepgram.Core.Exceptions;
+using Deepgram.Core.Models;
 
 namespace Deepgram.Core.Authentication;
 
@@ -24,7 +27,19 @@ internal static class AuthSchemeExtensions
         {
             foreach (var authScheme in authSchemes)
             {
-                await authScheme.Apply(httpRequest, cancellationToken).ConfigureAwait(false);
+                try
+                {
+                    await authScheme.Apply(httpRequest, cancellationToken).ConfigureAwait(false);
+                }
+                catch (Exception ex) when (ex is not (OperationCanceledException or AuthSchemeException))
+                {
+                    var callContext = CallContext.For(httpRequest);
+                    throw new AuthSchemeException($"{callContext} could not be authenticated: {ex.Message}", [ex])
+                    {
+                        Method = callContext.Method,
+                        RequestUri = callContext.RequestUri,
+                    };
+                }
             }
         }
 

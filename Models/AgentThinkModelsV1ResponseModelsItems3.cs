@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Deepgram.Core.Models;
+using Deepgram.Models.Enums;
 
 namespace Deepgram.Models;
 
@@ -12,7 +13,7 @@ public record AgentThinkModelsV1ResponseModelsItems3
     /// The unique identifier of the Groq model
     /// </summary>
     [JsonPropertyName("id")]
-    public string Id { get; } = "openai/gpt-oss-20b";
+    public required AgentThinkModelsV1ResponseModelsItemsOneOf3Id Id { get; init; }
 
     /// <summary>
     /// The display name of the model

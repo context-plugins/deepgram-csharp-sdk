@@ -8,29 +8,33 @@ Accessor: `client.ManageV1ProjectsRequests` · Source: `Api/ManageV1ProjectsRequ
 
 ### Get7
 
-- **Signature**: `Get7(string projectId, string requestId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Get7(Get7Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`, `RequestId`
 - **Returns**: `GetProjectRequestV1Response`
-- **Error**: `SdkException<Get7Error>` — **Case A (typed)**
+- **Error**: `ApiException<Get7Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Get7Request` | `Requests/ManageV1ProjectsRequests/Get7Request.cs` |
 | `GetProjectRequestV1Response` | `Models/GetProjectRequestV1Response.cs` |
 | `Get7Error` | `Errors/Get7Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List11
 
-- **Signature**: `List11(string projectId, DateTimeOffset? start, DateTimeOffset? end, double? page, string? accessor, string? requestId, V1ProjectsProjectIdRequestsGetParametersDeployment? deployment, V1ProjectsProjectIdRequestsGetParametersEndpoint? endpoint, V1ProjectsProjectIdRequestsGetParametersMethod? method, V1ProjectsProjectIdRequestsGetParametersStatus? status, double? limit = 10d, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 9 params (`start` … `status`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `limit` = `10d`
-- **Query params (wire ← C#)**: `start` ← `start`, `end` ← `end`, `limit` ← `limit`, `page` ← `page`, `accessor` ← `accessor`, `request_id` ← `requestId`, `deployment` ← `deployment`, `endpoint` ← `endpoint`, `method` ← `method`, `status` ← `status`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `List11(List11Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
+- **Query params (wire ← C#)**: `start` ← `Start`, `end` ← `End`, `limit` ← `Limit`, `page` ← `Page`, `accessor` ← `Accessor`, `request_id` ← `RequestId`, `deployment` ← `Deployment`, `endpoint` ← `Endpoint`, `method` ← `Method`, `status` ← `Status`
 - **Returns**: `ListProjectRequestsV1Response`
-- **Error**: `SdkException<List11Error>` — **Case A (typed)**
+- **Error**: `ApiException<List11Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `List11Request` | `Requests/ManageV1ProjectsRequests/List11Request.cs` |
 | `V1ProjectsProjectIdRequestsGetParametersDeployment` | `Models/Enums/V1ProjectsProjectIdRequestsGetParametersDeployment.cs` |
 | `V1ProjectsProjectIdRequestsGetParametersEndpoint` | `Models/Enums/V1ProjectsProjectIdRequestsGetParametersEndpoint.cs` |
 | `V1ProjectsProjectIdRequestsGetParametersMethod` | `Models/Enums/V1ProjectsProjectIdRequestsGetParametersMethod.cs` |

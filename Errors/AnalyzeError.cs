@@ -1,5 +1,3 @@
-using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using Deepgram.Core.ErrorResponse;
 using Deepgram.Core.Models;
@@ -11,7 +9,8 @@ public sealed class AnalyzeError : ApiError
 {
     private readonly Optional<ErrorResponseModel> _errorResponseModelValue;
 
-    private AnalyzeError(Optional<ErrorResponseModel> errorResponseModelValue, Optional<RawError> fallback) : base(fallback)
+    private AnalyzeError(Optional<ErrorResponseModel> errorResponseModelValue,
+        Optional<RawError> fallback) : base(fallback)
     {
         _errorResponseModelValue = errorResponseModelValue;
     }
@@ -24,22 +23,12 @@ public sealed class AnalyzeError : ApiError
     public bool TryGetErrorResponseModel(out ErrorResponseModel value) =>
         _errorResponseModelValue.TryGetValue(out value);
 
-    internal static Task<AnalyzeError> Create(HttpResponseMessage response, CancellationToken ct) =>
-        (int)response.StatusCode switch
+    private static Task<AnalyzeError> Create(FailedResponse response) =>
+        response.StatusCode switch
         {
-            400 => FromJson<ErrorResponseModel>(response, ct).As(AsErrorResponseModel),
-            _ => FromRawBody(response, ct).As(AsFallback)
+            400 => response.Json<ErrorResponseModel>().As(AsErrorResponseModel),
+            _ => response.RawBody().As(AsFallback)
         };
-}
 
-internal sealed class AnalyzeErrorResponse : IErrorResponse<AnalyzeError>
-{
-    public static AnalyzeErrorResponse Instance { get; } = new();
-
-    private AnalyzeErrorResponse()
-    {
-    }
-
-    public Task<AnalyzeError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        AnalyzeError.Create(response, ct);
+    internal static ApiErrorResponse<AnalyzeError> Response { get; } = new(Create);
 }

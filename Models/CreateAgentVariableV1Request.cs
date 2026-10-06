@@ -23,6 +23,7 @@ public record CreateAgentVariableV1Request
     /// <summary>
     /// API version. Defaults to 1
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("api_version")]
     public int? ApiVersion { get; init; } = 1;
 

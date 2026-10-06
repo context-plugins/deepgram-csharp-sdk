@@ -8,14 +8,16 @@ Accessor: `client.ManageV1ProjectsMembersInvites` · Source: `Api/ManageV1Projec
 
 ### Create4
 
-- **Signature**: `Create4(string projectId, CreateProjectInviteV1Request? body, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `body` — nullable, no default → **must pass explicitly**
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Create4(Create4Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
 - **Returns**: `CreateProjectInviteV1Response`
-- **Error**: `SdkException<Create4Error>` — **Case A (typed)**
+- **Error**: `ApiException<Create4Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Create4Request` | `Requests/ManageV1ProjectsMembersInvites/Create4Request.cs` |
 | `CreateProjectInviteV1Request` | `Models/CreateProjectInviteV1Request.cs` |
 | `CreateProjectInviteV1Response` | `Models/CreateProjectInviteV1Response.cs` |
 | `Create4Error` | `Errors/Create4Error.cs` |
@@ -23,26 +25,32 @@ Accessor: `client.ManageV1ProjectsMembersInvites` · Source: `Api/ManageV1Projec
 
 ### Delete6
 
-- **Signature**: `Delete6(string projectId, string email, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Delete6(Delete6Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`, `Email`
 - **Returns**: `DeleteProjectInviteV1Response`
-- **Error**: `SdkException<Delete6Error>` — **Case A (typed)**
+- **Error**: `ApiException<Delete6Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Delete6Request` | `Requests/ManageV1ProjectsMembersInvites/Delete6Request.cs` |
 | `DeleteProjectInviteV1Response` | `Models/DeleteProjectInviteV1Response.cs` |
 | `Delete6Error` | `Errors/Delete6Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List10
 
-- **Signature**: `List10(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `List10(List10Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
 - **Returns**: `ListProjectInvitesV1Response`
-- **Error**: `SdkException<List10Error>` — **Case A (typed)**
+- **Error**: `ApiException<List10Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `List10Request` | `Requests/ManageV1ProjectsMembersInvites/List10Request.cs` |
 | `ListProjectInvitesV1Response` | `Models/ListProjectInvitesV1Response.cs` |
 | `List10Error` | `Errors/List10Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |

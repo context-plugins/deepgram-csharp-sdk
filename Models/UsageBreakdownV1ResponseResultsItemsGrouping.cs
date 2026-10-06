@@ -58,7 +58,7 @@ public record UsageBreakdownV1ResponseResultsItemsGrouping
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("tags")]
-    public IReadOnlyList<string?>? Tags { get; init; }
+    public IReadOnlyList<string>? Tags { get; init; }
 
     /// <summary>
     /// Optional deployment identifier

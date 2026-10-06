@@ -142,9 +142,9 @@ internal sealed class OAuth2AuthorizationCodeStrategy
         using var rng = RandomNumberGenerator.Create();
         rng.GetBytes(bytes);
         var verifier = Base64UrlEncode(bytes);
-        var challenge = method == PkceMethod.Plain
-            ? verifier
-            : Base64UrlEncode(Sha256Hash(Encoding.ASCII.GetBytes(verifier)));
+        var challenge = method.Match(
+            onS256: () => Base64UrlEncode(Sha256Hash(Encoding.ASCII.GetBytes(verifier))),
+            onPlain: () => verifier);
         return new PkceValues(verifier, challenge, method);
     }
 

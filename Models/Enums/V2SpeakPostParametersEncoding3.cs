@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 using Deepgram.Core.Enum;
 
@@ -7,7 +8,7 @@ namespace Deepgram.Models.Enums;
 /// Encoding - alaw. Similar to mulaw but used in international telephony.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<V2SpeakPostParametersEncoding3>))]
-public sealed record V2SpeakPostParametersEncoding3 : StringEnum<V2SpeakPostParametersEncoding3>
+public sealed record V2SpeakPostParametersEncoding3 : OpenStringEnum<V2SpeakPostParametersEncoding3>
 {
     private V2SpeakPostParametersEncoding3(string value) : base(value)
     {
@@ -15,5 +16,16 @@ public sealed record V2SpeakPostParametersEncoding3 : StringEnum<V2SpeakPostPara
 
     public static readonly V2SpeakPostParametersEncoding3 Alaw = new("alaw");
 
-    public static V2SpeakPostParametersEncoding3 FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onAlaw, Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == Alaw => onAlaw(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onAlaw, Action<string> otherwise)
+    {
+        if (this == Alaw) onAlaw();
+        else otherwise(Value);
+    }
 }

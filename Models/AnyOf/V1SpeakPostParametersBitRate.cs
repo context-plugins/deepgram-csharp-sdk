@@ -24,8 +24,7 @@ public record V1SpeakPostParametersBitRate
     public static V1SpeakPostParametersBitRate V1SpeakPostParametersBitRate0(V1SpeakPostParametersBitRate0 value) =>
         new(Optional<V1SpeakPostParametersBitRate0>.Some(value), default);
 
-    public static V1SpeakPostParametersBitRate Double(double value) =>
-        new(default, Optional<double>.Some(value));
+    public static V1SpeakPostParametersBitRate Double(double value) => new(default, Optional<double>.Some(value));
 
     public bool TryGetV1SpeakPostParametersBitRate0(out V1SpeakPostParametersBitRate0 value) =>
         _v1SpeakPostParametersBitRate0Value.TryGetValue(out value);
@@ -46,7 +45,8 @@ file sealed class V1SpeakPostParametersBitRateConverter : JsonConverter<V1SpeakP
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersBitRate0>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersBitRate0>(
+            root,
             options,
             out var v1SpeakPostParametersBitRate0Value))
         {
@@ -56,12 +56,11 @@ file sealed class V1SpeakPostParametersBitRateConverter : JsonConverter<V1SpeakP
         {
             return V1SpeakPostParametersBitRate.Double(doubleValue);
         }
-        throw new JsonException($"JSON does not match V1SpeakPostParametersBitRate0 or double schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match V1SpeakPostParametersBitRate0 or double schemas: {root.ToString()}");
     }
 
-    public override void Write(Utf8JsonWriter writer,
-        V1SpeakPostParametersBitRate value,
-        JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, V1SpeakPostParametersBitRate value, JsonSerializerOptions options)
     {
         if (value.TryGetV1SpeakPostParametersBitRate0(out var v1SpeakPostParametersBitRate0Value))
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 using Deepgram.Core.Enum;
 
@@ -7,7 +8,7 @@ namespace Deepgram.Models.Enums;
 /// Encoding - flac. Lossless audio format for high-quality compression.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<V1SpeakPostParametersEncoding1>))]
-public sealed record V1SpeakPostParametersEncoding1 : StringEnum<V1SpeakPostParametersEncoding1>
+public sealed record V1SpeakPostParametersEncoding1 : OpenStringEnum<V1SpeakPostParametersEncoding1>
 {
     private V1SpeakPostParametersEncoding1(string value) : base(value)
     {
@@ -15,5 +16,16 @@ public sealed record V1SpeakPostParametersEncoding1 : StringEnum<V1SpeakPostPara
 
     public static readonly V1SpeakPostParametersEncoding1 Flac = new("flac");
 
-    public static V1SpeakPostParametersEncoding1 FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onFlac, Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == Flac => onFlac(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onFlac, Action<string> otherwise)
+    {
+        if (this == Flac) onFlac();
+        else otherwise(Value);
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 using Deepgram.Core.Enum;
 
@@ -7,7 +8,7 @@ namespace Deepgram.Models.Enums;
 /// Encoding - opus. Sample rate is fixed at 48000 Hz.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<V1SpeakPostParametersSampleRate4>))]
-public sealed record V1SpeakPostParametersSampleRate4 : StringEnum<V1SpeakPostParametersSampleRate4>
+public sealed record V1SpeakPostParametersSampleRate4 : OpenStringEnum<V1SpeakPostParametersSampleRate4>
 {
     private V1SpeakPostParametersSampleRate4(string value) : base(value)
     {
@@ -15,5 +16,16 @@ public sealed record V1SpeakPostParametersSampleRate4 : StringEnum<V1SpeakPostPa
 
     public static readonly V1SpeakPostParametersSampleRate4 _48000 = new("48000");
 
-    public static V1SpeakPostParametersSampleRate4 FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> on_48000, Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == _48000 => on_48000(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action on_48000, Action<string> otherwise)
+    {
+        if (this == _48000) on_48000();
+        else otherwise(Value);
+    }
 }

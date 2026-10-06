@@ -8,26 +8,32 @@ Accessor: `client.ManageV1ProjectsBillingBalances` · Source: `Api/ManageV1Proje
 
 ### Get10
 
-- **Signature**: `Get10(string projectId, string balanceId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `Get10(Get10Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`, `BalanceId`
 - **Returns**: `GetProjectBalanceV1Response`
-- **Error**: `SdkException<Get10Error>` — **Case A (typed)**
+- **Error**: `ApiException<Get10Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `Get10Request` | `Requests/ManageV1ProjectsBillingBalances/Get10Request.cs` |
 | `GetProjectBalanceV1Response` | `Models/GetProjectBalanceV1Response.cs` |
 | `Get10Error` | `Errors/Get10Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List13
 
-- **Signature**: `List13(string projectId, RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Auth**: `options.ApiKeyAuth`
+- **Signature**: `List13(List13Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ProjectId`
 - **Returns**: `ListProjectBalancesV1Response`
-- **Error**: `SdkException<List13Error>` — **Case A (typed)**
+- **Error**: `ApiException<List13Error>` — **Case A (typed)**
 - **Error accessors**: `TryGetErrorResponseModel(out ErrorResponseModel)` [400] · `TryGetRawError(out RawError)` [fallback]
 
 | Type | Source |
 | --- | --- |
+| `List13Request` | `Requests/ManageV1ProjectsBillingBalances/List13Request.cs` |
 | `ListProjectBalancesV1Response` | `Models/ListProjectBalancesV1Response.cs` |
 | `List13Error` | `Errors/List13Error.cs` |
 | `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |

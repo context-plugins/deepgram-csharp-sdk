@@ -7,6 +7,7 @@ namespace Deepgram.Models;
 
 public record ListenV1ResponseMetadata
 {
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transaction_key")]
     public string? TransactionKey { get; init; } = "deprecated";
 

@@ -8,6 +8,7 @@ using Deepgram.Core.Request;
 using Deepgram.Core.Response;
 using Deepgram.Errors;
 using Deepgram.Models;
+using Deepgram.Requests.ManageV1ProjectsBillingBalances;
 
 namespace Deepgram.Api;
 
@@ -27,54 +28,54 @@ public sealed class ManageV1ProjectsBillingBalances
     /// <summary>
     /// Get a Project Balance
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="balanceId">The unique identifier of the balance</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetProjectBalanceV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Get10Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Get10Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieves details about the specified balance
     /// </remarks>
-    public Task<GetProjectBalanceV1Response> Get10(string projectId,
-        string balanceId,
+    public Task<GetProjectBalanceV1Response> Get10(Get10Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/balances/{balance_id}"),
-            [new TemplateParam("project_id", projectId), new TemplateParam("balance_id", balanceId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/balances/{balance_id}"),
+            [new TemplateParam("project_id", request.ProjectId), new TemplateParam("balance_id", request.BalanceId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<GetProjectBalanceV1Response>(),
-            Get10ErrorResponse.Instance,
+            Get10Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get Project Balances
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectBalancesV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="List13Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="List13Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Generates a list of outstanding balances for the specified project
     /// </remarks>
-    public Task<ListProjectBalancesV1Response> List13(string projectId,
+    public Task<ListProjectBalancesV1Response> List13(List13Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/balances"),
-            [new TemplateParam("project_id", projectId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/balances"),
+            [new TemplateParam("project_id", request.ProjectId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectBalancesV1Response>(),
-            List13ErrorResponse.Instance,
+            List13Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 }

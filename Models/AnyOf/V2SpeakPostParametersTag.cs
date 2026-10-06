@@ -14,23 +14,20 @@ public record V2SpeakPostParametersTag
 
     private readonly Optional<IReadOnlyList<string>> _listOfStringValue;
 
-    private V2SpeakPostParametersTag(Optional<string> stringValue,
-        Optional<IReadOnlyList<string>> listOfStringValue)
+    private V2SpeakPostParametersTag(Optional<string> stringValue, Optional<IReadOnlyList<string>> listOfStringValue)
     {
         _stringValue = stringValue;
         _listOfStringValue = listOfStringValue;
     }
 
-    public static V2SpeakPostParametersTag String(string value) =>
-        new(Optional<string>.Some(value), default);
+    public static V2SpeakPostParametersTag String(string value) => new(Optional<string>.Some(value), default);
 
     public static V2SpeakPostParametersTag ListOfString(IReadOnlyList<string> value) =>
         new(default, Optional<IReadOnlyList<string>>.Some(value));
 
     public bool TryGetString(out string value) => _stringValue.TryGetValue(out value);
 
-    public bool TryGetListOfString(out IReadOnlyList<string> value) =>
-        _listOfStringValue.TryGetValue(out value);
+    public bool TryGetListOfString(out IReadOnlyList<string> value) => _listOfStringValue.TryGetValue(out value);
 
     public static implicit operator V2SpeakPostParametersTag(string value) => String(value);
 }

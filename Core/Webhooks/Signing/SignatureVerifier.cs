@@ -24,7 +24,7 @@ internal sealed class SignatureVerifier
 
     internal TimeSpan? ReplayTolerance { get; init; }
 
-    internal TimeProvider Clock { get; init; } = TimeProvider.System;
+    internal required TimeProvider Clock { get; init; }
 
     internal bool Verify(WebhookRequest request)
     {

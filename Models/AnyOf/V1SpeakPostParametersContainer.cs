@@ -87,37 +87,43 @@ file sealed class V1SpeakPostParametersContainerConverter : JsonConverter<V1Spea
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersContainer0>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersContainer0>(
+            root,
             options,
             out var v1SpeakPostParametersContainer0Value))
         {
             return V1SpeakPostParametersContainer.V1SpeakPostParametersContainer0(v1SpeakPostParametersContainer0Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersContainer1>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersContainer1>(
+            root,
             options,
             out var v1SpeakPostParametersContainer1Value))
         {
             return V1SpeakPostParametersContainer.V1SpeakPostParametersContainer1(v1SpeakPostParametersContainer1Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersContainer2>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersContainer2>(
+            root,
             options,
             out var v1SpeakPostParametersContainer2Value))
         {
             return V1SpeakPostParametersContainer.V1SpeakPostParametersContainer2(v1SpeakPostParametersContainer2Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersContainer3>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersContainer3>(
+            root,
             options,
             out var v1SpeakPostParametersContainer3Value))
         {
             return V1SpeakPostParametersContainer.V1SpeakPostParametersContainer3(v1SpeakPostParametersContainer3Value);
         }
-        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersContainer4>(root,
+        if (JsonSerializer.TryDeserialize<V1SpeakPostParametersContainer4>(
+            root,
             options,
             out var v1SpeakPostParametersContainer4Value))
         {
             return V1SpeakPostParametersContainer.V1SpeakPostParametersContainer4(v1SpeakPostParametersContainer4Value);
         }
-        throw new JsonException($"JSON does not match V1SpeakPostParametersContainer0 or V1SpeakPostParametersContainer1 or V1SpeakPostParametersContainer2 or V1SpeakPostParametersContainer3 or V1SpeakPostParametersContainer4 schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match V1SpeakPostParametersContainer0 or V1SpeakPostParametersContainer1 or V1SpeakPostParametersContainer2 or V1SpeakPostParametersContainer3 or V1SpeakPostParametersContainer4 schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer,

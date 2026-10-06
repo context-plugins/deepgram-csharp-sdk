@@ -9,6 +9,7 @@ using Deepgram.Core.Request;
 using Deepgram.Core.Response;
 using Deepgram.Errors;
 using Deepgram.Models;
+using Deepgram.Requests.VoiceAgentVariables;
 
 namespace Deepgram.Api;
 
@@ -28,140 +29,135 @@ public sealed class VoiceAgentVariables
     /// <summary>
     /// Create an Agent Variable
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AgentVariableV1"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Create2Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Create2Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Creates a new template variable. Variables follow the <c>DG_&lt;VARIABLE_NAME&gt;</c> naming format and can substitute any JSON value in an agent configuration.
     /// </remarks>
-    public Task<AgentVariableV1> Create2(string projectId,
-        CreateAgentVariableV1Request? body,
+    public Task<AgentVariableV1> Create2(Create2Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/agent-variables"),
-            [new TemplateParam("project_id", projectId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/agent-variables"),
+            [new TemplateParam("project_id", request.ProjectId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<AgentVariableV1>(),
-            Create2ErrorResponse.Instance,
+            Create2Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Delete an Agent Variable
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="variableId">The unique identifier of the agent variable</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="object"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Delete2Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Delete2Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Deletes the specified template variable
     /// </remarks>
-    public Task<object> Delete2(string projectId,
-        string variableId,
+    public Task<object> Delete2(Delete2Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/agent-variables/{variable_id}"),
-            [new TemplateParam("project_id", projectId), new TemplateParam("variable_id", variableId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/agent-variables/{variable_id}"),
+            [new TemplateParam("project_id", request.ProjectId), new TemplateParam("variable_id", request.VariableId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
             EmptyBody.Instance,
             JsonResponse.Create<object>(),
-            Delete2ErrorResponse.Instance,
+            Delete2Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Get an Agent Variable
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="variableId">The unique identifier of the agent variable</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AgentVariableV1"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Get2Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Get2Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns the specified template variable
     /// </remarks>
-    public Task<AgentVariableV1> Get2(string projectId,
-        string variableId,
+    public Task<AgentVariableV1> Get2(Get2Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/agent-variables/{variable_id}"),
-            [new TemplateParam("project_id", projectId), new TemplateParam("variable_id", variableId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/agent-variables/{variable_id}"),
+            [new TemplateParam("project_id", request.ProjectId), new TemplateParam("variable_id", request.VariableId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<AgentVariableV1>(),
-            Get2ErrorResponse.Instance,
+            Get2Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// List Agent Variables
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListAgentVariablesV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="List3Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="List3Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns all template variables for the specified project
     /// </remarks>
-    public Task<ListAgentVariablesV1Response> List3(string projectId,
+    public Task<ListAgentVariablesV1Response> List3(List3Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/agent-variables"),
-            [new TemplateParam("project_id", projectId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/agent-variables"),
+            [new TemplateParam("project_id", request.ProjectId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListAgentVariablesV1Response>(),
-            List3ErrorResponse.Instance,
+            List3Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Update an Agent Variable
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="variableId">The unique identifier of the agent variable</param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AgentVariableV1"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Update2Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Update2Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Updates the value of an existing template variable
     /// </remarks>
-    public Task<AgentVariableV1> Update2(string projectId,
-        string variableId,
-        UpdateAgentVariableV1Request? body,
+    public Task<AgentVariableV1> Update2(Update2Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/agent-variables/{variable_id}"),
-            [new TemplateParam("project_id", projectId), new TemplateParam("variable_id", variableId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/agent-variables/{variable_id}"),
+            [new TemplateParam("project_id", request.ProjectId), new TemplateParam("variable_id", request.VariableId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             new HttpMethod("PATCH"),
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<AgentVariableV1>(),
-            Update2ErrorResponse.Instance,
+            Update2Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 }

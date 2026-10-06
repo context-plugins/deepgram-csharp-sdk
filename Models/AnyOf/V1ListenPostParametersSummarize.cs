@@ -24,8 +24,7 @@ public record V1ListenPostParametersSummarize
     public static V1ListenPostParametersSummarize V1ListenPostParametersSummarize0(V1ListenPostParametersSummarize0 value) =>
         new(Optional<V1ListenPostParametersSummarize0>.Some(value), default);
 
-    public static V1ListenPostParametersSummarize Bool(bool value) =>
-        new(default, Optional<bool>.Some(value));
+    public static V1ListenPostParametersSummarize Bool(bool value) => new(default, Optional<bool>.Some(value));
 
     public bool TryGetV1ListenPostParametersSummarize0(out V1ListenPostParametersSummarize0 value) =>
         _v1ListenPostParametersSummarize0Value.TryGetValue(out value);
@@ -46,17 +45,20 @@ file sealed class V1ListenPostParametersSummarizeConverter : JsonConverter<V1Lis
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<V1ListenPostParametersSummarize0>(root,
+        if (JsonSerializer.TryDeserialize<V1ListenPostParametersSummarize0>(
+            root,
             options,
             out var v1ListenPostParametersSummarize0Value))
         {
-            return V1ListenPostParametersSummarize.V1ListenPostParametersSummarize0(v1ListenPostParametersSummarize0Value);
+            return V1ListenPostParametersSummarize.V1ListenPostParametersSummarize0(
+                v1ListenPostParametersSummarize0Value);
         }
         if (JsonSerializer.TryDeserialize<bool>(root, options, out var boolValue))
         {
             return V1ListenPostParametersSummarize.Bool(boolValue);
         }
-        throw new JsonException($"JSON does not match V1ListenPostParametersSummarize0 or bool schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match V1ListenPostParametersSummarize0 or bool schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer,

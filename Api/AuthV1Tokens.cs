@@ -9,6 +9,7 @@ using Deepgram.Core.Request;
 using Deepgram.Core.Response;
 using Deepgram.Errors;
 using Deepgram.Models;
+using Deepgram.Requests.AuthV1Tokens;
 
 namespace Deepgram.Api;
 
@@ -28,26 +29,27 @@ public sealed class AuthV1Tokens
     /// <summary>
     /// Token-based Authentication
     /// </summary>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GrantV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="GrantError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="GrantError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Generates a temporary JSON Web Token (JWT) with a 30-second (by default) TTL and usage::write permission for core voice APIs, requiring an API key with Member or higher authorization. Tokens created with this endpoint will not work with the Manage APIs.
     /// </remarks>
-    public Task<GrantV1Response> Grant(GrantV1Request? body,
+    public Task<GrantV1Response> Grant(GrantRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/auth/grant"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/auth/grant"),
             [],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<GrantV1Response>(),
-            GrantErrorResponse.Instance,
+            GrantError.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 }

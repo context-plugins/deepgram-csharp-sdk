@@ -9,6 +9,7 @@ using Deepgram.Core.Request;
 using Deepgram.Core.Response;
 using Deepgram.Errors;
 using Deepgram.Models;
+using Deepgram.Requests.ManageV1ProjectsMembersInvites;
 
 namespace Deepgram.Api;
 
@@ -28,82 +29,81 @@ public sealed class ManageV1ProjectsMembersInvites
     /// <summary>
     /// Create a Project Invite
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="body"></param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateProjectInviteV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Create4Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Create4Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Generates an invite for a specific project
     /// </remarks>
-    public Task<CreateProjectInviteV1Response> Create4(string projectId,
-        CreateProjectInviteV1Request? body,
+    public Task<CreateProjectInviteV1Response> Create4(Create4Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/invites"),
-            [new TemplateParam("project_id", projectId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/invites"),
+            [new TemplateParam("project_id", request.ProjectId)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
-            JsonRequest.Create(body),
+            JsonRequest.Create(request.Body),
             JsonResponse.Create<CreateProjectInviteV1Response>(),
-            Create4ErrorResponse.Instance,
+            Create4Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Delete a Project Invite
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="email">The email address of the member</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteProjectInviteV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Delete6Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Delete6Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Deletes an invite for a specific project
     /// </remarks>
-    public Task<DeleteProjectInviteV1Response> Delete6(string projectId,
-        string email,
+    public Task<DeleteProjectInviteV1Response> Delete6(Delete6Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/invites/{email}"),
-            [new TemplateParam("project_id", projectId), new TemplateParam("email", email)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/invites/{email}"),
+            [new TemplateParam("project_id", request.ProjectId), new TemplateParam("email", request.Email)],
             [],
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
             EmptyBody.Instance,
             JsonResponse.Create<DeleteProjectInviteV1Response>(),
-            Delete6ErrorResponse.Instance,
+            Delete6Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// List Project Invites
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectInvitesV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="List10Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="List10Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Generates a list of invites for a specific project
     /// </remarks>
-    public Task<ListProjectInvitesV1Response> List10(string projectId,
+    public Task<ListProjectInvitesV1Response> List10(List10Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/invites"),
-            [new TemplateParam("project_id", projectId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/invites"),
+            [new TemplateParam("project_id", request.ProjectId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectInvitesV1Response>(),
-            List10ErrorResponse.Instance,
+            List10Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 }

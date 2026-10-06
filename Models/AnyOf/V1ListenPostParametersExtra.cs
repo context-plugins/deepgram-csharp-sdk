@@ -14,23 +14,20 @@ public record V1ListenPostParametersExtra
 
     private readonly Optional<IReadOnlyList<string>> _listOfStringValue;
 
-    private V1ListenPostParametersExtra(Optional<string> stringValue,
-        Optional<IReadOnlyList<string>> listOfStringValue)
+    private V1ListenPostParametersExtra(Optional<string> stringValue, Optional<IReadOnlyList<string>> listOfStringValue)
     {
         _stringValue = stringValue;
         _listOfStringValue = listOfStringValue;
     }
 
-    public static V1ListenPostParametersExtra String(string value) =>
-        new(Optional<string>.Some(value), default);
+    public static V1ListenPostParametersExtra String(string value) => new(Optional<string>.Some(value), default);
 
     public static V1ListenPostParametersExtra ListOfString(IReadOnlyList<string> value) =>
         new(default, Optional<IReadOnlyList<string>>.Some(value));
 
     public bool TryGetString(out string value) => _stringValue.TryGetValue(out value);
 
-    public bool TryGetListOfString(out IReadOnlyList<string> value) =>
-        _listOfStringValue.TryGetValue(out value);
+    public bool TryGetListOfString(out IReadOnlyList<string> value) => _listOfStringValue.TryGetValue(out value);
 
     public static implicit operator V1ListenPostParametersExtra(string value) => String(value);
 }
@@ -55,9 +52,7 @@ file sealed class V1ListenPostParametersExtraConverter : JsonConverter<V1ListenP
         throw new JsonException($"JSON does not match string or IReadOnlyList<string> schemas: {root.ToString()}");
     }
 
-    public override void Write(Utf8JsonWriter writer,
-        V1ListenPostParametersExtra value,
-        JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, V1ListenPostParametersExtra value, JsonSerializerOptions options)
     {
         if (value.TryGetString(out var stringValue))
         {

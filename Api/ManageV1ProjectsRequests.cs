@@ -1,4 +1,3 @@
-using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using Deepgram.Core.Request;
 using Deepgram.Core.Response;
 using Deepgram.Errors;
 using Deepgram.Models;
-using Deepgram.Models.Enums;
+using Deepgram.Requests.ManageV1ProjectsRequests;
 
 namespace Deepgram.Api;
 
@@ -30,83 +29,65 @@ public sealed class ManageV1ProjectsRequests
     /// <summary>
     /// Get a Project Request
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="requestId">The unique identifier of the request</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetProjectRequestV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="Get7Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="Get7Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieves a specific request for a specific project
     /// </remarks>
-    public Task<GetProjectRequestV1Response> Get7(string projectId,
-        string requestId,
+    public Task<GetProjectRequestV1Response> Get7(Get7Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/requests/{request_id}"),
-            [new TemplateParam("project_id", projectId), new TemplateParam("request_id", requestId)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/requests/{request_id}"),
+            [new TemplateParam("project_id", request.ProjectId), new TemplateParam("request_id", request.RequestId)],
             [],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<GetProjectRequestV1Response>(),
-            Get7ErrorResponse.Instance,
+            Get7Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// List Project Requests
     /// </summary>
-    /// <param name="projectId">The unique identifier of the project</param>
-    /// <param name="start">Start date of the requested date range. Formats accepted are YYYY-MM-DD, YYYY-MM-DDTHH:MM:SS, or YYYY-MM-DDTHH:MM:SS+HH:MM</param>
-    /// <param name="end">End date of the requested date range. Formats accepted are YYYY-MM-DD, YYYY-MM-DDTHH:MM:SS, or YYYY-MM-DDTHH:MM:SS+HH:MM</param>
-    /// <param name="page">Navigate and return the results to retrieve specific portions of information of the response</param>
-    /// <param name="accessor">Filter for requests where a specific accessor was used</param>
-    /// <param name="requestId">Filter for a specific request id</param>
-    /// <param name="deployment">Filter for requests where a specific deployment was used</param>
-    /// <param name="endpoint">Filter for requests where a specific endpoint was used</param>
-    /// <param name="method">Filter for requests where a specific method was used</param>
-    /// <param name="status">Filter for requests that succeeded (status code &lt; 300) or failed (status code &gt;=400)</param>
-    /// <param name="limit">Number of results to return per page. Default 10. Range [1,1000]</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListProjectRequestsV1Response"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="List11Error"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="List11Error"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Generates a list of requests for a specific project
     /// </remarks>
-    public Task<ListProjectRequestsV1Response> List11(string projectId,
-        DateTimeOffset? start,
-        DateTimeOffset? end,
-        double? page,
-        string? accessor,
-        string? requestId,
-        V1ProjectsProjectIdRequestsGetParametersDeployment? deployment,
-        V1ProjectsProjectIdRequestsGetParametersEndpoint? endpoint,
-        V1ProjectsProjectIdRequestsGetParametersMethod? method,
-        V1ProjectsProjectIdRequestsGetParametersStatus? status,
-        double? limit = 10d,
+    public Task<ListProjectRequestsV1Response> List11(List11Request request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/v1/projects/{project_id}/requests"),
-            [new TemplateParam("project_id", projectId)],
-            [new Param("start", start?.ToIso8601()),
-                new Param("end", end?.ToIso8601()),
-                new Param("limit", limit),
-                new Param("page", page),
-                new Param("accessor", accessor),
-                new Param("request_id", requestId),
-                new Param("deployment", deployment),
-                new Param("endpoint", endpoint),
-                new Param("method", method),
-                new Param("status", status)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v1/projects/{project_id}/requests"),
+            [new TemplateParam("project_id", request.ProjectId)],
+            [
+                new Param("start", request.Start?.ToIso8601()),
+                new Param("end", request.End?.ToIso8601()),
+                new Param("limit", request.Limit),
+                new Param("page", request.Page),
+                new Param("accessor", request.Accessor),
+                new Param("request_id", request.RequestId),
+                new Param("deployment", request.Deployment),
+                new Param("endpoint", request.Endpoint),
+                new Param("method", request.Method),
+                new Param("status", request.Status),
+            ],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ListProjectRequestsV1Response>(),
-            List11ErrorResponse.Instance,
+            List11Error.Response,
             [_auth.ApiKeyAuth],
             requestOptions,
-            ct);
+            cancellationToken);
 }

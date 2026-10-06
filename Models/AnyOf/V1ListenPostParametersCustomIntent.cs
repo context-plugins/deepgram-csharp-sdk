@@ -21,16 +21,14 @@ public record V1ListenPostParametersCustomIntent
         _listOfStringValue = listOfStringValue;
     }
 
-    public static V1ListenPostParametersCustomIntent String(string value) =>
-        new(Optional<string>.Some(value), default);
+    public static V1ListenPostParametersCustomIntent String(string value) => new(Optional<string>.Some(value), default);
 
     public static V1ListenPostParametersCustomIntent ListOfString(IReadOnlyList<string> value) =>
         new(default, Optional<IReadOnlyList<string>>.Some(value));
 
     public bool TryGetString(out string value) => _stringValue.TryGetValue(out value);
 
-    public bool TryGetListOfString(out IReadOnlyList<string> value) =>
-        _listOfStringValue.TryGetValue(out value);
+    public bool TryGetListOfString(out IReadOnlyList<string> value) => _listOfStringValue.TryGetValue(out value);
 
     public static implicit operator V1ListenPostParametersCustomIntent(string value) => String(value);
 }
@@ -69,7 +67,8 @@ file sealed class V1ListenPostParametersCustomIntentConverter : JsonConverter<V1
         }
         else
         {
-            throw new JsonException($"{nameof(V1ListenPostParametersCustomIntent)} contains no valid value to serialize.");
+            throw new JsonException(
+                $"{nameof(V1ListenPostParametersCustomIntent)} contains no valid value to serialize.");
         }
     }
 }

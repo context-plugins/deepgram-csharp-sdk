@@ -53,7 +53,8 @@ file sealed class GetModelV1ResponseConverter : JsonConverter<GetModelV1Response
         {
             return GetModelV1Response.GetModelV1Response1(getModelV1Response1Value);
         }
-        throw new JsonException($"JSON does not match GetModelV1Response0 or GetModelV1Response1 schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match GetModelV1Response0 or GetModelV1Response1 schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, GetModelV1Response value, JsonSerializerOptions options)
