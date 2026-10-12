@@ -2,7 +2,7 @@
 
 # SpeakV1Audio — operations
 
-Accessor: `client.SpeakV1Audio` · Source: `Api/SpeakV1Audio.cs` · 1 operation
+Accessor: `client.SpeakV1Audio` · Source: `src/Deepgram/Api/SpeakV1Audio.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,15 +17,15 @@ Accessor: `client.SpeakV1Audio` · Source: `Api/SpeakV1Audio.cs` · 1 operation
 
 | Type | Source |
 | --- | --- |
-| `GenerateRequest` | `Requests/SpeakV1Audio/GenerateRequest.cs` |
-| `V1ListenPostParametersCallbackMethod` | `Models/Enums/V1ListenPostParametersCallbackMethod.cs` |
-| `V1SpeakPostParametersTag` | `Models/AnyOf/V1SpeakPostParametersTag.cs` |
-| `V1SpeakPostParametersBitRate` | `Models/AnyOf/V1SpeakPostParametersBitRate.cs` |
-| `V1SpeakPostParametersContainer` | `Models/AnyOf/V1SpeakPostParametersContainer.cs` |
-| `V1SpeakPostParametersEncoding` | `Models/AnyOf/V1SpeakPostParametersEncoding.cs` |
-| `V1SpeakPostParametersModel` | `Models/Enums/V1SpeakPostParametersModel.cs` |
-| `V1SpeakPostParametersSampleRate` | `Models/AnyOf/V1SpeakPostParametersSampleRate.cs` |
-| `SpeakV1Request` | `Models/SpeakV1Request.cs` |
-| `GenerateError` | `Errors/GenerateError.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `GenerateRequest` | `src/Deepgram/Requests/SpeakV1Audio/GenerateRequest.cs` |
+| `V1ListenPostParametersCallbackMethod` | `src/Deepgram/Models/Enums/V1ListenPostParametersCallbackMethod.cs` |
+| `V1SpeakPostParametersTag` | `src/Deepgram/Models/AnyOf/V1SpeakPostParametersTag.cs` |
+| `V1SpeakPostParametersBitRate` | `src/Deepgram/Models/AnyOf/V1SpeakPostParametersBitRate.cs` |
+| `V1SpeakPostParametersContainer` | `src/Deepgram/Models/AnyOf/V1SpeakPostParametersContainer.cs` |
+| `V1SpeakPostParametersEncoding` | `src/Deepgram/Models/AnyOf/V1SpeakPostParametersEncoding.cs` |
+| `V1SpeakPostParametersModel` | `src/Deepgram/Models/Enums/V1SpeakPostParametersModel.cs` |
+| `V1SpeakPostParametersSampleRate` | `src/Deepgram/Models/AnyOf/V1SpeakPostParametersSampleRate.cs` |
+| `SpeakV1Request` | `src/Deepgram/Models/SpeakV1Request.cs` |
+| `GenerateError` | `src/Deepgram/Errors/GenerateError.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

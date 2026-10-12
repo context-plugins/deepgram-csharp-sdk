@@ -2,7 +2,7 @@
 
 # ReadV1Text — operations
 
-Accessor: `client.ReadV1Text` · Source: `Api/ReadV1Text.cs` · 1 operation
+Accessor: `client.ReadV1Text` · Source: `src/Deepgram/Api/ReadV1Text.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,15 +17,15 @@ Accessor: `client.ReadV1Text` · Source: `Api/ReadV1Text.cs` · 1 operation
 
 | Type | Source |
 | --- | --- |
-| `AnalyzeRequest` | `Requests/ReadV1Text/AnalyzeRequest.cs` |
-| `V1ListenPostParametersCallbackMethod` | `Models/Enums/V1ListenPostParametersCallbackMethod.cs` |
-| `V1ReadPostParametersSummarize` | `Models/AnyOf/V1ReadPostParametersSummarize.cs` |
-| `V1ReadPostParametersTag` | `Models/AnyOf/V1ReadPostParametersTag.cs` |
-| `V1ReadPostParametersCustomTopic` | `Models/AnyOf/V1ReadPostParametersCustomTopic.cs` |
-| `V1ListenPostParametersCustomTopicMode` | `Models/Enums/V1ListenPostParametersCustomTopicMode.cs` |
-| `V1ReadPostParametersCustomIntent` | `Models/AnyOf/V1ReadPostParametersCustomIntent.cs` |
-| `ReadV1Request` | `Models/AnyOf/ReadV1Request.cs` |
-| `ReadV1Response` | `Models/ReadV1Response.cs` |
-| `AnalyzeError` | `Errors/AnalyzeError.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `AnalyzeRequest` | `src/Deepgram/Requests/ReadV1Text/AnalyzeRequest.cs` |
+| `V1ListenPostParametersCallbackMethod` | `src/Deepgram/Models/Enums/V1ListenPostParametersCallbackMethod.cs` |
+| `V1ReadPostParametersSummarize` | `src/Deepgram/Models/AnyOf/V1ReadPostParametersSummarize.cs` |
+| `V1ReadPostParametersTag` | `src/Deepgram/Models/AnyOf/V1ReadPostParametersTag.cs` |
+| `V1ReadPostParametersCustomTopic` | `src/Deepgram/Models/AnyOf/V1ReadPostParametersCustomTopic.cs` |
+| `V1ListenPostParametersCustomTopicMode` | `src/Deepgram/Models/Enums/V1ListenPostParametersCustomTopicMode.cs` |
+| `V1ReadPostParametersCustomIntent` | `src/Deepgram/Models/AnyOf/V1ReadPostParametersCustomIntent.cs` |
+| `ReadV1Request` | `src/Deepgram/Models/AnyOf/ReadV1Request.cs` |
+| `ReadV1Response` | `src/Deepgram/Models/ReadV1Response.cs` |
+| `AnalyzeError` | `src/Deepgram/Errors/AnalyzeError.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

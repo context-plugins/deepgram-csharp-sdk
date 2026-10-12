@@ -2,7 +2,7 @@
 
 # SelfHostedV1DistributionCredentials — operations
 
-Accessor: `client.SelfHostedV1DistributionCredentials` · Source: `Api/SelfHostedV1DistributionCredentials.cs` · 4 operations
+Accessor: `client.SelfHostedV1DistributionCredentials` · Source: `src/Deepgram/Api/SelfHostedV1DistributionCredentials.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -18,13 +18,13 @@ Accessor: `client.SelfHostedV1DistributionCredentials` · Source: `Api/SelfHoste
 
 | Type | Source |
 | --- | --- |
-| `Create5Request` | `Requests/SelfHostedV1DistributionCredentials/Create5Request.cs` |
-| `V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersScopesSchemaItems` | `Models/Enums/V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersScopesSchemaItems.cs` |
-| `V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersProvider` | `Models/Enums/V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersProvider.cs` |
-| `CreateProjectDistributionCredentialsV1Request` | `Models/CreateProjectDistributionCredentialsV1Request.cs` |
-| `CreateProjectDistributionCredentialsV1Response` | `Models/CreateProjectDistributionCredentialsV1Response.cs` |
-| `Create5Error` | `Errors/Create5Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Create5Request` | `src/Deepgram/Requests/SelfHostedV1DistributionCredentials/Create5Request.cs` |
+| `V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersScopesSchemaItems` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersScopesSchemaItems.cs` |
+| `V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersProvider` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdSelfHostedDistributionCredentialsPostParametersProvider.cs` |
+| `CreateProjectDistributionCredentialsV1Request` | `src/Deepgram/Models/CreateProjectDistributionCredentialsV1Request.cs` |
+| `CreateProjectDistributionCredentialsV1Response` | `src/Deepgram/Models/CreateProjectDistributionCredentialsV1Response.cs` |
+| `Create5Error` | `src/Deepgram/Errors/Create5Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Delete7
 
@@ -37,10 +37,10 @@ Accessor: `client.SelfHostedV1DistributionCredentials` · Source: `Api/SelfHoste
 
 | Type | Source |
 | --- | --- |
-| `Delete7Request` | `Requests/SelfHostedV1DistributionCredentials/Delete7Request.cs` |
-| `GetProjectDistributionCredentialsV1Response` | `Models/GetProjectDistributionCredentialsV1Response.cs` |
-| `Delete7Error` | `Errors/Delete7Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Delete7Request` | `src/Deepgram/Requests/SelfHostedV1DistributionCredentials/Delete7Request.cs` |
+| `GetProjectDistributionCredentialsV1Response` | `src/Deepgram/Models/GetProjectDistributionCredentialsV1Response.cs` |
+| `Delete7Error` | `src/Deepgram/Errors/Delete7Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Get11
 
@@ -53,10 +53,10 @@ Accessor: `client.SelfHostedV1DistributionCredentials` · Source: `Api/SelfHoste
 
 | Type | Source |
 | --- | --- |
-| `Get11Request` | `Requests/SelfHostedV1DistributionCredentials/Get11Request.cs` |
-| `GetProjectDistributionCredentialsV1Response` | `Models/GetProjectDistributionCredentialsV1Response.cs` |
-| `Get11Error` | `Errors/Get11Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Get11Request` | `src/Deepgram/Requests/SelfHostedV1DistributionCredentials/Get11Request.cs` |
+| `GetProjectDistributionCredentialsV1Response` | `src/Deepgram/Models/GetProjectDistributionCredentialsV1Response.cs` |
+| `Get11Error` | `src/Deepgram/Errors/Get11Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List17
 
@@ -69,8 +69,8 @@ Accessor: `client.SelfHostedV1DistributionCredentials` · Source: `Api/SelfHoste
 
 | Type | Source |
 | --- | --- |
-| `List17Request` | `Requests/SelfHostedV1DistributionCredentials/List17Request.cs` |
-| `ListProjectDistributionCredentialsV1Response` | `Models/ListProjectDistributionCredentialsV1Response.cs` |
-| `List17Error` | `Errors/List17Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List17Request` | `src/Deepgram/Requests/SelfHostedV1DistributionCredentials/List17Request.cs` |
+| `ListProjectDistributionCredentialsV1Response` | `src/Deepgram/Models/ListProjectDistributionCredentialsV1Response.cs` |
+| `List17Error` | `src/Deepgram/Errors/List17Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

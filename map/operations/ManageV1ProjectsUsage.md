@@ -2,7 +2,7 @@
 
 # ManageV1ProjectsUsage — operations
 
-Accessor: `client.ManageV1ProjectsUsage` · Source: `Api/ManageV1ProjectsUsage.cs` · 1 operation
+Accessor: `client.ManageV1ProjectsUsage` · Source: `src/Deepgram/Api/ManageV1ProjectsUsage.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -18,11 +18,11 @@ Accessor: `client.ManageV1ProjectsUsage` · Source: `Api/ManageV1ProjectsUsage.c
 
 | Type | Source |
 | --- | --- |
-| `Get8Request` | `Requests/ManageV1ProjectsUsage/Get8Request.cs` |
-| `V1ProjectsProjectIdUsageGetParametersDeployment` | `Models/Enums/V1ProjectsProjectIdUsageGetParametersDeployment.cs` |
-| `V1ProjectsProjectIdUsageGetParametersEndpoint` | `Models/Enums/V1ProjectsProjectIdUsageGetParametersEndpoint.cs` |
-| `V1ProjectsProjectIdUsageGetParametersMethod` | `Models/Enums/V1ProjectsProjectIdUsageGetParametersMethod.cs` |
-| `UsageV1Response` | `Models/UsageV1Response.cs` |
-| `Get8Error` | `Errors/Get8Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Get8Request` | `src/Deepgram/Requests/ManageV1ProjectsUsage/Get8Request.cs` |
+| `V1ProjectsProjectIdUsageGetParametersDeployment` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdUsageGetParametersDeployment.cs` |
+| `V1ProjectsProjectIdUsageGetParametersEndpoint` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdUsageGetParametersEndpoint.cs` |
+| `V1ProjectsProjectIdUsageGetParametersMethod` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdUsageGetParametersMethod.cs` |
+| `UsageV1Response` | `src/Deepgram/Models/UsageV1Response.cs` |
+| `Get8Error` | `src/Deepgram/Errors/Get8Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

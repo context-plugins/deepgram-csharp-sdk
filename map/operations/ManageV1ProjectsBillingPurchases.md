@@ -2,7 +2,7 @@
 
 # ManageV1ProjectsBillingPurchases — operations
 
-Accessor: `client.ManageV1ProjectsBillingPurchases` · Source: `Api/ManageV1ProjectsBillingPurchases.cs` · 1 operation
+Accessor: `client.ManageV1ProjectsBillingPurchases` · Source: `src/Deepgram/Api/ManageV1ProjectsBillingPurchases.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -18,8 +18,8 @@ Accessor: `client.ManageV1ProjectsBillingPurchases` · Source: `Api/ManageV1Proj
 
 | Type | Source |
 | --- | --- |
-| `List16Request` | `Requests/ManageV1ProjectsBillingPurchases/List16Request.cs` |
-| `ListProjectPurchasesV1Response` | `Models/ListProjectPurchasesV1Response.cs` |
-| `List16Error` | `Errors/List16Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List16Request` | `src/Deepgram/Requests/ManageV1ProjectsBillingPurchases/List16Request.cs` |
+| `ListProjectPurchasesV1Response` | `src/Deepgram/Models/ListProjectPurchasesV1Response.cs` |
+| `List16Error` | `src/Deepgram/Errors/List16Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

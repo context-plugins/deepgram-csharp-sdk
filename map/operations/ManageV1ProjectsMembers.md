@@ -2,7 +2,7 @@
 
 # ManageV1ProjectsMembers — operations
 
-Accessor: `client.ManageV1ProjectsMembers` · Source: `Api/ManageV1ProjectsMembers.cs` · 2 operations
+Accessor: `client.ManageV1ProjectsMembers` · Source: `src/Deepgram/Api/ManageV1ProjectsMembers.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,10 +17,10 @@ Accessor: `client.ManageV1ProjectsMembers` · Source: `Api/ManageV1ProjectsMembe
 
 | Type | Source |
 | --- | --- |
-| `Delete5Request` | `Requests/ManageV1ProjectsMembers/Delete5Request.cs` |
-| `DeleteProjectMemberV1Response` | `Models/DeleteProjectMemberV1Response.cs` |
-| `Delete5Error` | `Errors/Delete5Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Delete5Request` | `src/Deepgram/Requests/ManageV1ProjectsMembers/Delete5Request.cs` |
+| `DeleteProjectMemberV1Response` | `src/Deepgram/Models/DeleteProjectMemberV1Response.cs` |
+| `Delete5Error` | `src/Deepgram/Errors/Delete5Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List8
 
@@ -33,8 +33,8 @@ Accessor: `client.ManageV1ProjectsMembers` · Source: `Api/ManageV1ProjectsMembe
 
 | Type | Source |
 | --- | --- |
-| `List8Request` | `Requests/ManageV1ProjectsMembers/List8Request.cs` |
-| `ListProjectMembersV1Response` | `Models/ListProjectMembersV1Response.cs` |
-| `List8Error` | `Errors/List8Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List8Request` | `src/Deepgram/Requests/ManageV1ProjectsMembers/List8Request.cs` |
+| `ListProjectMembersV1Response` | `src/Deepgram/Models/ListProjectMembersV1Response.cs` |
+| `List8Error` | `src/Deepgram/Errors/List8Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

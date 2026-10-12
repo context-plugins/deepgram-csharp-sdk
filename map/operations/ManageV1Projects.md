@@ -2,7 +2,7 @@
 
 # ManageV1Projects — operations
 
-Accessor: `client.ManageV1Projects` · Source: `Api/ManageV1Projects.cs` · 5 operations
+Accessor: `client.ManageV1Projects` · Source: `src/Deepgram/Api/ManageV1Projects.cs` · 5 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,10 +17,10 @@ Accessor: `client.ManageV1Projects` · Source: `Api/ManageV1Projects.cs` · 5 op
 
 | Type | Source |
 | --- | --- |
-| `Delete3Request` | `Requests/ManageV1Projects/Delete3Request.cs` |
-| `DeleteProjectV1Response` | `Models/DeleteProjectV1Response.cs` |
-| `Delete3Error` | `Errors/Delete3Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Delete3Request` | `src/Deepgram/Requests/ManageV1Projects/Delete3Request.cs` |
+| `DeleteProjectV1Response` | `src/Deepgram/Models/DeleteProjectV1Response.cs` |
+| `Delete3Error` | `src/Deepgram/Errors/Delete3Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Get3
 
@@ -34,10 +34,10 @@ Accessor: `client.ManageV1Projects` · Source: `Api/ManageV1Projects.cs` · 5 op
 
 | Type | Source |
 | --- | --- |
-| `Get3Request` | `Requests/ManageV1Projects/Get3Request.cs` |
-| `GetProjectV1Response` | `Models/GetProjectV1Response.cs` |
-| `Get3Error` | `Errors/Get3Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Get3Request` | `src/Deepgram/Requests/ManageV1Projects/Get3Request.cs` |
+| `GetProjectV1Response` | `src/Deepgram/Models/GetProjectV1Response.cs` |
+| `Get3Error` | `src/Deepgram/Errors/Get3Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Leave
 
@@ -50,10 +50,10 @@ Accessor: `client.ManageV1Projects` · Source: `Api/ManageV1Projects.cs` · 5 op
 
 | Type | Source |
 | --- | --- |
-| `LeaveRequest` | `Requests/ManageV1Projects/LeaveRequest.cs` |
-| `LeaveProjectV1Response` | `Models/LeaveProjectV1Response.cs` |
-| `LeaveError` | `Errors/LeaveError.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `LeaveRequest` | `src/Deepgram/Requests/ManageV1Projects/LeaveRequest.cs` |
+| `LeaveProjectV1Response` | `src/Deepgram/Models/LeaveProjectV1Response.cs` |
+| `LeaveError` | `src/Deepgram/Errors/LeaveError.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List4
 
@@ -65,9 +65,9 @@ Accessor: `client.ManageV1Projects` · Source: `Api/ManageV1Projects.cs` · 5 op
 
 | Type | Source |
 | --- | --- |
-| `ListProjectsV1Response` | `Models/ListProjectsV1Response.cs` |
-| `List4Error` | `Errors/List4Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `ListProjectsV1Response` | `src/Deepgram/Models/ListProjectsV1Response.cs` |
+| `List4Error` | `src/Deepgram/Errors/List4Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Update3
 
@@ -80,9 +80,9 @@ Accessor: `client.ManageV1Projects` · Source: `Api/ManageV1Projects.cs` · 5 op
 
 | Type | Source |
 | --- | --- |
-| `Update3Request` | `Requests/ManageV1Projects/Update3Request.cs` |
-| `UpdateProjectV1Request` | `Models/UpdateProjectV1Request.cs` |
-| `UpdateProjectV1Response` | `Models/UpdateProjectV1Response.cs` |
-| `Update3Error` | `Errors/Update3Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Update3Request` | `src/Deepgram/Requests/ManageV1Projects/Update3Request.cs` |
+| `UpdateProjectV1Request` | `src/Deepgram/Models/UpdateProjectV1Request.cs` |
+| `UpdateProjectV1Response` | `src/Deepgram/Models/UpdateProjectV1Response.cs` |
+| `Update3Error` | `src/Deepgram/Errors/Update3Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

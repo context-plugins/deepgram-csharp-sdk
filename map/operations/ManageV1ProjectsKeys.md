@@ -2,7 +2,7 @@
 
 # ManageV1ProjectsKeys — operations
 
-Accessor: `client.ManageV1ProjectsKeys` · Source: `Api/ManageV1ProjectsKeys.cs` · 4 operations
+Accessor: `client.ManageV1ProjectsKeys` · Source: `src/Deepgram/Api/ManageV1ProjectsKeys.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,11 +17,11 @@ Accessor: `client.ManageV1ProjectsKeys` · Source: `Api/ManageV1ProjectsKeys.cs`
 
 | Type | Source |
 | --- | --- |
-| `Create3Request` | `Requests/ManageV1ProjectsKeys/Create3Request.cs` |
-| `CreateKeyV1Request` | `Models/AnyOf/CreateKeyV1Request.cs` |
-| `CreateKeyV1Response` | `Models/CreateKeyV1Response.cs` |
-| `Create3Error` | `Errors/Create3Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Create3Request` | `src/Deepgram/Requests/ManageV1ProjectsKeys/Create3Request.cs` |
+| `CreateKeyV1Request` | `src/Deepgram/Models/AnyOf/CreateKeyV1Request.cs` |
+| `CreateKeyV1Response` | `src/Deepgram/Models/CreateKeyV1Response.cs` |
+| `Create3Error` | `src/Deepgram/Errors/Create3Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Delete4
 
@@ -34,10 +34,10 @@ Accessor: `client.ManageV1ProjectsKeys` · Source: `Api/ManageV1ProjectsKeys.cs`
 
 | Type | Source |
 | --- | --- |
-| `Delete4Request` | `Requests/ManageV1ProjectsKeys/Delete4Request.cs` |
-| `DeleteProjectKeyV1Response` | `Models/DeleteProjectKeyV1Response.cs` |
-| `Delete4Error` | `Errors/Delete4Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Delete4Request` | `src/Deepgram/Requests/ManageV1ProjectsKeys/Delete4Request.cs` |
+| `DeleteProjectKeyV1Response` | `src/Deepgram/Models/DeleteProjectKeyV1Response.cs` |
+| `Delete4Error` | `src/Deepgram/Errors/Delete4Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Get6
 
@@ -50,10 +50,10 @@ Accessor: `client.ManageV1ProjectsKeys` · Source: `Api/ManageV1ProjectsKeys.cs`
 
 | Type | Source |
 | --- | --- |
-| `Get6Request` | `Requests/ManageV1ProjectsKeys/Get6Request.cs` |
-| `GetProjectKeyV1Response` | `Models/GetProjectKeyV1Response.cs` |
-| `Get6Error` | `Errors/Get6Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Get6Request` | `src/Deepgram/Requests/ManageV1ProjectsKeys/Get6Request.cs` |
+| `GetProjectKeyV1Response` | `src/Deepgram/Models/GetProjectKeyV1Response.cs` |
+| `Get6Error` | `src/Deepgram/Errors/Get6Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List7
 
@@ -67,9 +67,9 @@ Accessor: `client.ManageV1ProjectsKeys` · Source: `Api/ManageV1ProjectsKeys.cs`
 
 | Type | Source |
 | --- | --- |
-| `List7Request` | `Requests/ManageV1ProjectsKeys/List7Request.cs` |
-| `V1ProjectsProjectIdKeysGetParametersStatus` | `Models/Enums/V1ProjectsProjectIdKeysGetParametersStatus.cs` |
-| `ListProjectKeysV1Response` | `Models/ListProjectKeysV1Response.cs` |
-| `List7Error` | `Errors/List7Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List7Request` | `src/Deepgram/Requests/ManageV1ProjectsKeys/List7Request.cs` |
+| `V1ProjectsProjectIdKeysGetParametersStatus` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdKeysGetParametersStatus.cs` |
+| `ListProjectKeysV1Response` | `src/Deepgram/Models/ListProjectKeysV1Response.cs` |
+| `List7Error` | `src/Deepgram/Errors/List7Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

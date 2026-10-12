@@ -2,7 +2,7 @@
 
 # ManageV1ProjectsMembersScopes — operations
 
-Accessor: `client.ManageV1ProjectsMembersScopes` · Source: `Api/ManageV1ProjectsMembersScopes.cs` · 2 operations
+Accessor: `client.ManageV1ProjectsMembersScopes` · Source: `src/Deepgram/Api/ManageV1ProjectsMembersScopes.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,10 +17,10 @@ Accessor: `client.ManageV1ProjectsMembersScopes` · Source: `Api/ManageV1Project
 
 | Type | Source |
 | --- | --- |
-| `List9Request` | `Requests/ManageV1ProjectsMembersScopes/List9Request.cs` |
-| `ListProjectMemberScopesV1Response` | `Models/ListProjectMemberScopesV1Response.cs` |
-| `List9Error` | `Errors/List9Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List9Request` | `src/Deepgram/Requests/ManageV1ProjectsMembersScopes/List9Request.cs` |
+| `ListProjectMemberScopesV1Response` | `src/Deepgram/Models/ListProjectMemberScopesV1Response.cs` |
+| `List9Error` | `src/Deepgram/Errors/List9Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Update4
 
@@ -33,9 +33,9 @@ Accessor: `client.ManageV1ProjectsMembersScopes` · Source: `Api/ManageV1Project
 
 | Type | Source |
 | --- | --- |
-| `Update4Request` | `Requests/ManageV1ProjectsMembersScopes/Update4Request.cs` |
-| `UpdateProjectMemberScopesV1Request` | `Models/UpdateProjectMemberScopesV1Request.cs` |
-| `UpdateProjectMemberScopesV1Response` | `Models/UpdateProjectMemberScopesV1Response.cs` |
-| `Update4Error` | `Errors/Update4Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Update4Request` | `src/Deepgram/Requests/ManageV1ProjectsMembersScopes/Update4Request.cs` |
+| `UpdateProjectMemberScopesV1Request` | `src/Deepgram/Models/UpdateProjectMemberScopesV1Request.cs` |
+| `UpdateProjectMemberScopesV1Response` | `src/Deepgram/Models/UpdateProjectMemberScopesV1Response.cs` |
+| `Update4Error` | `src/Deepgram/Errors/Update4Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

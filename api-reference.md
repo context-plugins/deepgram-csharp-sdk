@@ -2,11 +2,11 @@
 
 Every operation below is shown in its throwing form. On an error status it throws `ApiException<TError>` — the status code, headers, content type and the operation's error type, `RawError` (the raw body) when the spec declares none — and where an operation offers an `…AsResult` sibling, that sibling returns `ApiResult<TResponse, TError>` instead. A request that produces no usable response surfaces as `SdkConnectionException` or `SdkTimeoutException`, a body that does not match the documented response type as `ResponseDeserializationException`, and a credential that cannot be applied as `AuthSchemeException`; all of them derive from `SdkException` and name the failed call. See [README → Error Handling](README.md#error-handling).
 
-> Source: [DeepgramClient](DeepgramClient.cs)
+> Source: [DeepgramClient](src/Deepgram/DeepgramClient.cs)
 
 ## AgentV1SettingsThinkModels
 
-> Source: [AgentV1SettingsThinkModels](Api/AgentV1SettingsThinkModels.cs)
+> Source: [AgentV1SettingsThinkModels](src/Deepgram/Api/AgentV1SettingsThinkModels.cs)
 
 <details>
 <summary><code>Task&lt;AgentThinkModelsV1Response&gt; List(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -52,9 +52,9 @@ catch (ApiException<ListError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AgentThinkModelsV1Response](Models/AgentThinkModelsV1Response.cs)</code>
+**OnSuccess**: <code>[AgentThinkModelsV1Response](src/Deepgram/Models/AgentThinkModelsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[ListError](Errors/ListError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[ListError](src/Deepgram/Errors/ListError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -66,7 +66,7 @@ catch (ApiException<ListError> ex)
 
 ## AuthV1Tokens
 
-> Source: [AuthV1Tokens](Api/AuthV1Tokens.cs)
+> Source: [AuthV1Tokens](src/Deepgram/Api/AuthV1Tokens.cs)
 
 <details>
 <summary><code>Task&lt;GrantV1Response&gt; Grant(GrantRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -112,7 +112,7 @@ catch (ApiException<GrantError> ex)
 <dl>
 <dd>
 
-<code>[GrantRequest](Requests/AuthV1Tokens/GrantRequest.cs)</code>
+<code>[GrantRequest](src/Deepgram/Requests/AuthV1Tokens/GrantRequest.cs)</code>
 
 </dd>
 </dl>
@@ -122,9 +122,9 @@ catch (ApiException<GrantError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GrantV1Response](Models/GrantV1Response.cs)</code>
+**OnSuccess**: <code>[GrantV1Response](src/Deepgram/Models/GrantV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[GrantError](Errors/GrantError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[GrantError](src/Deepgram/Errors/GrantError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -136,7 +136,7 @@ catch (ApiException<GrantError> ex)
 
 ## ListenV1Media
 
-> Source: [ListenV1Media](Api/ListenV1Media.cs)
+> Source: [ListenV1Media](src/Deepgram/Api/ListenV1Media.cs)
 
 <details>
 <summary><code>Task&lt;ListenV1MediaTranscribeResponse200&gt; Transcribe(TranscribeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -182,7 +182,7 @@ catch (ApiException<TranscribeError> ex)
 <dl>
 <dd>
 
-<code>[TranscribeRequest](Requests/ListenV1Media/TranscribeRequest.cs)</code>
+<code>[TranscribeRequest](src/Deepgram/Requests/ListenV1Media/TranscribeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -192,9 +192,9 @@ catch (ApiException<TranscribeError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListenV1MediaTranscribeResponse200](Models/AnyOf/ListenV1MediaTranscribeResponse200.cs)</code>
+**OnSuccess**: <code>[ListenV1MediaTranscribeResponse200](src/Deepgram/Models/AnyOf/ListenV1MediaTranscribeResponse200.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[TranscribeError](Errors/TranscribeError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[TranscribeError](src/Deepgram/Errors/TranscribeError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -206,7 +206,7 @@ catch (ApiException<TranscribeError> ex)
 
 ## ManageV1Models
 
-> Source: [ManageV1Models](Api/ManageV1Models.cs)
+> Source: [ManageV1Models](src/Deepgram/Api/ManageV1Models.cs)
 
 <details>
 <summary><code>Task&lt;GetModelV1Response&gt; Get5(Get5Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -252,7 +252,7 @@ catch (ApiException<Get5Error> ex)
 <dl>
 <dd>
 
-<code>[Get5Request](Requests/ManageV1Models/Get5Request.cs)</code>
+<code>[Get5Request](src/Deepgram/Requests/ManageV1Models/Get5Request.cs)</code>
 
 </dd>
 </dl>
@@ -262,9 +262,9 @@ catch (ApiException<Get5Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GetModelV1Response](Models/AnyOf/GetModelV1Response.cs)</code>
+**OnSuccess**: <code>[GetModelV1Response](src/Deepgram/Models/AnyOf/GetModelV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Get5Error](Errors/Get5Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Get5Error](src/Deepgram/Errors/Get5Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -318,7 +318,7 @@ catch (ApiException<List6Error> ex)
 <dl>
 <dd>
 
-<code>[List6Request](Requests/ManageV1Models/List6Request.cs)</code>
+<code>[List6Request](src/Deepgram/Requests/ManageV1Models/List6Request.cs)</code>
 
 </dd>
 </dl>
@@ -328,9 +328,9 @@ catch (ApiException<List6Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListModelsV1Response](Models/ListModelsV1Response.cs)</code>
+**OnSuccess**: <code>[ListModelsV1Response](src/Deepgram/Models/ListModelsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List6Error](Errors/List6Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List6Error](src/Deepgram/Errors/List6Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -342,7 +342,7 @@ catch (ApiException<List6Error> ex)
 
 ## ManageV1Projects
 
-> Source: [ManageV1Projects](Api/ManageV1Projects.cs)
+> Source: [ManageV1Projects](src/Deepgram/Api/ManageV1Projects.cs)
 
 <details>
 <summary><code>Task&lt;DeleteProjectV1Response&gt; Delete3(Delete3Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -388,7 +388,7 @@ catch (ApiException<Delete3Error> ex)
 <dl>
 <dd>
 
-<code>[Delete3Request](Requests/ManageV1Projects/Delete3Request.cs)</code>
+<code>[Delete3Request](src/Deepgram/Requests/ManageV1Projects/Delete3Request.cs)</code>
 
 </dd>
 </dl>
@@ -398,9 +398,9 @@ catch (ApiException<Delete3Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DeleteProjectV1Response](Models/DeleteProjectV1Response.cs)</code>
+**OnSuccess**: <code>[DeleteProjectV1Response](src/Deepgram/Models/DeleteProjectV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Delete3Error](Errors/Delete3Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Delete3Error](src/Deepgram/Errors/Delete3Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -454,7 +454,7 @@ catch (ApiException<Get3Error> ex)
 <dl>
 <dd>
 
-<code>[Get3Request](Requests/ManageV1Projects/Get3Request.cs)</code>
+<code>[Get3Request](src/Deepgram/Requests/ManageV1Projects/Get3Request.cs)</code>
 
 </dd>
 </dl>
@@ -464,9 +464,9 @@ catch (ApiException<Get3Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GetProjectV1Response](Models/GetProjectV1Response.cs)</code>
+**OnSuccess**: <code>[GetProjectV1Response](src/Deepgram/Models/GetProjectV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Get3Error](Errors/Get3Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Get3Error](src/Deepgram/Errors/Get3Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -520,7 +520,7 @@ catch (ApiException<LeaveError> ex)
 <dl>
 <dd>
 
-<code>[LeaveRequest](Requests/ManageV1Projects/LeaveRequest.cs)</code>
+<code>[LeaveRequest](src/Deepgram/Requests/ManageV1Projects/LeaveRequest.cs)</code>
 
 </dd>
 </dl>
@@ -530,9 +530,9 @@ catch (ApiException<LeaveError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[LeaveProjectV1Response](Models/LeaveProjectV1Response.cs)</code>
+**OnSuccess**: <code>[LeaveProjectV1Response](src/Deepgram/Models/LeaveProjectV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[LeaveError](Errors/LeaveError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[LeaveError](src/Deepgram/Errors/LeaveError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -586,9 +586,9 @@ catch (ApiException<List4Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListProjectsV1Response](Models/ListProjectsV1Response.cs)</code>
+**OnSuccess**: <code>[ListProjectsV1Response](src/Deepgram/Models/ListProjectsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List4Error](Errors/List4Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List4Error](src/Deepgram/Errors/List4Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -642,7 +642,7 @@ catch (ApiException<Update3Error> ex)
 <dl>
 <dd>
 
-<code>[Update3Request](Requests/ManageV1Projects/Update3Request.cs)</code>
+<code>[Update3Request](src/Deepgram/Requests/ManageV1Projects/Update3Request.cs)</code>
 
 </dd>
 </dl>
@@ -652,9 +652,9 @@ catch (ApiException<Update3Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UpdateProjectV1Response](Models/UpdateProjectV1Response.cs)</code>
+**OnSuccess**: <code>[UpdateProjectV1Response](src/Deepgram/Models/UpdateProjectV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Update3Error](Errors/Update3Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Update3Error](src/Deepgram/Errors/Update3Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -666,7 +666,7 @@ catch (ApiException<Update3Error> ex)
 
 ## ManageV1ProjectsBillingBalances
 
-> Source: [ManageV1ProjectsBillingBalances](Api/ManageV1ProjectsBillingBalances.cs)
+> Source: [ManageV1ProjectsBillingBalances](src/Deepgram/Api/ManageV1ProjectsBillingBalances.cs)
 
 <details>
 <summary><code>Task&lt;GetProjectBalanceV1Response&gt; Get10(Get10Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -716,7 +716,7 @@ catch (ApiException<Get10Error> ex)
 <dl>
 <dd>
 
-<code>[Get10Request](Requests/ManageV1ProjectsBillingBalances/Get10Request.cs)</code>
+<code>[Get10Request](src/Deepgram/Requests/ManageV1ProjectsBillingBalances/Get10Request.cs)</code>
 
 </dd>
 </dl>
@@ -726,9 +726,9 @@ catch (ApiException<Get10Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GetProjectBalanceV1Response](Models/GetProjectBalanceV1Response.cs)</code>
+**OnSuccess**: <code>[GetProjectBalanceV1Response](src/Deepgram/Models/GetProjectBalanceV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Get10Error](Errors/Get10Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Get10Error](src/Deepgram/Errors/Get10Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -785,7 +785,7 @@ catch (ApiException<List13Error> ex)
 <dl>
 <dd>
 
-<code>[List13Request](Requests/ManageV1ProjectsBillingBalances/List13Request.cs)</code>
+<code>[List13Request](src/Deepgram/Requests/ManageV1ProjectsBillingBalances/List13Request.cs)</code>
 
 </dd>
 </dl>
@@ -795,9 +795,9 @@ catch (ApiException<List13Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListProjectBalancesV1Response](Models/ListProjectBalancesV1Response.cs)</code>
+**OnSuccess**: <code>[ListProjectBalancesV1Response](src/Deepgram/Models/ListProjectBalancesV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List13Error](Errors/List13Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List13Error](src/Deepgram/Errors/List13Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -809,7 +809,7 @@ catch (ApiException<List13Error> ex)
 
 ## ManageV1ProjectsBillingBreakdown
 
-> Source: [ManageV1ProjectsBillingBreakdown](Api/ManageV1ProjectsBillingBreakdown.cs)
+> Source: [ManageV1ProjectsBillingBreakdown](src/Deepgram/Api/ManageV1ProjectsBillingBreakdown.cs)
 
 <details>
 <summary><code>Task&lt;BillingBreakdownV1Response&gt; List14(List14Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -858,7 +858,7 @@ catch (ApiException<List14Error> ex)
 <dl>
 <dd>
 
-<code>[List14Request](Requests/ManageV1ProjectsBillingBreakdown/List14Request.cs)</code>
+<code>[List14Request](src/Deepgram/Requests/ManageV1ProjectsBillingBreakdown/List14Request.cs)</code>
 
 </dd>
 </dl>
@@ -868,9 +868,9 @@ catch (ApiException<List14Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[BillingBreakdownV1Response](Models/BillingBreakdownV1Response.cs)</code>
+**OnSuccess**: <code>[BillingBreakdownV1Response](src/Deepgram/Models/BillingBreakdownV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List14Error](Errors/List14Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List14Error](src/Deepgram/Errors/List14Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -882,7 +882,7 @@ catch (ApiException<List14Error> ex)
 
 ## ManageV1ProjectsBillingFields
 
-> Source: [ManageV1ProjectsBillingFields](Api/ManageV1ProjectsBillingFields.cs)
+> Source: [ManageV1ProjectsBillingFields](src/Deepgram/Api/ManageV1ProjectsBillingFields.cs)
 
 <details>
 <summary><code>Task&lt;ListBillingFieldsV1Response&gt; List15(List15Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -931,7 +931,7 @@ catch (ApiException<List15Error> ex)
 <dl>
 <dd>
 
-<code>[List15Request](Requests/ManageV1ProjectsBillingFields/List15Request.cs)</code>
+<code>[List15Request](src/Deepgram/Requests/ManageV1ProjectsBillingFields/List15Request.cs)</code>
 
 </dd>
 </dl>
@@ -941,9 +941,9 @@ catch (ApiException<List15Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListBillingFieldsV1Response](Models/ListBillingFieldsV1Response.cs)</code>
+**OnSuccess**: <code>[ListBillingFieldsV1Response](src/Deepgram/Models/ListBillingFieldsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List15Error](Errors/List15Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List15Error](src/Deepgram/Errors/List15Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -955,7 +955,7 @@ catch (ApiException<List15Error> ex)
 
 ## ManageV1ProjectsBillingPurchases
 
-> Source: [ManageV1ProjectsBillingPurchases](Api/ManageV1ProjectsBillingPurchases.cs)
+> Source: [ManageV1ProjectsBillingPurchases](src/Deepgram/Api/ManageV1ProjectsBillingPurchases.cs)
 
 <details>
 <summary><code>Task&lt;ListProjectPurchasesV1Response&gt; List16(List16Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1004,7 +1004,7 @@ catch (ApiException<List16Error> ex)
 <dl>
 <dd>
 
-<code>[List16Request](Requests/ManageV1ProjectsBillingPurchases/List16Request.cs)</code>
+<code>[List16Request](src/Deepgram/Requests/ManageV1ProjectsBillingPurchases/List16Request.cs)</code>
 
 </dd>
 </dl>
@@ -1014,9 +1014,9 @@ catch (ApiException<List16Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListProjectPurchasesV1Response](Models/ListProjectPurchasesV1Response.cs)</code>
+**OnSuccess**: <code>[ListProjectPurchasesV1Response](src/Deepgram/Models/ListProjectPurchasesV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List16Error](Errors/List16Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List16Error](src/Deepgram/Errors/List16Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1028,7 +1028,7 @@ catch (ApiException<List16Error> ex)
 
 ## ManageV1ProjectsKeys
 
-> Source: [ManageV1ProjectsKeys](Api/ManageV1ProjectsKeys.cs)
+> Source: [ManageV1ProjectsKeys](src/Deepgram/Api/ManageV1ProjectsKeys.cs)
 
 <details>
 <summary><code>Task&lt;CreateKeyV1Response&gt; Create3(Create3Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1074,7 +1074,7 @@ catch (ApiException<Create3Error> ex)
 <dl>
 <dd>
 
-<code>[Create3Request](Requests/ManageV1ProjectsKeys/Create3Request.cs)</code>
+<code>[Create3Request](src/Deepgram/Requests/ManageV1ProjectsKeys/Create3Request.cs)</code>
 
 </dd>
 </dl>
@@ -1084,9 +1084,9 @@ catch (ApiException<Create3Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CreateKeyV1Response](Models/CreateKeyV1Response.cs)</code>
+**OnSuccess**: <code>[CreateKeyV1Response](src/Deepgram/Models/CreateKeyV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Create3Error](Errors/Create3Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Create3Error](src/Deepgram/Errors/Create3Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1144,7 +1144,7 @@ catch (ApiException<Delete4Error> ex)
 <dl>
 <dd>
 
-<code>[Delete4Request](Requests/ManageV1ProjectsKeys/Delete4Request.cs)</code>
+<code>[Delete4Request](src/Deepgram/Requests/ManageV1ProjectsKeys/Delete4Request.cs)</code>
 
 </dd>
 </dl>
@@ -1154,9 +1154,9 @@ catch (ApiException<Delete4Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DeleteProjectKeyV1Response](Models/DeleteProjectKeyV1Response.cs)</code>
+**OnSuccess**: <code>[DeleteProjectKeyV1Response](src/Deepgram/Models/DeleteProjectKeyV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Delete4Error](Errors/Delete4Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Delete4Error](src/Deepgram/Errors/Delete4Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1214,7 +1214,7 @@ catch (ApiException<Get6Error> ex)
 <dl>
 <dd>
 
-<code>[Get6Request](Requests/ManageV1ProjectsKeys/Get6Request.cs)</code>
+<code>[Get6Request](src/Deepgram/Requests/ManageV1ProjectsKeys/Get6Request.cs)</code>
 
 </dd>
 </dl>
@@ -1224,9 +1224,9 @@ catch (ApiException<Get6Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GetProjectKeyV1Response](Models/GetProjectKeyV1Response.cs)</code>
+**OnSuccess**: <code>[GetProjectKeyV1Response](src/Deepgram/Models/GetProjectKeyV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Get6Error](Errors/Get6Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Get6Error](src/Deepgram/Errors/Get6Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1280,7 +1280,7 @@ catch (ApiException<List7Error> ex)
 <dl>
 <dd>
 
-<code>[List7Request](Requests/ManageV1ProjectsKeys/List7Request.cs)</code>
+<code>[List7Request](src/Deepgram/Requests/ManageV1ProjectsKeys/List7Request.cs)</code>
 
 </dd>
 </dl>
@@ -1290,9 +1290,9 @@ catch (ApiException<List7Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListProjectKeysV1Response](Models/ListProjectKeysV1Response.cs)</code>
+**OnSuccess**: <code>[ListProjectKeysV1Response](src/Deepgram/Models/ListProjectKeysV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List7Error](Errors/List7Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List7Error](src/Deepgram/Errors/List7Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1304,7 +1304,7 @@ catch (ApiException<List7Error> ex)
 
 ## ManageV1ProjectsMembers
 
-> Source: [ManageV1ProjectsMembers](Api/ManageV1ProjectsMembers.cs)
+> Source: [ManageV1ProjectsMembers](src/Deepgram/Api/ManageV1ProjectsMembers.cs)
 
 <details>
 <summary><code>Task&lt;DeleteProjectMemberV1Response&gt; Delete5(Delete5Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1354,7 +1354,7 @@ catch (ApiException<Delete5Error> ex)
 <dl>
 <dd>
 
-<code>[Delete5Request](Requests/ManageV1ProjectsMembers/Delete5Request.cs)</code>
+<code>[Delete5Request](src/Deepgram/Requests/ManageV1ProjectsMembers/Delete5Request.cs)</code>
 
 </dd>
 </dl>
@@ -1364,9 +1364,9 @@ catch (ApiException<Delete5Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DeleteProjectMemberV1Response](Models/DeleteProjectMemberV1Response.cs)</code>
+**OnSuccess**: <code>[DeleteProjectMemberV1Response](src/Deepgram/Models/DeleteProjectMemberV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Delete5Error](Errors/Delete5Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Delete5Error](src/Deepgram/Errors/Delete5Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1420,7 +1420,7 @@ catch (ApiException<List8Error> ex)
 <dl>
 <dd>
 
-<code>[List8Request](Requests/ManageV1ProjectsMembers/List8Request.cs)</code>
+<code>[List8Request](src/Deepgram/Requests/ManageV1ProjectsMembers/List8Request.cs)</code>
 
 </dd>
 </dl>
@@ -1430,9 +1430,9 @@ catch (ApiException<List8Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListProjectMembersV1Response](Models/ListProjectMembersV1Response.cs)</code>
+**OnSuccess**: <code>[ListProjectMembersV1Response](src/Deepgram/Models/ListProjectMembersV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List8Error](Errors/List8Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List8Error](src/Deepgram/Errors/List8Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1444,7 +1444,7 @@ catch (ApiException<List8Error> ex)
 
 ## ManageV1ProjectsMembersInvites
 
-> Source: [ManageV1ProjectsMembersInvites](Api/ManageV1ProjectsMembersInvites.cs)
+> Source: [ManageV1ProjectsMembersInvites](src/Deepgram/Api/ManageV1ProjectsMembersInvites.cs)
 
 <details>
 <summary><code>Task&lt;CreateProjectInviteV1Response&gt; Create4(Create4Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1493,7 +1493,7 @@ catch (ApiException<Create4Error> ex)
 <dl>
 <dd>
 
-<code>[Create4Request](Requests/ManageV1ProjectsMembersInvites/Create4Request.cs)</code>
+<code>[Create4Request](src/Deepgram/Requests/ManageV1ProjectsMembersInvites/Create4Request.cs)</code>
 
 </dd>
 </dl>
@@ -1503,9 +1503,9 @@ catch (ApiException<Create4Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CreateProjectInviteV1Response](Models/CreateProjectInviteV1Response.cs)</code>
+**OnSuccess**: <code>[CreateProjectInviteV1Response](src/Deepgram/Models/CreateProjectInviteV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Create4Error](Errors/Create4Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Create4Error](src/Deepgram/Errors/Create4Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1563,7 +1563,7 @@ catch (ApiException<Delete6Error> ex)
 <dl>
 <dd>
 
-<code>[Delete6Request](Requests/ManageV1ProjectsMembersInvites/Delete6Request.cs)</code>
+<code>[Delete6Request](src/Deepgram/Requests/ManageV1ProjectsMembersInvites/Delete6Request.cs)</code>
 
 </dd>
 </dl>
@@ -1573,9 +1573,9 @@ catch (ApiException<Delete6Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DeleteProjectInviteV1Response](Models/DeleteProjectInviteV1Response.cs)</code>
+**OnSuccess**: <code>[DeleteProjectInviteV1Response](src/Deepgram/Models/DeleteProjectInviteV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Delete6Error](Errors/Delete6Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Delete6Error](src/Deepgram/Errors/Delete6Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1632,7 +1632,7 @@ catch (ApiException<List10Error> ex)
 <dl>
 <dd>
 
-<code>[List10Request](Requests/ManageV1ProjectsMembersInvites/List10Request.cs)</code>
+<code>[List10Request](src/Deepgram/Requests/ManageV1ProjectsMembersInvites/List10Request.cs)</code>
 
 </dd>
 </dl>
@@ -1642,9 +1642,9 @@ catch (ApiException<List10Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListProjectInvitesV1Response](Models/ListProjectInvitesV1Response.cs)</code>
+**OnSuccess**: <code>[ListProjectInvitesV1Response](src/Deepgram/Models/ListProjectInvitesV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List10Error](Errors/List10Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List10Error](src/Deepgram/Errors/List10Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1656,7 +1656,7 @@ catch (ApiException<List10Error> ex)
 
 ## ManageV1ProjectsMembersScopes
 
-> Source: [ManageV1ProjectsMembersScopes](Api/ManageV1ProjectsMembersScopes.cs)
+> Source: [ManageV1ProjectsMembersScopes](src/Deepgram/Api/ManageV1ProjectsMembersScopes.cs)
 
 <details>
 <summary><code>Task&lt;ListProjectMemberScopesV1Response&gt; List9(List9Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1706,7 +1706,7 @@ catch (ApiException<List9Error> ex)
 <dl>
 <dd>
 
-<code>[List9Request](Requests/ManageV1ProjectsMembersScopes/List9Request.cs)</code>
+<code>[List9Request](src/Deepgram/Requests/ManageV1ProjectsMembersScopes/List9Request.cs)</code>
 
 </dd>
 </dl>
@@ -1716,9 +1716,9 @@ catch (ApiException<List9Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListProjectMemberScopesV1Response](Models/ListProjectMemberScopesV1Response.cs)</code>
+**OnSuccess**: <code>[ListProjectMemberScopesV1Response](src/Deepgram/Models/ListProjectMemberScopesV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List9Error](Errors/List9Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List9Error](src/Deepgram/Errors/List9Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1776,7 +1776,7 @@ catch (ApiException<Update4Error> ex)
 <dl>
 <dd>
 
-<code>[Update4Request](Requests/ManageV1ProjectsMembersScopes/Update4Request.cs)</code>
+<code>[Update4Request](src/Deepgram/Requests/ManageV1ProjectsMembersScopes/Update4Request.cs)</code>
 
 </dd>
 </dl>
@@ -1786,9 +1786,9 @@ catch (ApiException<Update4Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UpdateProjectMemberScopesV1Response](Models/UpdateProjectMemberScopesV1Response.cs)</code>
+**OnSuccess**: <code>[UpdateProjectMemberScopesV1Response](src/Deepgram/Models/UpdateProjectMemberScopesV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Update4Error](Errors/Update4Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Update4Error](src/Deepgram/Errors/Update4Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1800,7 +1800,7 @@ catch (ApiException<Update4Error> ex)
 
 ## ManageV1ProjectsModels
 
-> Source: [ManageV1ProjectsModels](Api/ManageV1ProjectsModels.cs)
+> Source: [ManageV1ProjectsModels](src/Deepgram/Api/ManageV1ProjectsModels.cs)
 
 <details>
 <summary><code>Task&lt;GetModelV1Response&gt; Get4(Get4Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1850,7 +1850,7 @@ catch (ApiException<Get4Error> ex)
 <dl>
 <dd>
 
-<code>[Get4Request](Requests/ManageV1ProjectsModels/Get4Request.cs)</code>
+<code>[Get4Request](src/Deepgram/Requests/ManageV1ProjectsModels/Get4Request.cs)</code>
 
 </dd>
 </dl>
@@ -1860,9 +1860,9 @@ catch (ApiException<Get4Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GetModelV1Response](Models/AnyOf/GetModelV1Response.cs)</code>
+**OnSuccess**: <code>[GetModelV1Response](src/Deepgram/Models/AnyOf/GetModelV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Get4Error](Errors/Get4Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Get4Error](src/Deepgram/Errors/Get4Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1916,7 +1916,7 @@ catch (ApiException<List5Error> ex)
 <dl>
 <dd>
 
-<code>[List5Request](Requests/ManageV1ProjectsModels/List5Request.cs)</code>
+<code>[List5Request](src/Deepgram/Requests/ManageV1ProjectsModels/List5Request.cs)</code>
 
 </dd>
 </dl>
@@ -1926,9 +1926,9 @@ catch (ApiException<List5Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListModelsV1Response](Models/ListModelsV1Response.cs)</code>
+**OnSuccess**: <code>[ListModelsV1Response](src/Deepgram/Models/ListModelsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List5Error](Errors/List5Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List5Error](src/Deepgram/Errors/List5Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1940,7 +1940,7 @@ catch (ApiException<List5Error> ex)
 
 ## ManageV1ProjectsRequests
 
-> Source: [ManageV1ProjectsRequests](Api/ManageV1ProjectsRequests.cs)
+> Source: [ManageV1ProjectsRequests](src/Deepgram/Api/ManageV1ProjectsRequests.cs)
 
 <details>
 <summary><code>Task&lt;GetProjectRequestV1Response&gt; Get7(Get7Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1990,7 +1990,7 @@ catch (ApiException<Get7Error> ex)
 <dl>
 <dd>
 
-<code>[Get7Request](Requests/ManageV1ProjectsRequests/Get7Request.cs)</code>
+<code>[Get7Request](src/Deepgram/Requests/ManageV1ProjectsRequests/Get7Request.cs)</code>
 
 </dd>
 </dl>
@@ -2000,9 +2000,9 @@ catch (ApiException<Get7Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GetProjectRequestV1Response](Models/GetProjectRequestV1Response.cs)</code>
+**OnSuccess**: <code>[GetProjectRequestV1Response](src/Deepgram/Models/GetProjectRequestV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Get7Error](Errors/Get7Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Get7Error](src/Deepgram/Errors/Get7Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2059,7 +2059,7 @@ catch (ApiException<List11Error> ex)
 <dl>
 <dd>
 
-<code>[List11Request](Requests/ManageV1ProjectsRequests/List11Request.cs)</code>
+<code>[List11Request](src/Deepgram/Requests/ManageV1ProjectsRequests/List11Request.cs)</code>
 
 </dd>
 </dl>
@@ -2069,9 +2069,9 @@ catch (ApiException<List11Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListProjectRequestsV1Response](Models/ListProjectRequestsV1Response.cs)</code>
+**OnSuccess**: <code>[ListProjectRequestsV1Response](src/Deepgram/Models/ListProjectRequestsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List11Error](Errors/List11Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List11Error](src/Deepgram/Errors/List11Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2083,7 +2083,7 @@ catch (ApiException<List11Error> ex)
 
 ## ManageV1ProjectsUsage
 
-> Source: [ManageV1ProjectsUsage](Api/ManageV1ProjectsUsage.cs)
+> Source: [ManageV1ProjectsUsage](src/Deepgram/Api/ManageV1ProjectsUsage.cs)
 
 <details>
 <summary><code>Task&lt;UsageV1Response&gt; Get8(Get8Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2129,7 +2129,7 @@ catch (ApiException<Get8Error> ex)
 <dl>
 <dd>
 
-<code>[Get8Request](Requests/ManageV1ProjectsUsage/Get8Request.cs)</code>
+<code>[Get8Request](src/Deepgram/Requests/ManageV1ProjectsUsage/Get8Request.cs)</code>
 
 </dd>
 </dl>
@@ -2139,9 +2139,9 @@ catch (ApiException<Get8Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UsageV1Response](Models/UsageV1Response.cs)</code>
+**OnSuccess**: <code>[UsageV1Response](src/Deepgram/Models/UsageV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Get8Error](Errors/Get8Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Get8Error](src/Deepgram/Errors/Get8Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2153,7 +2153,7 @@ catch (ApiException<Get8Error> ex)
 
 ## ManageV1ProjectsUsageBreakdown
 
-> Source: [ManageV1ProjectsUsageBreakdown](Api/ManageV1ProjectsUsageBreakdown.cs)
+> Source: [ManageV1ProjectsUsageBreakdown](src/Deepgram/Api/ManageV1ProjectsUsageBreakdown.cs)
 
 <details>
 <summary><code>Task&lt;UsageBreakdownV1Response&gt; Get9(Get9Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2202,7 +2202,7 @@ catch (ApiException<Get9Error> ex)
 <dl>
 <dd>
 
-<code>[Get9Request](Requests/ManageV1ProjectsUsageBreakdown/Get9Request.cs)</code>
+<code>[Get9Request](src/Deepgram/Requests/ManageV1ProjectsUsageBreakdown/Get9Request.cs)</code>
 
 </dd>
 </dl>
@@ -2212,9 +2212,9 @@ catch (ApiException<Get9Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UsageBreakdownV1Response](Models/UsageBreakdownV1Response.cs)</code>
+**OnSuccess**: <code>[UsageBreakdownV1Response](src/Deepgram/Models/UsageBreakdownV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Get9Error](Errors/Get9Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Get9Error](src/Deepgram/Errors/Get9Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2226,7 +2226,7 @@ catch (ApiException<Get9Error> ex)
 
 ## ManageV1ProjectsUsageFields
 
-> Source: [ManageV1ProjectsUsageFields](Api/ManageV1ProjectsUsageFields.cs)
+> Source: [ManageV1ProjectsUsageFields](src/Deepgram/Api/ManageV1ProjectsUsageFields.cs)
 
 <details>
 <summary><code>Task&lt;UsageFieldsV1Response&gt; List12(List12Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2275,7 +2275,7 @@ catch (ApiException<List12Error> ex)
 <dl>
 <dd>
 
-<code>[List12Request](Requests/ManageV1ProjectsUsageFields/List12Request.cs)</code>
+<code>[List12Request](src/Deepgram/Requests/ManageV1ProjectsUsageFields/List12Request.cs)</code>
 
 </dd>
 </dl>
@@ -2285,9 +2285,9 @@ catch (ApiException<List12Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[UsageFieldsV1Response](Models/UsageFieldsV1Response.cs)</code>
+**OnSuccess**: <code>[UsageFieldsV1Response](src/Deepgram/Models/UsageFieldsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List12Error](Errors/List12Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List12Error](src/Deepgram/Errors/List12Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2299,7 +2299,7 @@ catch (ApiException<List12Error> ex)
 
 ## ReadV1Text
 
-> Source: [ReadV1Text](Api/ReadV1Text.cs)
+> Source: [ReadV1Text](src/Deepgram/Api/ReadV1Text.cs)
 
 <details>
 <summary><code>Task&lt;ReadV1Response&gt; Analyze(AnalyzeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2345,7 +2345,7 @@ catch (ApiException<AnalyzeError> ex)
 <dl>
 <dd>
 
-<code>[AnalyzeRequest](Requests/ReadV1Text/AnalyzeRequest.cs)</code>
+<code>[AnalyzeRequest](src/Deepgram/Requests/ReadV1Text/AnalyzeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2355,9 +2355,9 @@ catch (ApiException<AnalyzeError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ReadV1Response](Models/ReadV1Response.cs)</code>
+**OnSuccess**: <code>[ReadV1Response](src/Deepgram/Models/ReadV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[AnalyzeError](Errors/AnalyzeError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[AnalyzeError](src/Deepgram/Errors/AnalyzeError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2369,7 +2369,7 @@ catch (ApiException<AnalyzeError> ex)
 
 ## SelfHostedV1DistributionCredentials
 
-> Source: [SelfHostedV1DistributionCredentials](Api/SelfHostedV1DistributionCredentials.cs)
+> Source: [SelfHostedV1DistributionCredentials](src/Deepgram/Api/SelfHostedV1DistributionCredentials.cs)
 
 <details>
 <summary><code>Task&lt;CreateProjectDistributionCredentialsV1Response&gt; Create5(Create5Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2418,7 +2418,7 @@ catch (ApiException<Create5Error> ex)
 <dl>
 <dd>
 
-<code>[Create5Request](Requests/SelfHostedV1DistributionCredentials/Create5Request.cs)</code>
+<code>[Create5Request](src/Deepgram/Requests/SelfHostedV1DistributionCredentials/Create5Request.cs)</code>
 
 </dd>
 </dl>
@@ -2428,9 +2428,9 @@ catch (ApiException<Create5Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CreateProjectDistributionCredentialsV1Response](Models/CreateProjectDistributionCredentialsV1Response.cs)</code>
+**OnSuccess**: <code>[CreateProjectDistributionCredentialsV1Response](src/Deepgram/Models/CreateProjectDistributionCredentialsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Create5Error](Errors/Create5Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Create5Error](src/Deepgram/Errors/Create5Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2488,7 +2488,7 @@ catch (ApiException<Delete7Error> ex)
 <dl>
 <dd>
 
-<code>[Delete7Request](Requests/SelfHostedV1DistributionCredentials/Delete7Request.cs)</code>
+<code>[Delete7Request](src/Deepgram/Requests/SelfHostedV1DistributionCredentials/Delete7Request.cs)</code>
 
 </dd>
 </dl>
@@ -2498,9 +2498,9 @@ catch (ApiException<Delete7Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GetProjectDistributionCredentialsV1Response](Models/GetProjectDistributionCredentialsV1Response.cs)</code>
+**OnSuccess**: <code>[GetProjectDistributionCredentialsV1Response](src/Deepgram/Models/GetProjectDistributionCredentialsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Delete7Error](Errors/Delete7Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Delete7Error](src/Deepgram/Errors/Delete7Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2558,7 +2558,7 @@ catch (ApiException<Get11Error> ex)
 <dl>
 <dd>
 
-<code>[Get11Request](Requests/SelfHostedV1DistributionCredentials/Get11Request.cs)</code>
+<code>[Get11Request](src/Deepgram/Requests/SelfHostedV1DistributionCredentials/Get11Request.cs)</code>
 
 </dd>
 </dl>
@@ -2568,9 +2568,9 @@ catch (ApiException<Get11Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GetProjectDistributionCredentialsV1Response](Models/GetProjectDistributionCredentialsV1Response.cs)</code>
+**OnSuccess**: <code>[GetProjectDistributionCredentialsV1Response](src/Deepgram/Models/GetProjectDistributionCredentialsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Get11Error](Errors/Get11Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Get11Error](src/Deepgram/Errors/Get11Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2627,7 +2627,7 @@ catch (ApiException<List17Error> ex)
 <dl>
 <dd>
 
-<code>[List17Request](Requests/SelfHostedV1DistributionCredentials/List17Request.cs)</code>
+<code>[List17Request](src/Deepgram/Requests/SelfHostedV1DistributionCredentials/List17Request.cs)</code>
 
 </dd>
 </dl>
@@ -2637,9 +2637,9 @@ catch (ApiException<List17Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListProjectDistributionCredentialsV1Response](Models/ListProjectDistributionCredentialsV1Response.cs)</code>
+**OnSuccess**: <code>[ListProjectDistributionCredentialsV1Response](src/Deepgram/Models/ListProjectDistributionCredentialsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List17Error](Errors/List17Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List17Error](src/Deepgram/Errors/List17Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2651,7 +2651,7 @@ catch (ApiException<List17Error> ex)
 
 ## SpeakV1Audio
 
-> Source: [SpeakV1Audio](Api/SpeakV1Audio.cs)
+> Source: [SpeakV1Audio](src/Deepgram/Api/SpeakV1Audio.cs)
 
 <details>
 <summary><code>Task&lt;object&gt; Generate(GenerateRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2697,7 +2697,7 @@ catch (ApiException<GenerateError> ex)
 <dl>
 <dd>
 
-<code>[GenerateRequest](Requests/SpeakV1Audio/GenerateRequest.cs)</code>
+<code>[GenerateRequest](src/Deepgram/Requests/SpeakV1Audio/GenerateRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2709,7 +2709,7 @@ catch (ApiException<GenerateError> ex)
 
 **OnSuccess**: <code>object</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[GenerateError](Errors/GenerateError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[GenerateError](src/Deepgram/Errors/GenerateError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2721,7 +2721,7 @@ catch (ApiException<GenerateError> ex)
 
 ## SpeakV2Audio
 
-> Source: [SpeakV2Audio](Api/SpeakV2Audio.cs)
+> Source: [SpeakV2Audio](src/Deepgram/Api/SpeakV2Audio.cs)
 
 <details>
 <summary><code>Task&lt;SpeakV2AcceptedResponse&gt; Generate2(Generate2Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2767,7 +2767,7 @@ catch (ApiException<Generate2Error> ex)
 <dl>
 <dd>
 
-<code>[Generate2Request](Requests/SpeakV2Audio/Generate2Request.cs)</code>
+<code>[Generate2Request](src/Deepgram/Requests/SpeakV2Audio/Generate2Request.cs)</code>
 
 </dd>
 </dl>
@@ -2777,9 +2777,9 @@ catch (ApiException<Generate2Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[SpeakV2AcceptedResponse](Models/SpeakV2AcceptedResponse.cs)</code>
+**OnSuccess**: <code>[SpeakV2AcceptedResponse](src/Deepgram/Models/SpeakV2AcceptedResponse.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Generate2Error](Errors/Generate2Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Generate2Error](src/Deepgram/Errors/Generate2Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2791,7 +2791,7 @@ catch (ApiException<Generate2Error> ex)
 
 ## VoiceAgentConfigurations
 
-> Source: [VoiceAgentConfigurations](Api/VoiceAgentConfigurations.cs)
+> Source: [VoiceAgentConfigurations](src/Deepgram/Api/VoiceAgentConfigurations.cs)
 
 <details>
 <summary><code>Task&lt;CreateAgentConfigurationV1Response&gt; Create(CreateRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2840,7 +2840,7 @@ catch (ApiException<CreateError> ex)
 <dl>
 <dd>
 
-<code>[CreateRequest](Requests/VoiceAgentConfigurations/CreateRequest.cs)</code>
+<code>[CreateRequest](src/Deepgram/Requests/VoiceAgentConfigurations/CreateRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2850,9 +2850,9 @@ catch (ApiException<CreateError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CreateAgentConfigurationV1Response](Models/CreateAgentConfigurationV1Response.cs)</code>
+**OnSuccess**: <code>[CreateAgentConfigurationV1Response](src/Deepgram/Models/CreateAgentConfigurationV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[CreateError](Errors/CreateError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[CreateError](src/Deepgram/Errors/CreateError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2910,7 +2910,7 @@ catch (ApiException<DeleteError> ex)
 <dl>
 <dd>
 
-<code>[DeleteRequest](Requests/VoiceAgentConfigurations/DeleteRequest.cs)</code>
+<code>[DeleteRequest](src/Deepgram/Requests/VoiceAgentConfigurations/DeleteRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2922,7 +2922,7 @@ catch (ApiException<DeleteError> ex)
 
 **OnSuccess**: <code>object</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[DeleteError](Errors/DeleteError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[DeleteError](src/Deepgram/Errors/DeleteError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2980,7 +2980,7 @@ catch (ApiException<GetError> ex)
 <dl>
 <dd>
 
-<code>[GetRequest](Requests/VoiceAgentConfigurations/GetRequest.cs)</code>
+<code>[GetRequest](src/Deepgram/Requests/VoiceAgentConfigurations/GetRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2990,9 +2990,9 @@ catch (ApiException<GetError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AgentConfigurationV1](Models/AgentConfigurationV1.cs)</code>
+**OnSuccess**: <code>[AgentConfigurationV1](src/Deepgram/Models/AgentConfigurationV1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[GetError](Errors/GetError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[GetError](src/Deepgram/Errors/GetError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3046,7 +3046,7 @@ catch (ApiException<List2Error> ex)
 <dl>
 <dd>
 
-<code>[List2Request](Requests/VoiceAgentConfigurations/List2Request.cs)</code>
+<code>[List2Request](src/Deepgram/Requests/VoiceAgentConfigurations/List2Request.cs)</code>
 
 </dd>
 </dl>
@@ -3056,9 +3056,9 @@ catch (ApiException<List2Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListAgentConfigurationsV1Response](Models/ListAgentConfigurationsV1Response.cs)</code>
+**OnSuccess**: <code>[ListAgentConfigurationsV1Response](src/Deepgram/Models/ListAgentConfigurationsV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List2Error](Errors/List2Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List2Error](src/Deepgram/Errors/List2Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3116,7 +3116,7 @@ catch (ApiException<UpdateError> ex)
 <dl>
 <dd>
 
-<code>[UpdateRequest](Requests/VoiceAgentConfigurations/UpdateRequest.cs)</code>
+<code>[UpdateRequest](src/Deepgram/Requests/VoiceAgentConfigurations/UpdateRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3126,9 +3126,9 @@ catch (ApiException<UpdateError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AgentConfigurationV1](Models/AgentConfigurationV1.cs)</code>
+**OnSuccess**: <code>[AgentConfigurationV1](src/Deepgram/Models/AgentConfigurationV1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[UpdateError](Errors/UpdateError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[UpdateError](src/Deepgram/Errors/UpdateError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3140,7 +3140,7 @@ catch (ApiException<UpdateError> ex)
 
 ## VoiceAgentVariables
 
-> Source: [VoiceAgentVariables](Api/VoiceAgentVariables.cs)
+> Source: [VoiceAgentVariables](src/Deepgram/Api/VoiceAgentVariables.cs)
 
 <details>
 <summary><code>Task&lt;AgentVariableV1&gt; Create2(Create2Request request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -3186,7 +3186,7 @@ catch (ApiException<Create2Error> ex)
 <dl>
 <dd>
 
-<code>[Create2Request](Requests/VoiceAgentVariables/Create2Request.cs)</code>
+<code>[Create2Request](src/Deepgram/Requests/VoiceAgentVariables/Create2Request.cs)</code>
 
 </dd>
 </dl>
@@ -3196,9 +3196,9 @@ catch (ApiException<Create2Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AgentVariableV1](Models/AgentVariableV1.cs)</code>
+**OnSuccess**: <code>[AgentVariableV1](src/Deepgram/Models/AgentVariableV1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Create2Error](Errors/Create2Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Create2Error](src/Deepgram/Errors/Create2Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3256,7 +3256,7 @@ catch (ApiException<Delete2Error> ex)
 <dl>
 <dd>
 
-<code>[Delete2Request](Requests/VoiceAgentVariables/Delete2Request.cs)</code>
+<code>[Delete2Request](src/Deepgram/Requests/VoiceAgentVariables/Delete2Request.cs)</code>
 
 </dd>
 </dl>
@@ -3268,7 +3268,7 @@ catch (ApiException<Delete2Error> ex)
 
 **OnSuccess**: <code>object</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Delete2Error](Errors/Delete2Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Delete2Error](src/Deepgram/Errors/Delete2Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3326,7 +3326,7 @@ catch (ApiException<Get2Error> ex)
 <dl>
 <dd>
 
-<code>[Get2Request](Requests/VoiceAgentVariables/Get2Request.cs)</code>
+<code>[Get2Request](src/Deepgram/Requests/VoiceAgentVariables/Get2Request.cs)</code>
 
 </dd>
 </dl>
@@ -3336,9 +3336,9 @@ catch (ApiException<Get2Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AgentVariableV1](Models/AgentVariableV1.cs)</code>
+**OnSuccess**: <code>[AgentVariableV1](src/Deepgram/Models/AgentVariableV1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Get2Error](Errors/Get2Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Get2Error](src/Deepgram/Errors/Get2Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3392,7 +3392,7 @@ catch (ApiException<List3Error> ex)
 <dl>
 <dd>
 
-<code>[List3Request](Requests/VoiceAgentVariables/List3Request.cs)</code>
+<code>[List3Request](src/Deepgram/Requests/VoiceAgentVariables/List3Request.cs)</code>
 
 </dd>
 </dl>
@@ -3402,9 +3402,9 @@ catch (ApiException<List3Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ListAgentVariablesV1Response](Models/ListAgentVariablesV1Response.cs)</code>
+**OnSuccess**: <code>[ListAgentVariablesV1Response](src/Deepgram/Models/ListAgentVariablesV1Response.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[List3Error](Errors/List3Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[List3Error](src/Deepgram/Errors/List3Error.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3462,7 +3462,7 @@ catch (ApiException<Update2Error> ex)
 <dl>
 <dd>
 
-<code>[Update2Request](Requests/VoiceAgentVariables/Update2Request.cs)</code>
+<code>[Update2Request](src/Deepgram/Requests/VoiceAgentVariables/Update2Request.cs)</code>
 
 </dd>
 </dl>
@@ -3472,9 +3472,9 @@ catch (ApiException<Update2Error> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[AgentVariableV1](Models/AgentVariableV1.cs)</code>
+**OnSuccess**: <code>[AgentVariableV1](src/Deepgram/Models/AgentVariableV1.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[Update2Error](Errors/Update2Error.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/Deepgram/Core/Exceptions/ApiException.cs)&lt;[Update2Error](src/Deepgram/Errors/Update2Error.cs)&gt;</code>
 
 </dd>
 </dl>

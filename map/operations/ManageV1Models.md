@@ -2,7 +2,7 @@
 
 # ManageV1Models — operations
 
-Accessor: `client.ManageV1Models` · Source: `Api/ManageV1Models.cs` · 2 operations
+Accessor: `client.ManageV1Models` · Source: `src/Deepgram/Api/ManageV1Models.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,10 +17,10 @@ Accessor: `client.ManageV1Models` · Source: `Api/ManageV1Models.cs` · 2 operat
 
 | Type | Source |
 | --- | --- |
-| `Get5Request` | `Requests/ManageV1Models/Get5Request.cs` |
-| `GetModelV1Response` | `Models/AnyOf/GetModelV1Response.cs` |
-| `Get5Error` | `Errors/Get5Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Get5Request` | `src/Deepgram/Requests/ManageV1Models/Get5Request.cs` |
+| `GetModelV1Response` | `src/Deepgram/Models/AnyOf/GetModelV1Response.cs` |
+| `Get5Error` | `src/Deepgram/Errors/Get5Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List6
 
@@ -33,8 +33,8 @@ Accessor: `client.ManageV1Models` · Source: `Api/ManageV1Models.cs` · 2 operat
 
 | Type | Source |
 | --- | --- |
-| `List6Request` | `Requests/ManageV1Models/List6Request.cs` |
-| `ListModelsV1Response` | `Models/ListModelsV1Response.cs` |
-| `List6Error` | `Errors/List6Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List6Request` | `src/Deepgram/Requests/ManageV1Models/List6Request.cs` |
+| `ListModelsV1Response` | `src/Deepgram/Models/ListModelsV1Response.cs` |
+| `List6Error` | `src/Deepgram/Errors/List6Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

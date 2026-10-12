@@ -2,7 +2,7 @@
 
 # VoiceAgentVariables — operations
 
-Accessor: `client.VoiceAgentVariables` · Source: `Api/VoiceAgentVariables.cs` · 5 operations
+Accessor: `client.VoiceAgentVariables` · Source: `src/Deepgram/Api/VoiceAgentVariables.cs` · 5 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,11 +17,11 @@ Accessor: `client.VoiceAgentVariables` · Source: `Api/VoiceAgentVariables.cs` �
 
 | Type | Source |
 | --- | --- |
-| `Create2Request` | `Requests/VoiceAgentVariables/Create2Request.cs` |
-| `CreateAgentVariableV1Request` | `Models/CreateAgentVariableV1Request.cs` |
-| `AgentVariableV1` | `Models/AgentVariableV1.cs` |
-| `Create2Error` | `Errors/Create2Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Create2Request` | `src/Deepgram/Requests/VoiceAgentVariables/Create2Request.cs` |
+| `CreateAgentVariableV1Request` | `src/Deepgram/Models/CreateAgentVariableV1Request.cs` |
+| `AgentVariableV1` | `src/Deepgram/Models/AgentVariableV1.cs` |
+| `Create2Error` | `src/Deepgram/Errors/Create2Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Delete2
 
@@ -34,9 +34,9 @@ Accessor: `client.VoiceAgentVariables` · Source: `Api/VoiceAgentVariables.cs` �
 
 | Type | Source |
 | --- | --- |
-| `Delete2Request` | `Requests/VoiceAgentVariables/Delete2Request.cs` |
-| `Delete2Error` | `Errors/Delete2Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Delete2Request` | `src/Deepgram/Requests/VoiceAgentVariables/Delete2Request.cs` |
+| `Delete2Error` | `src/Deepgram/Errors/Delete2Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Get2
 
@@ -49,10 +49,10 @@ Accessor: `client.VoiceAgentVariables` · Source: `Api/VoiceAgentVariables.cs` �
 
 | Type | Source |
 | --- | --- |
-| `Get2Request` | `Requests/VoiceAgentVariables/Get2Request.cs` |
-| `AgentVariableV1` | `Models/AgentVariableV1.cs` |
-| `Get2Error` | `Errors/Get2Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Get2Request` | `src/Deepgram/Requests/VoiceAgentVariables/Get2Request.cs` |
+| `AgentVariableV1` | `src/Deepgram/Models/AgentVariableV1.cs` |
+| `Get2Error` | `src/Deepgram/Errors/Get2Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List3
 
@@ -65,10 +65,10 @@ Accessor: `client.VoiceAgentVariables` · Source: `Api/VoiceAgentVariables.cs` �
 
 | Type | Source |
 | --- | --- |
-| `List3Request` | `Requests/VoiceAgentVariables/List3Request.cs` |
-| `ListAgentVariablesV1Response` | `Models/ListAgentVariablesV1Response.cs` |
-| `List3Error` | `Errors/List3Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List3Request` | `src/Deepgram/Requests/VoiceAgentVariables/List3Request.cs` |
+| `ListAgentVariablesV1Response` | `src/Deepgram/Models/ListAgentVariablesV1Response.cs` |
+| `List3Error` | `src/Deepgram/Errors/List3Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Update2
 
@@ -81,9 +81,9 @@ Accessor: `client.VoiceAgentVariables` · Source: `Api/VoiceAgentVariables.cs` �
 
 | Type | Source |
 | --- | --- |
-| `Update2Request` | `Requests/VoiceAgentVariables/Update2Request.cs` |
-| `UpdateAgentVariableV1Request` | `Models/UpdateAgentVariableV1Request.cs` |
-| `AgentVariableV1` | `Models/AgentVariableV1.cs` |
-| `Update2Error` | `Errors/Update2Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Update2Request` | `src/Deepgram/Requests/VoiceAgentVariables/Update2Request.cs` |
+| `UpdateAgentVariableV1Request` | `src/Deepgram/Models/UpdateAgentVariableV1Request.cs` |
+| `AgentVariableV1` | `src/Deepgram/Models/AgentVariableV1.cs` |
+| `Update2Error` | `src/Deepgram/Errors/Update2Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

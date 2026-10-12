@@ -2,7 +2,7 @@
 
 # VoiceAgentConfigurations — operations
 
-Accessor: `client.VoiceAgentConfigurations` · Source: `Api/VoiceAgentConfigurations.cs` · 5 operations
+Accessor: `client.VoiceAgentConfigurations` · Source: `src/Deepgram/Api/VoiceAgentConfigurations.cs` · 5 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,11 +17,11 @@ Accessor: `client.VoiceAgentConfigurations` · Source: `Api/VoiceAgentConfigurat
 
 | Type | Source |
 | --- | --- |
-| `CreateRequest` | `Requests/VoiceAgentConfigurations/CreateRequest.cs` |
-| `CreateAgentConfigurationV1Request` | `Models/CreateAgentConfigurationV1Request.cs` |
-| `CreateAgentConfigurationV1Response` | `Models/CreateAgentConfigurationV1Response.cs` |
-| `CreateError` | `Errors/CreateError.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `CreateRequest` | `src/Deepgram/Requests/VoiceAgentConfigurations/CreateRequest.cs` |
+| `CreateAgentConfigurationV1Request` | `src/Deepgram/Models/CreateAgentConfigurationV1Request.cs` |
+| `CreateAgentConfigurationV1Response` | `src/Deepgram/Models/CreateAgentConfigurationV1Response.cs` |
+| `CreateError` | `src/Deepgram/Errors/CreateError.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Delete
 
@@ -34,9 +34,9 @@ Accessor: `client.VoiceAgentConfigurations` · Source: `Api/VoiceAgentConfigurat
 
 | Type | Source |
 | --- | --- |
-| `DeleteRequest` | `Requests/VoiceAgentConfigurations/DeleteRequest.cs` |
-| `DeleteError` | `Errors/DeleteError.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `DeleteRequest` | `src/Deepgram/Requests/VoiceAgentConfigurations/DeleteRequest.cs` |
+| `DeleteError` | `src/Deepgram/Errors/DeleteError.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Get
 
@@ -49,10 +49,10 @@ Accessor: `client.VoiceAgentConfigurations` · Source: `Api/VoiceAgentConfigurat
 
 | Type | Source |
 | --- | --- |
-| `GetRequest` | `Requests/VoiceAgentConfigurations/GetRequest.cs` |
-| `AgentConfigurationV1` | `Models/AgentConfigurationV1.cs` |
-| `GetError` | `Errors/GetError.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `GetRequest` | `src/Deepgram/Requests/VoiceAgentConfigurations/GetRequest.cs` |
+| `AgentConfigurationV1` | `src/Deepgram/Models/AgentConfigurationV1.cs` |
+| `GetError` | `src/Deepgram/Errors/GetError.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List2
 
@@ -65,10 +65,10 @@ Accessor: `client.VoiceAgentConfigurations` · Source: `Api/VoiceAgentConfigurat
 
 | Type | Source |
 | --- | --- |
-| `List2Request` | `Requests/VoiceAgentConfigurations/List2Request.cs` |
-| `ListAgentConfigurationsV1Response` | `Models/ListAgentConfigurationsV1Response.cs` |
-| `List2Error` | `Errors/List2Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List2Request` | `src/Deepgram/Requests/VoiceAgentConfigurations/List2Request.cs` |
+| `ListAgentConfigurationsV1Response` | `src/Deepgram/Models/ListAgentConfigurationsV1Response.cs` |
+| `List2Error` | `src/Deepgram/Errors/List2Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### Update
 
@@ -81,9 +81,9 @@ Accessor: `client.VoiceAgentConfigurations` · Source: `Api/VoiceAgentConfigurat
 
 | Type | Source |
 | --- | --- |
-| `UpdateRequest` | `Requests/VoiceAgentConfigurations/UpdateRequest.cs` |
-| `UpdateAgentMetadataV1Request` | `Models/UpdateAgentMetadataV1Request.cs` |
-| `AgentConfigurationV1` | `Models/AgentConfigurationV1.cs` |
-| `UpdateError` | `Errors/UpdateError.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `UpdateRequest` | `src/Deepgram/Requests/VoiceAgentConfigurations/UpdateRequest.cs` |
+| `UpdateAgentMetadataV1Request` | `src/Deepgram/Models/UpdateAgentMetadataV1Request.cs` |
+| `AgentConfigurationV1` | `src/Deepgram/Models/AgentConfigurationV1.cs` |
+| `UpdateError` | `src/Deepgram/Errors/UpdateError.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

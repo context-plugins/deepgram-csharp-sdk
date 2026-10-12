@@ -2,7 +2,7 @@
 
 # ManageV1ProjectsUsageFields — operations
 
-Accessor: `client.ManageV1ProjectsUsageFields` · Source: `Api/ManageV1ProjectsUsageFields.cs` · 1 operation
+Accessor: `client.ManageV1ProjectsUsageFields` · Source: `src/Deepgram/Api/ManageV1ProjectsUsageFields.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -18,8 +18,8 @@ Accessor: `client.ManageV1ProjectsUsageFields` · Source: `Api/ManageV1ProjectsU
 
 | Type | Source |
 | --- | --- |
-| `List12Request` | `Requests/ManageV1ProjectsUsageFields/List12Request.cs` |
-| `UsageFieldsV1Response` | `Models/UsageFieldsV1Response.cs` |
-| `List12Error` | `Errors/List12Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List12Request` | `src/Deepgram/Requests/ManageV1ProjectsUsageFields/List12Request.cs` |
+| `UsageFieldsV1Response` | `src/Deepgram/Models/UsageFieldsV1Response.cs` |
+| `List12Error` | `src/Deepgram/Errors/List12Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

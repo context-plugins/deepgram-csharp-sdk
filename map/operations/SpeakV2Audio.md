@@ -2,7 +2,7 @@
 
 # SpeakV2Audio — operations
 
-Accessor: `client.SpeakV2Audio` · Source: `Api/SpeakV2Audio.cs` · 1 operation
+Accessor: `client.SpeakV2Audio` · Source: `src/Deepgram/Api/SpeakV2Audio.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -18,16 +18,16 @@ Accessor: `client.SpeakV2Audio` · Source: `Api/SpeakV2Audio.cs` · 1 operation
 
 | Type | Source |
 | --- | --- |
-| `Generate2Request` | `Requests/SpeakV2Audio/Generate2Request.cs` |
-| `V1ListenPostParametersCallbackMethod` | `Models/Enums/V1ListenPostParametersCallbackMethod.cs` |
-| `V2SpeakPostParametersTag` | `Models/AnyOf/V2SpeakPostParametersTag.cs` |
-| `V2SpeakPostParametersBitRate` | `Models/AnyOf/V2SpeakPostParametersBitRate.cs` |
-| `V2SpeakPostParametersContainer` | `Models/AnyOf/V2SpeakPostParametersContainer.cs` |
-| `V2SpeakPostParametersEncoding` | `Models/AnyOf/V2SpeakPostParametersEncoding.cs` |
-| `V2SpeakPostParametersSampleRate` | `Models/AnyOf/V2SpeakPostParametersSampleRate.cs` |
-| `V2SpeakPostParametersPriority` | `Models/Enums/V2SpeakPostParametersPriority.cs` |
-| `SpeakV2Request` | `Models/SpeakV2Request.cs` |
-| `SpeakV2AcceptedResponse` | `Models/SpeakV2AcceptedResponse.cs` |
-| `Generate2Error` | `Errors/Generate2Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Generate2Request` | `src/Deepgram/Requests/SpeakV2Audio/Generate2Request.cs` |
+| `V1ListenPostParametersCallbackMethod` | `src/Deepgram/Models/Enums/V1ListenPostParametersCallbackMethod.cs` |
+| `V2SpeakPostParametersTag` | `src/Deepgram/Models/AnyOf/V2SpeakPostParametersTag.cs` |
+| `V2SpeakPostParametersBitRate` | `src/Deepgram/Models/AnyOf/V2SpeakPostParametersBitRate.cs` |
+| `V2SpeakPostParametersContainer` | `src/Deepgram/Models/AnyOf/V2SpeakPostParametersContainer.cs` |
+| `V2SpeakPostParametersEncoding` | `src/Deepgram/Models/AnyOf/V2SpeakPostParametersEncoding.cs` |
+| `V2SpeakPostParametersSampleRate` | `src/Deepgram/Models/AnyOf/V2SpeakPostParametersSampleRate.cs` |
+| `V2SpeakPostParametersPriority` | `src/Deepgram/Models/Enums/V2SpeakPostParametersPriority.cs` |
+| `SpeakV2Request` | `src/Deepgram/Models/SpeakV2Request.cs` |
+| `SpeakV2AcceptedResponse` | `src/Deepgram/Models/SpeakV2AcceptedResponse.cs` |
+| `Generate2Error` | `src/Deepgram/Errors/Generate2Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

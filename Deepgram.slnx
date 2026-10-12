@@ -1,0 +1,5 @@
+<Solution>
+    <Folder Name="/src/">
+        <Project Path="src/Deepgram/Deepgram.csproj" />
+    </Folder>
+</Solution>

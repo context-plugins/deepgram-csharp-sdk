@@ -2,7 +2,7 @@
 
 # ManageV1ProjectsRequests — operations
 
-Accessor: `client.ManageV1ProjectsRequests` · Source: `Api/ManageV1ProjectsRequests.cs` · 2 operations
+Accessor: `client.ManageV1ProjectsRequests` · Source: `src/Deepgram/Api/ManageV1ProjectsRequests.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,10 +17,10 @@ Accessor: `client.ManageV1ProjectsRequests` · Source: `Api/ManageV1ProjectsRequ
 
 | Type | Source |
 | --- | --- |
-| `Get7Request` | `Requests/ManageV1ProjectsRequests/Get7Request.cs` |
-| `GetProjectRequestV1Response` | `Models/GetProjectRequestV1Response.cs` |
-| `Get7Error` | `Errors/Get7Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Get7Request` | `src/Deepgram/Requests/ManageV1ProjectsRequests/Get7Request.cs` |
+| `GetProjectRequestV1Response` | `src/Deepgram/Models/GetProjectRequestV1Response.cs` |
+| `Get7Error` | `src/Deepgram/Errors/Get7Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List11
 
@@ -34,12 +34,12 @@ Accessor: `client.ManageV1ProjectsRequests` · Source: `Api/ManageV1ProjectsRequ
 
 | Type | Source |
 | --- | --- |
-| `List11Request` | `Requests/ManageV1ProjectsRequests/List11Request.cs` |
-| `V1ProjectsProjectIdRequestsGetParametersDeployment` | `Models/Enums/V1ProjectsProjectIdRequestsGetParametersDeployment.cs` |
-| `V1ProjectsProjectIdRequestsGetParametersEndpoint` | `Models/Enums/V1ProjectsProjectIdRequestsGetParametersEndpoint.cs` |
-| `V1ProjectsProjectIdRequestsGetParametersMethod` | `Models/Enums/V1ProjectsProjectIdRequestsGetParametersMethod.cs` |
-| `V1ProjectsProjectIdRequestsGetParametersStatus` | `Models/Enums/V1ProjectsProjectIdRequestsGetParametersStatus.cs` |
-| `ListProjectRequestsV1Response` | `Models/ListProjectRequestsV1Response.cs` |
-| `List11Error` | `Errors/List11Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List11Request` | `src/Deepgram/Requests/ManageV1ProjectsRequests/List11Request.cs` |
+| `V1ProjectsProjectIdRequestsGetParametersDeployment` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdRequestsGetParametersDeployment.cs` |
+| `V1ProjectsProjectIdRequestsGetParametersEndpoint` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdRequestsGetParametersEndpoint.cs` |
+| `V1ProjectsProjectIdRequestsGetParametersMethod` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdRequestsGetParametersMethod.cs` |
+| `V1ProjectsProjectIdRequestsGetParametersStatus` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdRequestsGetParametersStatus.cs` |
+| `ListProjectRequestsV1Response` | `src/Deepgram/Models/ListProjectRequestsV1Response.cs` |
+| `List11Error` | `src/Deepgram/Errors/List11Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

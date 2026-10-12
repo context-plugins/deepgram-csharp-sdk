@@ -2,7 +2,7 @@
 
 # ManageV1ProjectsBillingBalances — operations
 
-Accessor: `client.ManageV1ProjectsBillingBalances` · Source: `Api/ManageV1ProjectsBillingBalances.cs` · 2 operations
+Accessor: `client.ManageV1ProjectsBillingBalances` · Source: `src/Deepgram/Api/ManageV1ProjectsBillingBalances.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,10 +17,10 @@ Accessor: `client.ManageV1ProjectsBillingBalances` · Source: `Api/ManageV1Proje
 
 | Type | Source |
 | --- | --- |
-| `Get10Request` | `Requests/ManageV1ProjectsBillingBalances/Get10Request.cs` |
-| `GetProjectBalanceV1Response` | `Models/GetProjectBalanceV1Response.cs` |
-| `Get10Error` | `Errors/Get10Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Get10Request` | `src/Deepgram/Requests/ManageV1ProjectsBillingBalances/Get10Request.cs` |
+| `GetProjectBalanceV1Response` | `src/Deepgram/Models/GetProjectBalanceV1Response.cs` |
+| `Get10Error` | `src/Deepgram/Errors/Get10Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
 ### List13
 
@@ -33,8 +33,8 @@ Accessor: `client.ManageV1ProjectsBillingBalances` · Source: `Api/ManageV1Proje
 
 | Type | Source |
 | --- | --- |
-| `List13Request` | `Requests/ManageV1ProjectsBillingBalances/List13Request.cs` |
-| `ListProjectBalancesV1Response` | `Models/ListProjectBalancesV1Response.cs` |
-| `List13Error` | `Errors/List13Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List13Request` | `src/Deepgram/Requests/ManageV1ProjectsBillingBalances/List13Request.cs` |
+| `ListProjectBalancesV1Response` | `src/Deepgram/Models/ListProjectBalancesV1Response.cs` |
+| `List13Error` | `src/Deepgram/Errors/List13Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

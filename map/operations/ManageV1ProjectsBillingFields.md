@@ -2,7 +2,7 @@
 
 # ManageV1ProjectsBillingFields — operations
 
-Accessor: `client.ManageV1ProjectsBillingFields` · Source: `Api/ManageV1ProjectsBillingFields.cs` · 1 operation
+Accessor: `client.ManageV1ProjectsBillingFields` · Source: `src/Deepgram/Api/ManageV1ProjectsBillingFields.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -18,8 +18,8 @@ Accessor: `client.ManageV1ProjectsBillingFields` · Source: `Api/ManageV1Project
 
 | Type | Source |
 | --- | --- |
-| `List15Request` | `Requests/ManageV1ProjectsBillingFields/List15Request.cs` |
-| `ListBillingFieldsV1Response` | `Models/ListBillingFieldsV1Response.cs` |
-| `List15Error` | `Errors/List15Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `List15Request` | `src/Deepgram/Requests/ManageV1ProjectsBillingFields/List15Request.cs` |
+| `ListBillingFieldsV1Response` | `src/Deepgram/Models/ListBillingFieldsV1Response.cs` |
+| `List15Error` | `src/Deepgram/Errors/List15Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 

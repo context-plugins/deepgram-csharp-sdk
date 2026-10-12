@@ -2,7 +2,7 @@
 
 # ManageV1ProjectsUsageBreakdown — operations
 
-Accessor: `client.ManageV1ProjectsUsageBreakdown` · Source: `Api/ManageV1ProjectsUsageBreakdown.cs` · 1 operation
+Accessor: `client.ManageV1ProjectsUsageBreakdown` · Source: `src/Deepgram/Api/ManageV1ProjectsUsageBreakdown.cs` · 1 operation
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -18,12 +18,12 @@ Accessor: `client.ManageV1ProjectsUsageBreakdown` · Source: `Api/ManageV1Projec
 
 | Type | Source |
 | --- | --- |
-| `Get9Request` | `Requests/ManageV1ProjectsUsageBreakdown/Get9Request.cs` |
-| `V1ProjectsProjectIdUsageBreakdownGetParametersGrouping` | `Models/Enums/V1ProjectsProjectIdUsageBreakdownGetParametersGrouping.cs` |
-| `V1ProjectsProjectIdUsageBreakdownGetParametersDeployment` | `Models/Enums/V1ProjectsProjectIdUsageBreakdownGetParametersDeployment.cs` |
-| `V1ProjectsProjectIdUsageBreakdownGetParametersEndpoint` | `Models/Enums/V1ProjectsProjectIdUsageBreakdownGetParametersEndpoint.cs` |
-| `V1ProjectsProjectIdUsageBreakdownGetParametersMethod` | `Models/Enums/V1ProjectsProjectIdUsageBreakdownGetParametersMethod.cs` |
-| `UsageBreakdownV1Response` | `Models/UsageBreakdownV1Response.cs` |
-| `Get9Error` | `Errors/Get9Error.cs` |
-| `ErrorResponseModel` | `Models/AnyOf/ErrorResponseModel.cs` |
+| `Get9Request` | `src/Deepgram/Requests/ManageV1ProjectsUsageBreakdown/Get9Request.cs` |
+| `V1ProjectsProjectIdUsageBreakdownGetParametersGrouping` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdUsageBreakdownGetParametersGrouping.cs` |
+| `V1ProjectsProjectIdUsageBreakdownGetParametersDeployment` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdUsageBreakdownGetParametersDeployment.cs` |
+| `V1ProjectsProjectIdUsageBreakdownGetParametersEndpoint` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdUsageBreakdownGetParametersEndpoint.cs` |
+| `V1ProjectsProjectIdUsageBreakdownGetParametersMethod` | `src/Deepgram/Models/Enums/V1ProjectsProjectIdUsageBreakdownGetParametersMethod.cs` |
+| `UsageBreakdownV1Response` | `src/Deepgram/Models/UsageBreakdownV1Response.cs` |
+| `Get9Error` | `src/Deepgram/Errors/Get9Error.cs` |
+| `ErrorResponseModel` | `src/Deepgram/Models/AnyOf/ErrorResponseModel.cs` |
 
